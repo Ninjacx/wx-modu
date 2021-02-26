@@ -1,1 +1,23 @@
-<view></view>
+<view class="index">
+  <view catchtap="toDetail" class="w100">
+    <view class="mt20 bgFFF pt10" style="display: flex;">
+      <view>
+        <image style="width:200rpx;height:200rpx" class="rightImg" src="http://47.98.163.21/static/App/user/userIcon.png" class='img'></image>
+      </view>
+      <view style="display: grid;">
+        <view>下单时间：2021-2-26 13:33</view>
+        <view>租车日期：2021-02-26 - 2020-01-03</view>
+        <view style="font-size:30rpx"><text>沪A川崎Z900</text></view>
+        <view style="font-size:25rpx"><text>位置：上海市浦东新区航头镇</text></view>
+        <view class="payColor" style="display: flex;">
+          <view style="flex:1;font-size:20rpx;"><text>￥300</text></view>
+          <view style="font-size:20rpx;text-align:right;flex:1;">
+            <button catchtap="payMent" class="button payMent">
+              支付
+            </button>
+          </view>
+        </view>
+      </view>
+    </view> 
+  </view>
+</view>
