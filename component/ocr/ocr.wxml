@@ -1,0 +1,17 @@
+<!--component/ocr/ocr.wxml-->
+<view class="ocr-view">
+  <text class="ocr-text" wx:if="{{text !== ''}}">{{text}}</text>
+  <view class="ocr-icon-box">
+    <!-- 默认背景 -->
+    <view class="ocr-default-img {{Imgtype}}" bindtap='uploadImg' wx:if="{{uplaodSrc === ''}}"></view>
+    <!-- 四个圆角边框 -->
+    <view class="ocr-top-icon"></view>
+    <!-- 相机按钮 -->
+    <view class="ocr-upload-btn" bindtap='uploadImg'></view>
+    <!-- 上传显示后的图片 -->
+    <view class="ocr-show-img" wx:if="{{uplaodSrc !== ''}}">
+      <image mode="aspectFit" src="{{uplaodSrc}}" data-src='{{uplaodSrc}}' bindtap="showImg"></image>
+    </view>
+  </view>
+  <!-- <image mode="aspectFit" src="https://i.loli.net/2020/12/22/ITQWec3Mi5P4Eqr.png"></image> -->
+</view>

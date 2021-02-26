@@ -1,0 +1,55 @@
+<!--login.wxml-->
+<view style="height:100%;background: linear-gradient(180deg, #2E98FF 0%, #5BC9FF 100%);">
+  <view class="topView">
+    <!-- icon-logo-lan -->
+      <i class="iconfont icon-logo-lan colorFFF topIcon"></i>
+  </view>
+<view style="text-align:center;margin-top:38rpx">
+  <text class="fs30 colorFFF">上海易铭天企业管理有限公司</text>
+</view>
+<view style="margin-top: 160rpx">
+  <view class="weui-cell_input inputView">
+      <i class="loginIcon iconfont icon-yonghuming tableCell pr40 colorFFF fs32"></i>
+      <input confirm-type="done" placeholder="请输入用户名" value="{{userName}}" bindinput="updateInputValue"  data-inputKey="userName" class="loginArea weui-input fs30 colorFFF tableCell" placeholder-class="colorFFF"  />
+  </view>
+</view>
+
+<view class="mt40">
+  <view class="mt40 weui-cell_input inputView">
+      <i class="loginIcon iconfont icon-mima tableCell pr40 colorFFF fs32"></i>
+      <input value="{{password}}" bindinput="updateInputValue" data-inputKey="password" password class="loginArea weui-input fs30 colorFFF tableCell"  placeholder="请输入密码" placeholder-class="colorFFF"  />
+  </view>
+</view>
+
+<view style="margin-top: 280rpx">
+  <view class="mt-10" style="text-align:center;margin: auto;display: table;">
+  <!-- bindtap="toUserLogin" -->
+              <!-- <button  open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="background:#fff;width:600rpx;box-shadow: 0px 12px 16px 0px rgba(46, 152, 255, 0.48);" class="button button-layout100 button-radius">
+                <text class="fs30" style="color:#2E98FF;">登   录</text>
+              </button> -->
+              <button wx:if="{{!isGetPhone}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" style="background:#fff;width:600rpx;box-shadow: 0px 12px 16px 0px rgba(46, 152, 255, 0.48);" class="button button-layout100 button-radius">
+                <text class="fs30" style="color:#2E98FF;">一键登录</text>
+              </button>
+             
+              <button wx:if="{{isGetPhone}}" bindtap="userLogin" style="background:#fff;width:600rpx;box-shadow: 0px 12px 16px 0px rgba(46, 152, 255, 0.48);" class="button button-layout100 button-radius">
+                <text class="fs30" style="color:#2E98FF;">一键登录</text>
+              </button>
+          </view>
+          <mp-dialog mask-closable="{{false}}" title="请选择用于接收短信通知的手机号" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+              <view>
+                <view class="weui-cells weui-cells_after-title">
+                  <radio-group bindchange="radioChange">
+                    <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+                      <view class="weui-cell__hd">
+                        <radio value="{{item.value}}" checked="true"/>
+                      </view>
+                      <view class="weui-cell__bd">{{item.name}}</view>
+                    </label>
+                  </radio-group>
+                </view>
+              </view>
+          </mp-dialog>
+  </view>
+  <import src="../../template/footercopy/footercopy.wxml"></import>
+  <template is="copyright" />
+</view>

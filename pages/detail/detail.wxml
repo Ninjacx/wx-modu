@@ -1,0 +1,50 @@
+<view class="detail">
+<view class="ml20">
+  <view>联系电话：18121118073</view>
+  <view>
+    <view>取车位置</view>
+    <view>上海市浦东新区浦星公路</view>
+  </view>
+  <view>
+    <view>还车位置</view>
+    <view>上海市浦东新区航头镇</view>
+  </view>
+</view>
+
+
+<view class="displayFlex">
+  <view class="section flex1">
+    <picker mode="date" value="{{startDate}}" start="{{startDate}}" bindchange="bindDateChange">
+      <view class="picker">{{startDate}}</view>
+    </picker>
+    <view>{{weekDayStart}}</view>
+  </view>
+  <view class="countDay">
+    <text class="payColor">{{countDay}}</text> 
+    <view>天</view>
+  </view>
+  <view class="section flex1">
+    <picker mode="date" value="{{endDate}}" start="{{startDateAddOne}}" bindchange="bindDateEndChange">
+      <view class="picker">{{endDate}}</view>
+    </picker>
+    <view>{{weekDayEnd}}</view>
+  </view>
+</view>
+  <view>
+   <image style="width:100%" class="rightImg" src="http://47.98.163.21/static/App/user/userIcon.png" class='img'></image>
+  </view>
+  <view class="textCenter">
+    <view>沪A 铃木GSX250 300/月 <text class="payColor">￥300</text></view>
+    <view><text>排量：250cc</text></view>
+  </view>
+  <view class="ml20 mt30"><radio catchtap="toggleChecked" color="#6a7377" checked="{{isAgree}}"/>我已同意<text>《租车服务合同》</text>及<text>《预定服务协议》</text></view>
+  <button catchtap="showPayAmout" class="button commBtnSty">
+     <text class="fs30" >立即订车</text>
+  </button>
+
+</view>
+
+
+<!-- <view>
+  <button catchtap="setUserName">setUserName</button>
+</view> -->

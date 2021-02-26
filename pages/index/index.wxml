@@ -1,0 +1,36 @@
+<view>
+  <!-- <text>位置：上海市 浦东新区</text> -->
+  <view class="section">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker">
+          选择位置：{{region[0]}}  {{region[1]}}  {{region[2]}}
+        </view>
+      </picker>
+    </view>
+</view>
+<view class="index">
+  <!-- <view>
+    <text>区域：上海</text>
+  </view> -->
+  <view class="left mt20">
+    <view catchtap="leftMenu"  class="leftOne {{index === leftIndex?'selectLeft':''}}" wx:key="index" data-index="{{index}}" data-leftData="{{item}}" wx:for="{{leftTab}}" >
+      <text class="leftBorder fs30">{{item.title}}</text>
+    </view>
+  </view>
+  <view catchtap="toDetail" class="right w100">
+    <view class="mt20 bgFFF pt10" style="display: flex;">
+      <view>
+        <image style="width:200rpx;height:200rpx" class="rightImg" src="http://47.98.163.21/static/App/user/userIcon.png" class='img'></image>
+      </view>
+      <view style="display: grid;">
+        <view style="font-size:30rpx"><text>沪A川崎Z900</text></view>
+        <view style="font-size:25rpx"><text>电话：18121118073</text></view>
+        <view style="font-size:25rpx"><text>位置：上海市浦东新区航头镇</text></view>
+        <view class="payColor" style="display: flex;">
+          <view style="flex:1;font-size:20rpx;"><text>￥300/日均</text></view>
+          <view style="font-size:20rpx;text-align:right;flex:1;"><text>￥5000/月均</text></view>
+        </view>
+      </view>
+    </view> 
+  </view>
+</view>

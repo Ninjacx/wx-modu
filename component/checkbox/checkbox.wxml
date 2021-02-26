@@ -1,0 +1,7 @@
+<view>
+  <van-checkbox-group value="{{ result }}" bind:change="onChange" class="van-checkbox-inline">
+      <van-checkbox shape="square" name="a" icon-size="28rpx">复选框 a</van-checkbox>
+      <van-checkbox shape="square" name="b" icon-size="28rpx">复选框 b</van-checkbox>
+      <van-checkbox shape="square" name="c" icon-size="28rpx">复选框 c</van-checkbox>
+  </van-checkbox-group>
+</view>

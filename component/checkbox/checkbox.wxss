@@ -1,0 +1,4 @@
+/* component/checkbox/checkbox.wxss */
+.checkbox-view,.checkbox-group{
+  width: 100%;
+}

@@ -1,0 +1,89 @@
+/**app.wxss**/
+/* 全局引入阿里矢量图 */
+@import '/style/iconfont.wxss'; 
+@import './style/common.wxss'; 
+page {
+  width: 100%;
+  height: 100%;
+  /* background-color: #FAFAFA; */
+  color: #262626;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+
+.warper{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.vm{vertical-align: middle;}
+.tableCell{display: table-cell;}
+.displayFlex{display: flex;}
+.displayGrid{display: grid;}
+.fr{float: right;}
+.flex1{flex: 1;}
+.flex2{flex: 2;}
+.textLeft{text-align: left;}
+.textCenter{text-align: center;}
+.textRight{text-align: right;}
+.w100{width: 100%;}
+/* fontSize */
+.fs20{font-size: 20rpx;}
+.fs25{font-size: 25rpx;}
+.fs30{font-size: 30rpx;}
+.fs35{font-size: 35rpx;}
+.fs55{font-size: 55rpx;}
+/* margin */
+.ml5{margin-left: 5rpx;}
+.ml10{margin-left: 10rpx;}
+.ml20{margin-left: 20rpx;}
+.mr10{margin-right: 10rpx;}
+.mt10{margin-top: 10rpx;}
+.mt20{margin-top: 20rpx;}
+.mt30{margin-top: 30rpx;}
+.mt35{margin-top: 35rpx;}
+.mt40{margin-top: 40rpx;}
+.mt60{margin-top: 60rpx !important;}
+.m20{margin: 20rpx;}
+/* padding */
+.pt10{padding-top: 10rpx;}
+.pr10{padding-right: 10rpx;}
+.pr40{padding-right: 40rpx;}
+/* color */
+.colorFFF{color: #FFFFFF;}
+.colorF6{color: #f6f6f6;}
+.payColor{color: #ee8c31;}
+.colorf5{color:#F57807}
+.color6a{color:#6a7377}
+.bg6a{background:#6a7377}
+.color333{color:#333333}
+.colora5{color:#a5a5a5e6;}
+.colorRed{color:#BC1A43}
+.colorLink{color:#0052CC}
+.bg333{background:#333333;}
+.bgfff{background: #ffffff;}
+
+/* border */
+.bt20{border-top: 20rpx solid #f8f8f8;}
+.border0{border: 0 !important}
+
+.lh50{line-height: 50rpx;}
+/* common button */
+.commBtnSty{
+  width: 600rpx;
+  display: block;
+  background: #434c52c7;
+  font-size: 30rpx;
+  padding: 28rpx 12rpx;
+  line-height: 30rpx;
+  margin: 80rpx auto 30rpx;
+}

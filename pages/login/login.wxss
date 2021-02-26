@@ -1,0 +1,60 @@
+/**index.wxss**/
+@import '/style/common.wxss';
+/* @import '../../template/upload/upload.wxss'; */
+@import '../../template/footercopy/footercopy.wxss';
+
+/* page{
+  background: linear-gradient(180deg, #2E98FF 0%, #5BC9FF 100%);
+} */
+.inputView{
+  /* padding:15rpx 17rpx 15rpx 48rpx; */
+  position: relative;
+  height: 100rpx;
+  line-height: 100rpx;
+  background:rgba(255, 255, 255, 0.3);
+  border-radius:50px;
+  width:600rpx;
+  margin: auto;
+}
+.topView{
+  text-align: center;
+  padding-top: 182rpx;
+}
+.topIcon{
+  font-size: 144rpx;
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0;
+}
+.loginIcon{
+  padding-left: 48rpx;
+}
+.loginArea{
+  position: absolute;top: 0;bottom: 0;margin: auto;left: 123rpx;width: 477rpx;
+}
+.userView{
+  margin: auto 0;
+}
+.userImg{
+  overflow: hidden;
+  display: block;
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 30rpx;
+  border-radius: 100rpx;
+}
+.gzDetail{
+  padding: 40rpx 0;
+  border-top: 2rpx solid #E8E8E8;
+  margin-top: 59rpx;
+}
+.gzOuter{
+  box-shadow: 0px 4px 8px 0px #F5F5F5, 0px 0px 10px 0px #E8E8E8;
+  border-radius: 8px;
+  margin: 0 20rpx;
+  margin-top: 40rpx;
+}
+.userTop{
+  padding: 128rpx 0 34rpx 40rpx;
+}

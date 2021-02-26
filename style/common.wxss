@@ -1,0 +1,175 @@
+/* 默认颜色 */
+.primary {
+  background-color: #138DD9;
+  color: #fff;
+}
+
+/* 复选框样式 */
+.checkbox_inner {
+  display: inline-block;
+  width: 36rpx;
+  height: 36rpx;
+  background: #FFFFFF;
+  border-radius: 6rpx;
+  border: 1rpx solid #D9D9D9;
+  margin-right: 16rpx;
+  position: relative;
+  cursor: pointer;
+}
+
+/* 选中样式 */
+.is-check>.checkbox_inner::after {
+  box-sizing: content-box;
+  content: "";
+  border: 2rpx solid #fff;
+  border-left: 0;
+  border-top: 0;
+  height: 20rpx;
+  left: 12rpx;
+  position: absolute;
+  top: 4rpx;
+  transform: rotate(45deg) scaleY(0);
+  width: 10rpx;
+  transition: transform .15s ease-in .05s;
+  transform-origin: center;
+}
+
+.is-check>.checkbox_inner {
+  background-color: #4B83F0;
+  border-color: #4B83F0;
+}
+
+.is-check>.checkbox_inner::after {
+  transform: rotate(45deg) scaleY(1);
+}
+
+/* //部分选中样式 */
+.is-indeterminate>.checkbox_inner::before {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  height: 4rpx;
+  transform: scale(.5);
+  left: 0;
+  right: 0;
+  top: 17rpx;
+}
+
+.is-indeterminate>.checkbox_inner {
+  background-color: #4B83F0;
+  border-color: #4B83F0;
+}
+/* button样式 */
+.button{
+  font-size: 26rpx;
+  font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+  font-weight: 400;
+  color: #FFFFFF;
+  padding: 17rpx 20rpx;
+  display: inline;
+  border: none;
+  border-radius: 8rpx;
+  margin: 0 5rpx;
+}
+.button>i{
+  margin: 0 10rpx;
+}
+.button:after{
+  border: none;
+}
+.button-default{
+  background: #138DD9;
+}
+.button-mini{
+  font-size: 22rpx;
+  padding: 15rpx 16rpx;
+  background: #138DD9;
+}
+.button-layout100{
+  width: 100%;
+  display: block;
+  background: #138DD9;
+  font-size: 30rpx;
+  padding: 28rpx 0;
+  line-height: 30rpx;
+}
+.button-radius{
+  border-radius:42rpx;
+}
+.button-border{
+  border: 2rpx solid #E2231A;
+  background: none;
+  color: #E2231A;
+}
+
+/* 复选框样式 */
+.van-checkbox{
+  border-bottom: 2rpx solid #E8E8E8;
+  padding: 15rpx 0;
+}
+.van-checkbox-inline{
+  overflow: hidden;
+  display: block;
+}
+.van-checkbox-inline .van-checkbox{
+  border: none;
+  padding: 0;
+  float: left;
+  margin-right:40rpx;
+}
+/* 下拉 选择样式 */
+.section{
+  width: 100%;
+  flex: 1;
+  padding: 24rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.textCenter{
+  text-align: center;
+}
+.displayFlex{
+  display: flex;
+}
+.section__title{
+  flex: 1;
+}
+.section_picker{
+  flex: 1;
+  text-align: right;
+}
+.picker{
+  color:#8C8C8C ;
+}
+/* fontsize */
+.fs30{
+  font-size: 30rpx;
+}
+.fs32{
+  font-size: 32rpx;
+}
+/* color */
+.bgFFF{
+  background-color: #FFFFFF;
+}
+.color59{
+  color: #595959;
+}
+.color8c{
+  color: #8C8C8C;
+}
+/* margin */
+.mr12{
+  margin-right: 12rpx;
+}
+.mt20{
+  margin-top: 20rpx;
+}
+.ml20{
+  margin-left: 20rpx;
+}
+/* padding */
+.pt20{
+  padding-top: 20rpx;
+}

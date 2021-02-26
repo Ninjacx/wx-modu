@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-checkbox": "../../component/thirdParty/checkbox/index",
+    "van-checkbox-group": "../../component/thirdParty/checkbox-group/index"
+  }
+}

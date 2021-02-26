@@ -1,0 +1,84 @@
+/* component/ocr/ocr.wxss */
+.ocr-view{
+  width: 290rpx;
+}
+.ocr-icon-box{
+  width: 100%;
+  height: 182rpx;
+  position: relative;
+}
+.ocr-text{
+  width: 100%;
+  text-align: center;
+  font-size: 22rpx;
+  font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+  font-weight: 400;
+  color: #262626;
+  line-height: 34rpx;
+  display: block;
+  margin: 14rpx 0;
+}
+.ocr-default-img{
+  width: 100%;
+  height: 100%;
+}
+/* 身份证正面 */
+.face{
+  background:url('https://tranderpay.oss-cn-shanghai.aliyuncs.com/wxmp/ocr-face.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+}
+.back{
+  background:url('https://tranderpay.oss-cn-shanghai.aliyuncs.com/wxmp/ocr-back.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+}
+.bank{
+  background:url('https://tranderpay.oss-cn-shanghai.aliyuncs.com/wxmp/bank.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+}
+/* 覆盖的边框 */
+.ocr-top-icon{
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  background:url('https://tranderpay.oss-cn-shanghai.aliyuncs.com/wxmp/ocr-icon1.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  transform:translate(-50%,-50%);
+  -webkit-transform:translate(-50%,-50%);
+  pointer-events: none;
+}
+/* 上传按钮 */
+.ocr-upload-btn{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  -webkit-transform:translate(-50%,-50%);
+  z-index: 3;
+  background:url('https://tranderpay.oss-cn-shanghai.aliyuncs.com/wxmp/ocr-camera.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+}
+.ocr-show-img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.ocr-show-img image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter:blur(10px);
+  filter:blur(2px);
+  -webkit-filter:blur(2px);
+}
