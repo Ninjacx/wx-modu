@@ -40,6 +40,14 @@ Component({
       if (this.data.currentTab == e.currentTarget.dataset.idx){
         return;
       }
+      // console.log('e.currentTarget.dataset.idx',e.currentTarget.dataset.idx);
+      if (e.currentTarget.dataset.idx === 0) {
+        // 请求进行中接口
+        console.log(0);
+      }else if (e.currentTarget.dataset.idx === 1) {
+        // 请求已完成订单
+        console.log(1)
+      }
       this.setData({
         currentTab: e.currentTarget.dataset.idx
       })
@@ -49,7 +57,7 @@ Component({
         isEnd: false
       }
       this.data.sendList=[];
-      this.getData()
+      // this.getData()
     },
     bindRegionChange: function (e) {
       console.log('picker发送选择改变，携带值为', e.detail.value)

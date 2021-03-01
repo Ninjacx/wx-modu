@@ -9,8 +9,8 @@ const version = __wxConfig.envVersion;
 // const beaseUrl = 'http://172.16.19.155:8888/api/v1'
 switch (version) {
   case 'develop':
-    // beaseUrl ="http://172.16.19.187:8888/api/v1"; //开发版
-    beaseUrl ="https://dev.tranderpay.com/api/v1"; //开发版
+    beaseUrl ="http://172.16.19.187:8888/api/v1"; //开发版
+    // beaseUrl ="https://qa.tranderpay.com/api/v1"; //开发版
     // beaseUrl ="http://172.16.19.220:8888/api/v1"; //开发版
     break;
   case 'trial':

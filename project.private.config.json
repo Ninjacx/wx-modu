@@ -1,0 +1,40 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/userMenu/userDoc/userDoc",
+          "pathName": "pages/userMenu/userDoc/userDoc",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/userOrder/userOrder",
+          "pathName": "pages/userMenu/userOrder/userOrder",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/historyOrder/historyOrder",
+          "pathName": "pages/userMenu/historyOrder/historyOrder",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,7 +1,11 @@
+import API from '../../api/index'
 Component({
   pageLifetimes: {
     show() {
-      console.log('userInfo',this.data.userInfo);
+      // console.log('userInfo',API);
+      // API.Info({}).then((res)=>{
+      //   console.log(res);
+      // })
       if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
         this.getTabBar().setData({
