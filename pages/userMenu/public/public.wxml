@@ -1,0 +1,80 @@
+<view class="">
+<view class="colorRed textCenter">*项为必填信息</view>
+<view class="displayFlex cardView">
+  <view class="flex1 lh50"><text class="mr10 colorRed">*</text>姓名</view>
+  <view class="flex1 textRight">
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input" maxlength="10" placeholder="请填写姓名" />
+    </view>
+  </view>
+</view>
+<view class="displayFlex cardView ">
+  <view class="flex1 lh50"><text class="mr10 colorRed">*</text>驾驶证号码</view>
+  <view class="flex1 textRight">
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input pr10" type="number" placeholder="请填写驾驶证号码" />
+    </view>
+  </view>
+</view>
+<view class="displayFlex cardView ">
+  <view class="flex1 lh50"><text class="mr10 colorRed">*</text>性别</view>
+  <view class="flex1 mr10">
+    <view catchtap="selectSex" class="fr"  data-sex="0">
+      <image class="sexSize vm ml20" src="/image/{{sex === '0'? 'v1':'v0'}}.png"></image> <text class="ml5 vm {{sex === '0'?'':'colora5'}}">女</text>
+    </view>
+    <view catchtap="selectSex" class="fr" data-sex="1">
+      <image class="sexSize vm" src="/image/{{sex === '1'? 'n1':'n0'}}.png"></image> <text class="ml5 vm {{sex === '1'?'':'colora5'}}">男</text>
+    </view>
+  </view>
+</view>
+<!-- <view class="displayFlex cardView ">
+  <view class="flex1"><text class="mr10 colorRed">*</text>国籍</view>
+  <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
+</view> -->
+<view class="displayFlex cardView ">
+  <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>紧急联系人</text></view>
+  <view class="flex1 textRight">
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input pr10" placeholder="请填写紧急联系人" />
+    </view>
+  </view>
+</view>
+<view class="displayFlex cardView">
+  <view class="flex1 lh50"><text class="mr10 colorRed">*</text>紧急联系人电话</view>
+  <view class="flex1 textRight">
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input pr10" type="number" placeholder="请填写紧急联系人电话" />
+    </view>
+  </view>
+</view>
+<view class="displayFlex cardView">
+  <view class="flex1 ml20 lh50">紧急联系人微信号</view>
+  <view class="flex1 textRight">
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input pr10" placeholder="请填写紧急联系人微信号" />
+    </view>
+  </view>
+</view>
+<view class="mt30">
+  <view class="m20">
+    <view><text class="mr10 colorRed">*</text>上传驾驶证照片<text class="colorRed">（正副页）</text></view>
+    <view class="displayFlex">
+      <view catchtap="uploadImage" data-index="1" class="flex1 mt20">
+          <image class="rightImg driveCard" src="{{frontDriveCard}}"></image>
+      </view>
+      <view catchtap="uploadImage" data-index="2" class="flex1 mt20">
+          <image class="rightImg driveCard" src="{{contraryDriveCard}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<button catchtap="submitUserDoc" class="button commBtnSty mt30">
+     <text class="fs30" >提交资料</text>
+  </button>
+</view>
+
+
+<!-- <view>
+  <button catchtap="setUserName">setUserName</button>
+</view> -->

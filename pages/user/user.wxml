@@ -46,6 +46,10 @@
   <view class="flex1">我的资料</view>
   <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
 </view>
+<view catchtap="public" class="displayFlex cardView">
+  <view class="flex1">发布</view>
+  <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
+</view>
 <view class="displayFlex cardView border0">
   <view class="flex1">成为出租会员</view>
   <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>

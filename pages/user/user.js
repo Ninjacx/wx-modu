@@ -18,6 +18,12 @@ Component({
     userName: '张三',
   }, // 私有数据，可用于模板渲染
   methods: {
+    // 跳转发布页面
+    public: function(){
+      wx.navigateTo({
+        url: '/pages/userMenu/public/public'
+      })
+    },
     setUserName: function(){
       this.setData({
         userName: '李四'
