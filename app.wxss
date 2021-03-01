@@ -52,9 +52,11 @@ page {
 .mt30{margin-top: 30rpx;}
 .mt35{margin-top: 35rpx;}
 .mt40{margin-top: 40rpx;}
+.mt50{margin-top: 50rpx;}
 .mt60{margin-top: 60rpx !important;}
 .m20{margin: 20rpx;}
 /* padding */
+.p30{padding: 30rpx;}
 .pt10{padding-top: 10rpx;}
 .pr10{padding-right: 10rpx;}
 .pr40{padding-right: 40rpx;}
@@ -75,6 +77,7 @@ page {
 /* border */
 .bt20{border-top: 20rpx solid #f8f8f8;}
 .border0{border: 0 !important}
+.borderR10{border-radius: 10rpx;}
 
 .lh50{line-height: 50rpx;}
 /* common button */
