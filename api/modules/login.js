@@ -38,7 +38,7 @@ const wxMaLogin = data => {
 
 const Info = data => {
 	return _request({
-		url: '/auth/info',
+		url: '/menu/getMenu',
 		method: 'get',
 		data
 	})

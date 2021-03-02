@@ -3,9 +3,9 @@ Component({
   pageLifetimes: {
     show() {
       // console.log('userInfo',API);
-      // API.Info({}).then((res)=>{
-      //   console.log(res);
-      // })
+      API.Info({groups: 2}).then((res)=>{
+        console.log(res);
+      })
       if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
         this.getTabBar().setData({
