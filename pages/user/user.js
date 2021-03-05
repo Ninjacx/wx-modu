@@ -2,7 +2,7 @@ import API from '../../api/index'
 Component({
   pageLifetimes: {
     show() {
-      // console.log('userInfo',API);
+      console.log('userInfo',API);
       API.Info({groups: 2}).then((res)=>{
         console.log(res);
       })

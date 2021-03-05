@@ -40,7 +40,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.5.0",
+  "libVersion": "2.15.0",
   "appid": "wx54dea766ca936f0d",
   "projectname": "jdz-pro",
   "debugOptions": {
@@ -82,6 +82,12 @@
         {
           "name": "pages/user/user",
           "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/public/public",
+          "pathName": "pages/userMenu/public/public",
           "scene": null
         }
       ]

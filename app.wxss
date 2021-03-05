@@ -46,9 +46,11 @@ page {
 .ml5{margin-left: 5rpx;}
 .ml10{margin-left: 10rpx;}
 .ml20{margin-left: 20rpx;}
+.ml25{margin-left: 25rpx;}
 .mr10{margin-right: 10rpx;}
 .mt10{margin-top: 10rpx;}
 .mt20{margin-top: 20rpx;}
+.mt25{margin-top: 25rpx;}
 .mt30{margin-top: 30rpx;}
 .mt35{margin-top: 35rpx;}
 .mt40{margin-top: 40rpx;}

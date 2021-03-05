@@ -4,6 +4,7 @@ function _request({url , data , method},isWxUrl = false) {
   wx.showLoading({mask: true});
   return new Promise((resolve , reject)=> {
     var token = wx.getStorageSync('token')
+    console.log('isWxUrl? beaseUrlWx + url: beaseUrl + url,',isWxUrl? beaseUrlWx + url: beaseUrl + url,);
       wx.request({
           url: isWxUrl? beaseUrlWx + url: beaseUrl + url,
           data,
