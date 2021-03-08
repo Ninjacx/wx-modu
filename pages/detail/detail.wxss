@@ -11,3 +11,14 @@
     padding: 10rpx 35rpx;
     text-align: center;
 }
+.bottomView{
+    position: fixed;
+    bottom: 0;
+    height: 88rpx;
+    line-height: 88rpx;
+    width: 100%;
+    border-top: 1rpx solid #cccccc;
+    color:#ffffff;
+    background:#ffffff;
+    /* z-index: 1; */
+}

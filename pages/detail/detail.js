@@ -5,16 +5,19 @@ Page({
       weekDayStart: common.weekDay(common.getNowDate()),
       weekDayEnd: common.weekDay(common.addDate(common.getNowDate(),+1)),
       countDay: 1,// 显示周几
+      initDate: common.getNowDate(),
       startDate: common.getNowDate(),
       endDate: common.addDate(common.getNowDate(),+1),
       startDateAddOne: common.addDate(common.getNowDate(),+1),
     })
   },
   data: {
+    needPayMoney: 0,
     startTime: '7:00',
     endTime: '7:00',
     isMoto: true,
     isAgree: true, // 勾选是否同意协议
+    initDate: '',
     startDate: '',
     endDate: '',
     endStartDate: '', // 租结束日期的初始化不能大于 选中日期的开始日期
@@ -59,8 +62,8 @@ Page({
         isAgree: !this.data.isAgree
       })
     },
-    showPayAmout: function(e) {
-      console.log('弹出支付弹框');
+    WxPayMent: function(e) {
+      
     },
   
 })

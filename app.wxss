@@ -29,6 +29,7 @@ page {
 .tableCell{display: table-cell;}
 .displayFlex{display: flex;}
 .displayGrid{display: grid;}
+.fl{float: left;}
 .fr{float: right;}
 .flex1{flex: 1;}
 .flex2{flex: 2;}
