@@ -24,7 +24,7 @@ page {
   box-sizing: border-box;
   padding: 0 30rpx;
 }
-
+.posA{position: absolute;}
 .vm{vertical-align: middle;}
 .tableCell{display: table-cell;}
 .displayFlex{display: flex;}
@@ -42,13 +42,20 @@ page {
 .fs30{font-size: 30rpx;}
 .fs35{font-size: 35rpx;}
 .fs55{font-size: 55rpx;}
+.fs60{font-size: 60rpx;}
+.bold{font-weight: bold;}
 /* margin */
 .ml5{margin-left: 5rpx;}
 .ml10{margin-left: 10rpx;}
+.ml15{margin-left: 15rpx;}
 .ml20{margin-left: 20rpx;}
 .ml25{margin-left: 25rpx;}
+.ml30{margin-left: 30rpx;}
+.ml50{margin-left: 50rpx;}
 .mr10{margin-right: 10rpx;}
+.mr30{margin-right: 30rpx;}
 .mt10{margin-top: 10rpx;}
+.mt15{margin-top: 15rpx;}
 .mt20{margin-top: 20rpx;}
 .mt25{margin-top: 25rpx;}
 .mt30{margin-top: 30rpx;}
@@ -57,6 +64,7 @@ page {
 .mt50{margin-top: 50rpx;}
 .mt60{margin-top: 60rpx !important;}
 .m20{margin: 20rpx;}
+.m30{margin: 30rpx;}
 /* padding */
 .p30{padding: 30rpx;}
 .pt10{padding-top: 10rpx;}
@@ -90,5 +98,5 @@ page {
   font-size: 30rpx;
   padding: 28rpx 12rpx;
   line-height: 30rpx;
-  margin: 80rpx auto 30rpx;
+  margin: 50rpx auto 30rpx;
 }

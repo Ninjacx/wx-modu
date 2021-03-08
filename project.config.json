@@ -88,6 +88,12 @@
         {
           "name": "pages/userMenu/public/public",
           "pathName": "pages/userMenu/public/public",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/detail/detail",
+          "pathName": "pages/detail/detail",
           "scene": null
         }
       ]

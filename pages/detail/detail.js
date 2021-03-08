@@ -11,6 +11,9 @@ Page({
     })
   },
   data: {
+    startTime: '7:00',
+    endTime: '7:00',
+    isMoto: true,
     isAgree: true, // 勾选是否同意协议
     startDate: '',
     endDate: '',
@@ -23,6 +26,16 @@ Page({
       this.setData({
         userName: '李四'
         // 更新属性和数据的方法与更新页面数据的方法类似
+      })
+    },
+    bindTimeEndChange: function(e) {
+      this.setData({
+        endTime: e.detail.value
+      })
+    },
+    bindTimeChange: function(e) {
+      this.setData({
+        startTime: e.detail.value
       })
     },
     // 获取选中的开始日期

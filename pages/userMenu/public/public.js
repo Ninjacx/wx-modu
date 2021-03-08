@@ -21,7 +21,7 @@ Component({
                   {id: 5,name: '杨浦区'}, {id: 6, name: '闵行区'}, {id: 7, name: '宝山区'}, {id: 8, name: '嘉定区' },{id: 9, name: '浦东新区'}, {id: 10, name: '金山区'},
                   {id: 11, name: '松江区'},{id: 12, name: '青浦区'},{id: 13, name: '奉贤区'},{id: 14, name: '崇明区'}],
     regionIndex: 0,
-    frontDriveCard: '/image/driveCardA.png',// 驾驶证正面照片
+    photo: '/image/driveCardA.png',// 车子照片
     contraryDriveCard: '/image/driveCardB.png',// 驾驶证反面照片
   }, // 私有数据，可用于模板渲染
  
@@ -68,8 +68,7 @@ Component({
         success (res) {
           // tempFilePath可以作为img标签的src属性显示图片
           const tempFilePaths = res.tempFilePaths
-          var cardJson = {1: {frontDriveCard: tempFilePaths},2: {contraryDriveCard: tempFilePaths}}
-          _this.setData(cardJson[e.currentTarget.dataset.index])
+          _this.setData({photo: tempFilePaths})
         }
       })
     },
