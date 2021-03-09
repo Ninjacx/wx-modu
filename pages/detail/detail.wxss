@@ -1,3 +1,6 @@
+/* page{
+    background: #f6f6f6;
+  } */
 .detailBtn{
     color: #ffffff;
     width: 300px;
@@ -21,4 +24,14 @@
     color:#ffffff;
     background:#ffffff;
     /* z-index: 1; */
+}
+.wh96{
+    width: 96rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+}
+.wxPayView{
+    border-top: 20rpx solid #eaeaea;
+    padding: 30rpx;
+    border-bottom: 20rpx solid #eaeaea;
 }
