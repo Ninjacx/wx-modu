@@ -12,7 +12,7 @@ Page({
     })
   },
   data: {
-    needPayMoney: 0,
+    needPayMoney: 0, // 需支付金额
     startTime: '7:00',
     endTime: '7:00',
     isMoto: true,
@@ -48,6 +48,7 @@ Page({
         weekDayStart: common.weekDay(e.detail.value),
         startDateAddOne: common.addDate(e.detail.value,1) // 结束日期为 选中的下一天
       })
+      this.setPayMoney()
     },
      // 获取选中的开始日期
      bindDateEndChange: function(e) {
@@ -56,14 +57,21 @@ Page({
         weekDayEnd: common.weekDay(e.detail.value),
         countDay: common.dateDiff(this.data.startDate, e.detail.value)
       })
+      this.setPayMoney()
     },
     toggleChecked:function(e){
       this.setData({
         isAgree: !this.data.isAgree
       })
     },
-    WxPayMent: function(e) {
+    setPayMoney: function(){
       
+      this.setData({
+        needPayMoney: this.data.countDay*300
+      })
+    },
+    WxPayMent: function(e) {
+     
     },
   
 })

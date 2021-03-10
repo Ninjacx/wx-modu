@@ -10,7 +10,8 @@
     "pages/userMenu/newUser/newUser",
     "pages/userMenu/userOrder/userOrder",
     "pages/userMenu/historyOrder/historyOrder",
-    "pages/userMenu/adviceFeedBack/adviceFeedBack"
+    "pages/userMenu/adviceFeedBack/adviceFeedBack",
+    "pages/userMenu/member/member"
   ],
   "tabBar": {
     "custom": false,

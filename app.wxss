@@ -73,6 +73,8 @@ page {
 .pl20{padding-left: 20rpx;}
 .pl30{padding-left: 30rpx;}
 .pr40{padding-right: 40rpx;}
+.pb20{padding-bottom: 20rpx;}
+.pb30{padding-bottom: 30rpx;}
 /* color */
 .colorFFF{color: #FFFFFF;}
 .colorF6{color: #f6f6f6;}

@@ -53,7 +53,7 @@
       <view class="mt15 fr">
         <picker class="displayFlex" mode="time" value="{{startTime}}" bindchange="bindTimeChange">
           <view class="tableCell">{{weekDayEnd}}</view>
-          <view class="picker tableCell"><text class="ml20">{{startTime}}</text></view>
+          <view class="picker tableCell"><text class="ml20">{{startTime}}</text><text>前</text></view>
         </picker>
       </view>
       <!-- <view class="mt15">{{weekDayEnd}}</view> -->

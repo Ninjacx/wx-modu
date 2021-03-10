@@ -28,6 +28,11 @@ Component({
         url: '/pages/userMenu/public/public'
       })
     },
+    to_adviceFeedBack: function(){
+      wx.navigateTo({
+        url: '/pages/userMenu/adviceFeedBack/adviceFeedBack'
+      })
+    },
     setUserName: function(){
       this.setData({
         userName: '李四'
@@ -39,6 +44,11 @@ Component({
       //   url: '/pages/login/login?index='+ e.currentTarget.dataset.index
       // })
       // 直接跳转login 登录页面
+    },
+    to_member(){
+      wx.navigateTo({
+        url: '/pages/userMenu/member/member'
+      })
     },
     // 拨打电话
     callPhone(){
