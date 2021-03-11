@@ -1,17 +1,10 @@
 page{
-  background: #f6f6f6;
-}
-.index {
- display: flex
+  background: #ffffff;
 }
 .left{
   position: fixed;
   /* background:#cccccc; */
   height: 100%;
-}
-.right{
-  position: absolute;
-  left: 200rpx;
 }
 .leftOne{
   width: 200rpx;
@@ -21,7 +14,7 @@ page{
 }
 .selectLeft{
   background: #ffffff;
-  border-left: 5rpx solid #F57807;
+  border-left: 5rpx solid #9e9e9e;
 }
 .leftBorder{
   position: absolute;

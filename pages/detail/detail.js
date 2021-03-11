@@ -71,7 +71,25 @@ Page({
       })
     },
     WxPayMent: function(e) {
-     
+    //   var str =  "appid=wxd930ea5d5a258f4f&body=test&device_info=1000&mch_id=10000100&nonce_str=ibuaiVcKdpRxkhJA";
+    //  var stringSignTemp=str+"&key=192006250b4c09247ec02edce69f6a2d"
+    //   var sign= stringSignTemp
+  //  var  paySign = wx.MD5('appId=wxd678efh567hg6787&nonceStr=5K8264ILTKCH16CQ2502SI8ZNMTM67VS&package=prepay_id=wx2017033010242291fcfe0db70013231072&signType=MD5&timeStamp=1490840662&key=qazwsxedcrfvtgbyhnujmikolp111111') // = 22D9B4E54AB1950F51E0649E8810ACD6
+     wx.requestPayment(
+        {
+        'timeStamp': '1615428678',
+        'nonceStr': '5K8264ILTKCH16CQ2502SI8ZNMTM67VS',
+        'package': 'wx2017033010242291fcfe0db70013231072',
+        'signType': 'MD5',
+        'paySign': '4ab1950f51e0649e',
+        'success':function(res){
+          console.log('res',res);
+        },
+        'fail':function(res){
+          console.log('resF',res);
+        },
+        'complete':function(res){}
+        })
     },
   
 })
