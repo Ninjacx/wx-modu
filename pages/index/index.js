@@ -1,3 +1,4 @@
+import {area, carType, motocycle_cc} from '../../utils/commonData'
 Component({
   pageLifetimes: {
     show() {
@@ -10,10 +11,14 @@ Component({
     }
   },
   data: {
+    regionArray: area(true),
+    regionIndex: 0,
+    ccArray: motocycle_cc(true),
+    ccIndex: 0,
     userName: '首页',
     leftIndex: 0,
-    leftTab: [{title: '摩托车'},{title: '汽车'}],
-    region: ['上海市', '上海市', '浦东新区'],
+    leftTab: carType,
+    // region: ['上海市', '上海市', '浦东新区'],
   }, // 私有数据，可用于模板渲染
  
   methods: {
@@ -30,12 +35,17 @@ Component({
         url: '/pages/detail/detail?id='
       })
     },
-    bindRegionChange: function (e) {
-      console.log('picker发送选择改变，携带值为', e.detail.value)
+    bindRegionChange(e){
       this.setData({
-        region: e.detail.value
+        regionIndex: e.detail.value
       })
     },
+    bindcc_Change(e){
+      this.setData({
+        ccIndex: e.detail.value
+      })
+    },
+    
     onReachBottom: function () {
       // this.onBottom();
       console.log('123');

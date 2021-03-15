@@ -70,9 +70,9 @@
 }
 .bottomView{
   text-align: center;
-  margin-bottom: 30rpx;
-  /* position: absolute; */
-  bottom: 30rpx;
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 0;
   left: 0;
   right: 0;
 }

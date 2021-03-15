@@ -46,10 +46,10 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>车辆所在区</view>
   <view class="flex1 textRight">
     <picker bindchange="bindRegionChange" value="{{regionIndex}}" range-key="name" range="{{regionArray}}">
-    <view class="picker">
-      {{regionArray[regionIndex].name}}
-    </view>
-  </picker>
+      <view class="picker">
+        {{regionArray[regionIndex].name}}
+      </view>
+    </picker>
   </view>
 </view>
 <view class="displayFlex cardView ">

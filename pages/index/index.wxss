@@ -28,3 +28,8 @@ page{
   left: 0;
   right: 0;
 }
+.selectOptView{
+  height: 66rpx;
+  line-height: 66rpx;
+  background: #FFFFFF;
+}

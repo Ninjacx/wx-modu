@@ -1,3 +1,4 @@
+import {area,carNumberType, carType} from '../../../utils/commonData'
 Component({
   pageLifetimes: {
     show() {
@@ -11,15 +12,13 @@ Component({
   },
   data: {
     multiIndex: 0,
-    multiArray:[{id: 0,name: '沪牌'},{id: 1,name: '外牌'}],
+    multiArray: carNumberType,
     sex: '1', // 0 女 1 男
     userName: '首页',
     leftIndex: 0,
-    leftTab: [{title: '摩托车'},{title: '汽车'}],
+    leftTab: carType,
     //                                               
-    regionArray: [{id: 0,name: '黄浦区'}, {id: 1,name: '徐汇区'},{id: 2,name: '长宁区'},{id: 3,name: '静安区'},{id: 4,name: '普陀区'},{id: 4,name: '虹口区'},
-                  {id: 5,name: '杨浦区'}, {id: 6, name: '闵行区'}, {id: 7, name: '宝山区'}, {id: 8, name: '嘉定区' },{id: 9, name: '浦东新区'}, {id: 10, name: '金山区'},
-                  {id: 11, name: '松江区'},{id: 12, name: '青浦区'},{id: 13, name: '奉贤区'},{id: 14, name: '崇明区'}],
+    regionArray: area(),
     regionIndex: 0,
     photo: '/image/driveCardA.png',// 车子照片
     contraryDriveCard: '/image/driveCardB.png',// 驾驶证反面照片
@@ -27,7 +26,6 @@ Component({
  
   methods: {
     bindRegionChange(e){
-      console.log('e',e);
       this.setData({
         regionIndex: e.detail.value
       })

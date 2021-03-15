@@ -18,10 +18,8 @@ Component({
  
   methods: {
     // 拨打电话
-    callPhone(){
-      wx.makePhoneCall({
-        phoneNumber: '18121118073' //仅为示例，并非真实的电话号码
-      })
+    bindTextAreaBlur(){
+    
     },
   }
 })

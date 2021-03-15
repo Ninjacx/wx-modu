@@ -25,6 +25,7 @@ page {
   padding: 0 30rpx;
 }
 .posA{position: absolute;}
+.posR{position: relative;}
 .vm{vertical-align: middle;}
 .tableCell{display: table-cell;}
 .displayFlex{display: flex;}
@@ -41,6 +42,7 @@ page {
 .fs20{font-size: 20rpx;}
 .fs25{font-size: 25rpx;}
 .fs30{font-size: 30rpx;}
+.fs33{font-size: 33rpx;}
 .fs35{font-size: 35rpx;}
 .fs55{font-size: 55rpx;}
 .fs60{font-size: 60rpx;}
@@ -75,6 +77,7 @@ page {
 .pr40{padding-right: 40rpx;}
 .pb20{padding-bottom: 20rpx;}
 .pb30{padding-bottom: 30rpx;}
+.pb50{padding-bottom: 50rpx;}
 /* color */
 .colorFFF{color: #FFFFFF;}
 .colorF6{color: #f6f6f6;}
@@ -95,6 +98,7 @@ page {
 .borderR10{border-radius: 10rpx;}
 
 .lh50{line-height: 50rpx;}
+.lh120{line-height: 120rpx;}
 /* common button */
 .commBtnSty{
   width: 600rpx;

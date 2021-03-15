@@ -37,10 +37,29 @@ const dateDiff = (sDate1, sDate2) => {  //sDate1和sDate2是2017-9-25格式
     oDate2 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0])
     iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24) //把相差的毫秒数转换为天数 
     return iDays
+}
+const setUserInfo = (data) => { 
+  if(data) {
+    return wx.setStorageSync('userInfo',data)
   }
+}
+const getUserInfo = () => { 
+  if(wx.getStorageSync('userInfo')){
+    return wx.getStorageSync('userInfo')
+  }
+  return false
+}
+const clearUserInfo = () => { 
+  if(data) {
+    return wx.setStorageSync('userInfo','')
+  }
+}
 module.exports = {
   weekDay,
   dateDiff,
   getNowDate,
-  addDate
+  addDate,
+  setUserInfo,
+  getUserInfo,
+  clearUserInfo
 }
