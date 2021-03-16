@@ -1,4 +1,4 @@
-<view class="posR">
+<view class="posR" style="height:100%">
   <view  wx:if="{{!isLogin}}">
     <view class="displayFlex userTop colorFFF">
         <view class="userView">
@@ -7,42 +7,43 @@
           </view>
         </view>
         <view class="displayGrid">
-          <view class="fs35 textLeft">{{userInfo.uname}}SKY</view>
+          <view class="fs35 textLeft"><open-data  type="userNickName"></open-data></view>
           <view class="fs30"><i class="iconfont icon-shouji color8c"></i><text class="ml10">{{userInfo.mobile}}18121118073</text></view>
         </view>
         <!-- <view class="displayGrid lh120 fs33" >
           请登录
         </view> -->
       </view>
-    <view class="displayFlex orderView">
-      <view catchtap="to_userOrder" class="flex1">
-        <view><i class="fs55 iconfont icon-icon2-copy color59 "></i></view>
-        <view class="mt10 fs20">我的订单</view>
-      </view>
-      <view catchtap="to_historyOrder" class="flex1">
-        <view><i class="fs55 iconfont icon-lishidingdan color59 "></i></view>
-        <view class="mt10 fs20">历史订单</view>
-      </view>
-    </view>
-    <view class="pb50">
-      <view class="displayFlex cardView">
-        <view class="flex1">我的等級</view>
-        <view class="flex1 textRight">普通会员</view>
-      </view>
-      <view catchtap="to_userDoc" class="displayFlex cardView">
-        <view class="flex1">我的资料</view>
-        <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
-      </view>
-      <view catchtap="public" class="displayFlex cardView">
-        <view class="flex1">发布</view>
-        <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
-      </view>
-      <view catchtap="to_member" class="displayFlex cardView border0">
-        <view class="flex1">成为商户会员</view>
-        <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
-      </view>
-      <view class="bt20">
-        <view catchtap="to_newUser" class="displayFlex cardView">
+      <view class="posR">
+          <view class="displayFlex orderView">
+            <view catchtap="to_userOrder" class="flex1">
+              <view><i class="fs55 iconfont icon-icon2-copy color59 "></i></view>
+              <view class="mt10 fs20">我的订单</view>
+            </view>
+            <view catchtap="to_historyOrder" class="flex1">
+              <view><i class="fs55 iconfont icon-lishidingdan color59 "></i></view>
+              <view class="mt10 fs20">历史订单</view>
+            </view>
+          </view>
+      <view class="pb50 userMenuView">
+        <view class="displayFlex cardView">
+          <view class="flex1">我的等級</view>
+          <view class="flex1 textRight">普通会员</view>
+        </view>
+        <view catchtap="to_userDoc" class="displayFlex cardView">
+          <view class="flex1">我的资料</view>
+          <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
+        </view>
+        <view catchtap="public" class="displayFlex cardView">
+          <view class="flex1">发布</view>
+          <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
+        </view>
+        <view catchtap="to_member" class="displayFlex cardView border0">
+          <view class="flex1">成为商户会员</view>
+          <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
+        </view>
+        <view class="bt20">
+          <view catchtap="to_newUser" class="displayFlex cardView">
           <view class="flex1">新人指引</view>
           <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
@@ -51,22 +52,20 @@
           <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
       </view>
-     <view class="bottomView"><text>客服热线：</text>18121118073<text catchtap="callPhone" class="callPhone">拨打</text></view>
+     <!-- <view class="bottomView"><text>客服热线：</text>18121118073<text catchtap="callPhone" class="callPhone">拨打</text></view> -->
+      </view>
     </view>
   </view>
-  <view wx:if="{{isLogin}}">
+
+  <view class="p30 loginView" wx:if="{{isLogin}}">
       <view>
-        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="btnTxt1">
-          <text class="fs30" style="color:#2E98FF;">我要出租</text>
-        </button>
+          <view class="textCenter"><image style="height: 150rpx;width: 150rpx;" src="/image/zu.png"></image></view>
+          <button class="mt30" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >本机号码一键登录</button>
+          
       </view>
-      <view>
-        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="btnTxt2">
-          <text class="fs30" style="color:#2E98FF;">我要租车</text>
-        </button>
-      </view>
-  </view>
-  <view class="bottomView"><text>客服热线：</text>18121118073<text catchtap="callPhone" class="callPhone">拨打</text></view>
+      <view class="textCenter mt60"> 同意《服务条款》并授权获取本机号码</view>
+    </view>
+  <!-- <view class="bottomView"><text>客服热线：</text>18121118073<text catchtap="callPhone" class="callPhone">拨打</text></view> -->
 </view>
 
 <!-- <view>

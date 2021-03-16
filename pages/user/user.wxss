@@ -68,6 +68,17 @@
   margin: 0 30rpx;
   padding: 30rpx 0;
 }
+.userMenuView{
+  position: absolute;
+  top: 113rpx;
+  width: 100%;
+}
+.loginView{
+  margin: 0 auto;
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+}
 .bottomView{
   text-align: center;
   margin-bottom: 10px;

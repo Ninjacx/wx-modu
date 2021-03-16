@@ -17,11 +17,32 @@ Component({
     resize () { },
   },
   data: {
-    isLogin: false, // 默认未登录
+    isLogin: true, // 默认未登录
     userInfo: [], // 用户信息
     userName: '张三',
   }, // 私有数据，可用于模板渲染
   methods: {
+    // 获取手机号
+  getPhoneNumber (e) {
+    if (e.detail.errMsg == "getPhoneNumber:ok") {
+      console.log(e.detail.errMsg);
+      var {encryptedData,iv} = e.detail
+      // console.log('encryptedData,iv',encryptedData,'--------------',iv);
+      // // 掉接口 获取 用户的手机号
+      //     // 拿到code 此处要再次调用接口获取后台的openid 
+      //     API.stepOne({code: this.data.wxLoginResCode}).then(res1=>{
+      //       this.setData({ OpenidSessionKeyParams: res1 })
+      //            // 获取手机号成功之后
+      //         API.wx_phoneNoUserCheck({'openId': this.data.OpenidSessionKeyParams.openid, 'encryptedData': encryptedData,'iv': iv,'sessionKey': this.data.OpenidSessionKeyParams.sessionKey}).then(res=>{
+      //           this.setData({
+      //               isGetPhone: true,
+      //               userAutoPhone: res
+      //           })
+      //             this.logins()
+      //         })
+      //     })
+    }
+  },
     // 跳转发布页面
     public: function(){
       wx.navigateTo({
