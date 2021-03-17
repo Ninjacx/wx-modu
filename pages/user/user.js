@@ -1,22 +1,29 @@
 import API from '../../api/index'
+// import {area,carNumberType, carType} from '../../../utils/commonData'
 Component({
   pageLifetimes: {
     show() {
-      console.log('userInfo',API);
-      API.Info({groups: 2}).then((res)=>{
-        console.log(res);
+      wx.login({
+        success :(res) => {
+          this.setData({wxLoginResCode: res.code})
+        }
       })
-      if (typeof this.getTabBar === 'function' &&
-        this.getTabBar()) {
-        this.getTabBar().setData({
-          selected: 1
-        })
-      }
+      // console.log('userInfo',API);
+      // API.Info({groups: 2}).then((res)=>{
+      //   console.log(res);
+      // })
+      // if (typeof this.getTabBar === 'function' &&
+      //   this.getTabBar()) {
+      //   this.getTabBar().setData({
+      //     selected: 1
+      //   })
+      // }
     },
     hide () { },
     resize () { },
   },
   data: {
+    wxLoginResCode: '',
     isLogin: true, // 默认未登录
     userInfo: [], // 用户信息
     userName: '张三',
@@ -25,8 +32,18 @@ Component({
     // 获取手机号
   getPhoneNumber (e) {
     if (e.detail.errMsg == "getPhoneNumber:ok") {
-      console.log(e.detail.errMsg);
       var {encryptedData,iv} = e.detail
+      API.step1({code: this.data.wxLoginResCode}).then((res)=>{
+        this.setData({ OpenidSessionKeyParams: res })
+        console.log('resresres',res);
+        console.log('res.data.sessionKey',res.data.session_key);
+        API.step2({ sessionKey: res.data.session_key, encryptedData, iv }).then((res)=>{
+          console.log('step2',res);
+        })
+      })
+      console.log(e.detail.errMsg);
+      // sessionKey, encryptedData, iv 
+     
       // console.log('encryptedData,iv',encryptedData,'--------------',iv);
       // // 掉接口 获取 用户的手机号
       //     // 拿到code 此处要再次调用接口获取后台的openid 
