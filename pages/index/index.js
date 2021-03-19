@@ -1,7 +1,9 @@
 import {area, carType, motocycle_cc} from '../../utils/commonData'
+var app = getApp();  //获取app.js
 Component({
   pageLifetimes: {
     show() {
+      console.log('app',app.globalData.userInfo);
       if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
         this.getTabBar().setData({

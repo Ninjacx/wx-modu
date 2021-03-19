@@ -1,4 +1,5 @@
 import API from '../../api/index'
+var app = getApp();  //获取app.js
 // import {area,carNumberType, carType} from '../../../utils/commonData'
 Component({
   pageLifetimes: {
@@ -33,12 +34,19 @@ Component({
   getPhoneNumber (e) {
     if (e.detail.errMsg == "getPhoneNumber:ok") {
       var {encryptedData,iv} = e.detail
-      API.step1({code: this.data.wxLoginResCode}).then((res)=>{
-        this.setData({ OpenidSessionKeyParams: res })
-        console.log('resresres',res);
-        console.log('res.data.sessionKey',res.data.session_key);
-        API.step2({ sessionKey: res.data.session_key, encryptedData, iv }).then((res)=>{
-          console.log('step2',res);
+      API.step1({code: this.data.wxLoginResCode}).then((Step1res)=>{
+        // this.setData({ OpenidSessionKeyParams: res })
+        // Step1res.data.openid
+        // console.log('"oufS3s_jVlTbYJvyAdtsZLhIbMHk"');
+        // console.log('res.data.sessionKey',res.data.session_key);
+        API.step2({ sessionKey: Step1res.data.session_key, encryptedData, iv }).then((res)=>{
+          // Step1res.data.openid
+          // res.data.phoneNumber
+          API.login({ openid: Step1res.data.openid, phoneNumber: res.data.phoneNumber}).then((res)=>{
+
+          })
+
+          // console.log('step2',res);
         })
       })
       console.log(e.detail.errMsg);

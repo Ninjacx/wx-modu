@@ -18,64 +18,17 @@ const step2 = data => {
 		data
 	})
 }
-// 
-const wx_phoneNoUserCheck = data => {
+// 用戶登录接口
+const login = data => {
 	return _request({
-		url: '/phoneNoUserCheck',
-		method: 'get',
-		data
-	},true)
-}
-
-// 用户登录
-const wxMaLogin = data => {
-	return _request({
-		url: '/auth/wxMaLogin',
+		url: '/wechat/login',
 		method: 'post',
 		data
 	})
 }
-
-const Info = data => {
-	return _request({
-		url: '/menu/getMenu',
-		method: 'get',
-		data
-	})
-}
-
-// 首页 工资单
-const clientPayslipConfig = data => {
-	return _request({
-		url: '/clientPayslipConfig/findCyCleAndSumSubject',
-		method: 'get',
-		data
-	})
-}
-// 首页初始化 根据openid 获取是否已经绑定过手机号，来判断是否需要再次授权
-const getWxMaPhone = data => {
-	return _request({
-		url: '/auth/getWxMaPhone',
-		method: 'post',
-		data
-	})
-}
-const updateClientUserPhone = data => {
-	return _request({
-		url: '/clientUser/updateClientUserPhone',
-		method: 'post',
-		data
-	})
-}
-
 
 module.exports =  {
 	step1,
 	step2,
-	getWxMaPhone,
-	wx_phoneNoUserCheck,
-	wxMaLogin,
-	Info,
-	clientPayslipConfig,
-	updateClientUserPhone
+	login
 }
