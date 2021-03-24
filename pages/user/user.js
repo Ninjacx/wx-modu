@@ -42,8 +42,8 @@ Component({
         API.step2({ sessionKey: Step1res.data.session_key, encryptedData, iv }).then((res)=>{
           // Step1res.data.openid
           // res.data.phoneNumber
-          API.login({ openid: Step1res.data.openid, phoneNumber: res.data.phoneNumber}).then((res)=>{
-
+          API.login({ openId: Step1res.data.openid, phoneNumber: res.data.phoneNumber}).then((res)=>{
+            console.log('res',res);
           })
 
           // console.log('step2',res);
