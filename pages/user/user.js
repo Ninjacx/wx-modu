@@ -1,24 +1,22 @@
 import API from '../../api/index'
+import {getUserInfo} from '../../utils/common'
 var app = getApp();  //获取app.js
 // import {area,carNumberType, carType} from '../../../utils/commonData'
 Component({
   pageLifetimes: {
     show() {
-      wx.login({
-        success :(res) => {
-          this.setData({wxLoginResCode: res.code})
-        }
-      })
-      // console.log('userInfo',API);
-      // API.Info({groups: 2}).then((res)=>{
-      //   console.log(res);
-      // })
-      // if (typeof this.getTabBar === 'function' &&
-      //   this.getTabBar()) {
-      //   this.getTabBar().setData({
-      //     selected: 1
-      //   })
-      // }
+     if(!getUserInfo()){
+        wx.login({
+          success :(res) => {
+            this.setData({wxLoginResCode: res.code})
+          }
+        })
+     }else{
+       this.setData({
+        isLogin: false,
+        userInfo: getUserInfo()
+       })
+     }
     },
     hide () { },
     resize () { },
@@ -43,10 +41,21 @@ Component({
           // Step1res.data.openid
           // res.data.phoneNumber
           API.login({ openId: Step1res.data.openid, phoneNumber: res.data.phoneNumber}).then((res)=>{
-            console.log('res',res);
+            if(res.code === 200){
+              // 直接赋值
+              this.setData({
+                userInfo: res.data,
+                isLogin: false
+              })
+              wx.setStorageSync('userInfo', res.data) || ''
+            }
+            wx.showToast({
+              title: res.msg,
+              icon: 'none',
+              duration: 2000
+            })
+            
           })
-
-          // console.log('step2',res);
         })
       })
       console.log(e.detail.errMsg);

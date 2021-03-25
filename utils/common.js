@@ -54,6 +54,11 @@ const clearUserInfo = () => {
     return wx.setStorageSync('userInfo','')
   }
 }
+// const result = (res) => {
+//   if(res.code){
+
+//   }
+// }
 module.exports = {
   weekDay,
   dateDiff,
