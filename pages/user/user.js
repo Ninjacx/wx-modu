@@ -78,9 +78,9 @@ Component({
     }
   },
     // 跳转发布页面
-    public: function(){
+    publish: function(){
       wx.navigateTo({
-        url: '/pages/userMenu/public/public'
+        url: '/pages/userMenu/publish/publish'
       })
     },
     to_adviceFeedBack: function(){

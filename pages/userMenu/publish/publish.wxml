@@ -4,7 +4,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>车型</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input class="weui-input" maxlength="10" placeholder="请填写车型" />
+      <input class="weui-input" maxlength="10" placeholder="请填写车型名称" />
     </view>
   </view>
 </view>

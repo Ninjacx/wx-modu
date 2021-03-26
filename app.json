@@ -5,7 +5,7 @@
     "pages/detail/detail",
     "pages/user/user",
     "pages/login/login",
-    "pages/userMenu/public/public",
+    "pages/userMenu/publish/publish",
     "pages/userMenu/userDoc/userDoc",
     "pages/userMenu/newUser/newUser",
     "pages/userMenu/userOrder/userOrder",
