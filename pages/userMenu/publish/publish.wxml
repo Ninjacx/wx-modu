@@ -4,7 +4,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>车型</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input class="weui-input" maxlength="10" placeholder="请填写车型名称" />
+      <input maxlength="50" value="{{pageData.motorcycleName}}" bindinput="updateInputValue"  data-inputKey="motorcycleName" class="weui-input" placeholder="请填写车型名称" />
     </view>
   </view>
 </view>
@@ -12,16 +12,16 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>排量</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input class="weui-input" maxlength="10" placeholder="请填写排量（CC）" />
+      <input maxlength="10" value="{{pageData.volume}}" bindinput="updateInputValue"  data-inputKey="volume" class="weui-input" placeholder="请填写排量（CC）" />
     </view>
   </view>
 </view>
 <view class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>牌照类型</view>
   <view class="flex1 textRight">
-    <picker bindchange="bindPickerChange" value="{{multiIndex}}" range-key="name" range="{{multiArray}}">
+    <picker bindchange="bindPickerChange" value="{{pageData.licensePlateId}}" range-key="name" range="{{multiArray}}">
     <view class="picker">
-      {{multiArray[multiIndex].name}}
+      {{multiArray[pageData.licensePlateId].name}}
     </view>
   </picker>
   </view>
@@ -30,7 +30,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>租金（日）</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input class="weui-input pr10" type="number" placeholder="请填写日租金" />
+      <input maxlength="10" value="{{pageData.rentDay}}" bindinput="updateInputValue"  data-inputKey="rentDay" class="weui-input pr10" type="number" placeholder="请填写日租金" />
     </view>
   </view>
 </view>
@@ -38,16 +38,16 @@
   <view class="flex1 lh50"><span class="ml25">租金（月）</span></view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input class="weui-input pr10" type="number" placeholder="请填写月租金" />
+      <input maxlength="10" value="{{pageData.rentMonth}}" bindinput="updateInputValue"  data-inputKey="rentMonth" class="weui-input pr10" type="number" placeholder="请填写月租金" />
     </view>
   </view>
 </view>
 <view class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>车辆所在区</view>
   <view class="flex1 textRight">
-    <picker bindchange="bindRegionChange" value="{{regionIndex}}" range-key="name" range="{{regionArray}}">
+    <picker bindchange="bindRegionChange" value="{{pageData.regionId}}" range-key="name" range="{{regionArray}}">
       <view class="picker">
-        {{regionArray[regionIndex].name}}
+        {{regionArray[pageData.regionId].name}}
       </view>
     </picker>
   </view>
@@ -56,7 +56,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>详细位置</text></view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input class="weui-input pr10" placeholder="请填写详细位置" />
+      <input maxlength="100" value="{{pageData.addrDetail}}" bindinput="updateInputValue"  data-inputKey="addrDetail" class="weui-input pr10" placeholder="请填写详细位置" />
     </view>
   </view>
 </view>
@@ -64,7 +64,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>联系人</text></view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input class="weui-input pr10" placeholder="请填写联系人" />
+      <input  maxlength="15" value="{{pageData.contact}}" bindinput="updateInputValue"  data-inputKey="contact" class="weui-input pr10" placeholder="请填写联系人" />
     </view>
   </view>
 </view>
@@ -72,7 +72,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>电话</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input class="weui-input pr10" type="number" placeholder="请填写电话" />
+      <input maxlength="11" value="{{pageData.contactPhone}}" bindinput="updateInputValue"  data-inputKey="contactPhone" class="weui-input pr10" type="number" placeholder="请填写电话" />
     </view>
   </view>
 </view>
@@ -81,7 +81,7 @@
     <view><text class="mr10 colorRed">*</text>上传车辆照片</view>
     <view class="displayFlex">
       <view catchtap="uploadImage" data-index="1" class="flex1 mt20">
-          <image class="rightImg driveCard" src="{{photo}}"></image>
+          <image class="rightImg driveCard" src="{{pageData.photo}}"></image>
       </view>
       <!-- <view catchtap="uploadImage" data-index="2" class="flex1 mt20">
           <image class="rightImg driveCard" src="{{contraryDriveCard}}"></image>

@@ -26,9 +26,26 @@ const login = data => {
 		data
 	})
 }
-
+// 发布
+const publish = data => {
+	return _request({
+		url: '/wechat/publish',
+		method: 'post',
+		data
+	})
+}
+// 上传图片
+const uploadFile = data => {
+	return _request({
+		url: '/upload',
+		method: 'post',
+		data
+	})
+}
 module.exports =  {
 	step1,
 	step2,
-	login
+	login,
+	publish,
+	uploadFile
 }

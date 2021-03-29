@@ -86,12 +86,6 @@
           "scene": null
         },
         {
-          "name": "pages/userMenu/public/public",
-          "pathName": "pages/userMenu/public/public",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "pages/detail/detail",
           "pathName": "pages/detail/detail",
           "query": "",
@@ -124,6 +118,13 @@
         {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/publish/publish",
+          "pathName": "pages/userMenu/publish/publish",
+          "query": "",
           "scene": null
         }
       ]
