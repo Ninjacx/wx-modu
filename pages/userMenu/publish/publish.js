@@ -1,4 +1,5 @@
 import {area,carNumberType, carType} from '../../../utils/commonData'
+import {beaseUrl} from '../../../request/config'
 Component({
   pageLifetimes: {
     show() {
@@ -11,17 +12,17 @@ Component({
     }
   },
   data: {
+    files: '/image/driveCardA.png', // 文件对象
     pageData: {
-      motorcycleName: '',
-      licensePlateId: 0,
+      motorcycle_name: '',
+      license_plate_id: 0,
       volume: '',
-      rentDay: '',
-      rentMonth: '',
-      regionId: 3,
-      addrDetail: '',
+      rent_day: '',
+      rent_month: '',
+      region_id: 3,
+      addr_detail: '',
       contact: '',
-      contactPhone: '',
-      photo: '/image/driveCardA.png', // 车子照片
+      contact_phone: '',
     },
     // multiIndex: 0,
     multiArray: carNumberType,
@@ -41,13 +42,13 @@ Component({
       this.data.pageData[e.currentTarget.dataset.inputkey] = e.detail.value
     },
     bindRegionChange(e){
-      this.data.pageData['regionId'] = e.detail.value
+      this.data.pageData['region_id'] = e.detail.value
       this.setData({
         pageData: this.data.pageData
       })
     },
     bindPickerChange(e){
-      this.data.pageData['licensePlateId'] = e.detail.value
+      this.data.pageData['license_plate_id'] = e.detail.value
       this.setData({
         pageData: this.data.pageData
       })
@@ -82,39 +83,43 @@ Component({
         sourceType: ['album', 'camera'],
         success (res) {
           // const tempFilePaths = res.tempFilePaths
-          //   wx.uploadFile({
-          //     url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
-          //     filePath: tempFilePaths[0],
-          //     name: 'file',
-          //     formData: {
-          //       'user': 'test'
-          //     },
-          //     success (res){
-          //       const data = res.data
-          //       //do something
-          //     }
-          //   })
+        
           // tempFilePath可以作为img标签的src属性显示图片
-          console.log('res',res);
           const tempFilePaths = res.tempFilePaths
-          console.log(_this.data.pageData['photo'])
-          _this.data.pageData['photo'] = tempFilePaths
-          _this.setData({pageData: _this.data.pageData})
+          _this.setData({files: tempFilePaths})
+          // console.log('tempFilePaths[0]',tempFilePaths[0]);
+          // console.log('------',_this.data.pageData['photo'][0]);
         }
       })
     },
     submitUserDoc: function(){
-      // console.log('submitUserDoc',this.data);
-      console.log(this.data.pageData);
-      return false
-      // motorcycleName, volume, rentDay, rentMonth
-      API.publish({openId: this.data.OpenidSessionKeyParams.openid, encryptedData,iv,sessionKey: this.data.OpenidSessionKeyParams.sessionKey}).then(res=>{
-        this.setData({
-            isGetPhone: true,
-            userAutoPhone: res
-        })
-          this.logins()
+      wx.uploadFile({
+        // /upload
+        url: beaseUrl+'/weChat/publish', //仅为示例，非真实的接口地址
+        filePath: this.data.files[0],
+        name: 'file',
+        formData: this.data.pageData,
+        success (res){
+          console.log('res',res.data);
+          if(res.data === 200){
+            // 是否继续发布 继续发布则留在此页面保留部分数据 
+            // 不发布则返回
+            wx.showToast({
+              title: '发布成功',
+              icon: 'none',
+              duration: 2000
+            })
+          }
+        }
       })
+      // motorcycleName, volume, rent_day, rent_month
+      // API.publish({openId: this.data.OpenidSessionKeyParams.openid, encryptedData,iv,sessionKey: this.data.OpenidSessionKeyParams.sessionKey}).then(res=>{
+      //   this.setData({
+      //       isGetPhone: true,
+      //       userAutoPhone: res
+      //   })
+      //     this.logins()
+      // })
     },
     selectSex: function(e){
       this.setData({sex: e.currentTarget.dataset.sex})
