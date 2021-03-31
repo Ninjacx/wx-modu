@@ -35,17 +35,17 @@ const publish = data => {
 	})
 }
 // 上传图片
-const uploadFile = data => {
-	return _request({
-		url: '/upload',
-		method: 'post',
-		data
-	})
-}
+// const uploadFile = data => {
+// 	return _request({
+// 		url: '/upload',
+// 		method: 'post',
+// 		data
+// 	})
+// }
 module.exports =  {
 	step1,
 	step2,
 	login,
 	publish,
-	uploadFile
+	// uploadFile
 }

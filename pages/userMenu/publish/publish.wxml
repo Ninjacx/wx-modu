@@ -1,6 +1,16 @@
 <view class="">
 <view class="colorRed textCenter">*项为必填信息</view>
 <view class="displayFlex cardView">
+  <view class="flex1 lh50"><text class="mr10 colorRed">*</text>类别</view>
+  <view class="flex1 textRight">
+    <picker bindchange="bindPickerTypeChange" value="{{typeArrayIndex}}" range-key="type_name" range="{{typeArray}}">
+    <view class="picker">
+      {{typeArray[typeArrayIndex].type_name}}
+    </view>
+  </picker>
+  </view>
+</view>
+<view wx:if="{{typeArray[typeArrayIndex].id !== 3}}" class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>车型</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
@@ -8,7 +18,7 @@
     </view>
   </view>
 </view>
-<view class="displayFlex cardView">
+<view wx:if="{{typeArray[typeArrayIndex].id !== 3}}" class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>排量</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
@@ -19,9 +29,9 @@
 <view class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>牌照类型</view>
   <view class="flex1 textRight">
-    <picker bindchange="bindPickerChange" value="{{pageData.license_plate_id}}" range-key="name" range="{{multiArray}}">
+    <picker bindchange="bindPickerChange" value="{{pageData.license_plate_id}}" range-key="license_plate_name" range="{{multiArray}}">
     <view class="picker">
-      {{multiArray[pageData.license_plate_id].name}}
+      {{multiArray[pageData.license_plate_id].license_plate_name}}
     </view>
   </picker>
   </view>
@@ -42,7 +52,7 @@
     </view>
   </view>
 </view>
-<view class="displayFlex cardView">
+<view wx:if="{{typeArray[typeArrayIndex].id !== 3}}" class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>车辆所在区</view>
   <view class="flex1 textRight">
     <picker bindchange="bindRegionChange" value="{{pageData.region_id}}" range-key="name" range="{{regionArray}}">
@@ -52,7 +62,7 @@
     </picker>
   </view>
 </view>
-<view class="displayFlex cardView ">
+<view wx:if="{{typeArray[typeArrayIndex].id !== 3}}" class="displayFlex cardView ">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>详细位置</text></view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
@@ -76,7 +86,7 @@
     </view>
   </view>
 </view>
-<view class="mt30">
+<view wx:if="{{typeArray[typeArrayIndex].id !== 3}}" class="mt30">
   <view class="m20">
     <view><text class="mr10 colorRed">*</text>上传车辆照片</view>
     <view class="displayFlex">

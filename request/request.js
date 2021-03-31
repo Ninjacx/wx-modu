@@ -4,13 +4,15 @@ function _request({url , data , method},isWxUrl = false) {
   console.log('datadatadatadatadatadatadata',method);
   wx.showLoading({mask: true});
   return new Promise((resolve , reject)=> {
-    var token = wx.getStorageSync('token')
-    console.log('isWxUrl? beaseUrlWx + url: beaseUrl + url,',isWxUrl? beaseUrlWx + url: beaseUrl + url,);
-    console.log('data1111111',data);
+    var userInfo = wx.getStorageSync('userInfo')
+    // console.log(userInfo ? {Authorization: userInfo.id}:'')
+    // console.log('isWxUrl? beaseUrlWx + url: beaseUrl + url,',isWxUrl? beaseUrlWx + url: beaseUrl + url,);
+    // console.log('data1111111',data);
+    console.log(Object.assign({'content-type':'application/x-www-form-urlencoded'},userInfo ? { Authorization: userInfo.id }: {}));
       wx.request({
           url: isWxUrl? beaseUrlWx + url: beaseUrl + url,
           data,
-          header: {'content-type':'application/x-www-form-urlencoded'},//Object.assign({'content-type':'application/json'},token ? {Authorization: 'Bearer ' + token}: {}),
+          header: Object.assign({'content-type':'application/x-www-form-urlencoded'},userInfo ? { Authorization: userInfo.id }: {}),//{'content-type':'application/x-www-form-urlencoded'},//Object.assign({'content-type':'application/json'},userInfo ? {Authorization: + userInfo.id}: {}),
           method: method || 'get',
           success: (res)=>{
               if(res.statusCode === 200){
