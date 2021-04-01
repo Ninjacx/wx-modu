@@ -25,8 +25,8 @@
     <text>区域：上海</text>
   </view> -->
   <view class="left mt20">
-    <view catchtap="leftMenu"  class="leftOne {{index === leftIndex?'selectLeft':''}}" wx:key="index" data-index="{{index}}" data-leftData="{{item}}" wx:for="{{leftTab}}" >
-      <text class="leftBorder fs30">{{item.title}}</text>
+    <view catchtap="leftMenu"  class="leftOne {{index === leftIndex?'selectLeft':''}}" wx:key="index" data-index="{{index}}" data-leftData="{{item}}" wx:for="{{leftTabArray}}" >
+      <text class="leftBorder fs30">{{item.type_name}}</text>
     </view>
   </view>
   <view catchtap="toDetail" class="right w100">

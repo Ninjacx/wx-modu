@@ -8,6 +8,16 @@
       </picker>
     </view>
 </view>
+<view class="page-section page-section-spacing swiper">
+      <swiper circular="true" indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item ">{{item.txt}}</view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
 <view wx:for="[{},{},{},{}]" class="">
   <view catchtap="toDetail" class="m20 w100">
     <view class="mt20 bgFFF pt10" style="display: flex;"> 

@@ -1,16 +1,15 @@
+import API from '../../api/index'
 import {area, carType, motocycle_cc} from '../../utils/commonData'
+
 var app = getApp();  //获取app.js
-Component({
-  pageLifetimes: {
-    show() {
-      console.log('app',app.globalData.userInfo);
-      if (typeof this.getTabBar === 'function' &&
-        this.getTabBar()) {
-        this.getTabBar().setData({
-          selected: 0
-        })
-      }
-    }
+Page({
+  onLoad: function () {
+    this.init()
+    // if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+    //     this.getTabBar().setData({
+    //       selected: 0
+    //     })
+    // }
   },
   data: {
     regionArray: area(true),
@@ -19,13 +18,27 @@ Component({
     ccIndex: 0,
     userName: '首页',
     leftIndex: 0,
-    leftTab: carType,
+    leftTabArray: [],
     // region: ['上海市', '上海市', '浦东新区'],
-  }, // 私有数据，可用于模板渲染
- 
-  methods: {
+  },
+    init(){
+      // console.log(123);
+      API.getType({}).then(res => {
+        this.setData({
+          leftTabArray: res.data
+        })
+        console.log(res.data);
+        // return res
+      })
+    },
     // 点击左边菜单
     leftMenu(e){
+      API.getTypePublishData({}).then(res => {
+        this.setData({
+          leftTabArray: res.data
+        })
+      })
+
       this.setData({
         leftIndex: e.currentTarget.dataset.index
       })
@@ -57,5 +70,4 @@ Component({
         // 更新属性和数据的方法与更新页面数据的方法类似
       })
     }
-  }
 })

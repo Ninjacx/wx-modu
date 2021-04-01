@@ -10,6 +10,12 @@ Component({
     }
   },
   data: {
+    background: [{id:1,txt:'a'},{id: 2,txt:'b'},{id:3,txt:'c'}],
+    indicatorDots: true,
+    vertical: false,
+    autoplay: false,
+    interval: 2000,
+    duration: 500,
     userName: '首页',
     leftIndex: 0,
     leftTab: [{title: '摩托车'},{title: '汽车'}],

@@ -85,8 +85,13 @@ Component({
       })
     },
     submitUserDoc: function(){
+      console.log('this.data.pageData',this.data.pageData);
+     
+      // 当类别为牌照的时候 调用不上传图片的接口
+      var userInfo = wx.getStorageSync('userInfo')
       wx.uploadFile({
         // /upload
+        header: { Authorization: userInfo.id },
         url: beaseUrl+'/weChat/publish', //仅为示例，非真实的接口地址
         filePath: this.data.files[0],
         name: 'file',

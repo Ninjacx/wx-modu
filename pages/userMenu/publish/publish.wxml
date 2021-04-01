@@ -22,7 +22,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>排量</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input maxlength="10" value="{{pageData.volume}}" bindinput="updateInputValue"  data-inputKey="volume" class="weui-input" placeholder="请填写排量（CC）" />
+      <input type="number" maxlength="10" value="{{pageData.volume}}" bindinput="updateInputValue"  data-inputKey="volume" class="weui-input" placeholder="请填写排量（CC）" />
     </view>
   </view>
 </view>
