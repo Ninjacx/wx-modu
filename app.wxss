@@ -94,6 +94,7 @@ page {
 
 /* border */
 .bt20{border-top: 20rpx solid #f8f8f8;}
+.bb8{border-bottom: 8rpx solid #f8f8f8}
 .border0{border: 0 !important}
 .borderR10{border-radius: 10rpx;}
 

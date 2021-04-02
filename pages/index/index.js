@@ -19,6 +19,7 @@ Page({
     userName: '首页',
     leftIndex: 0,
     leftTabArray: [],
+    rightArray: [],
     // region: ['上海市', '上海市', '浦东新区'],
   },
     init(){
@@ -27,21 +28,24 @@ Page({
         this.setData({
           leftTabArray: res.data
         })
+        this.leftMenu(0)
         console.log(res.data);
         // return res
       })
     },
     // 点击左边菜单
     leftMenu(e){
-      API.getTypePublishData({}).then(res => {
+      if(e !== 0){
+        this.setData({leftIndex: e.currentTarget.dataset.index})
+      }
+      var { id } = this.data.leftTabArray[this.data.leftIndex]
+      API.getTypePublishData({typeId: id}).then(res => {
         this.setData({
-          leftTabArray: res.data
+          rightArray: res.data
         })
       })
 
-      this.setData({
-        leftIndex: e.currentTarget.dataset.index
-      })
+     
       console.log(e);
     },
     // 进入详情

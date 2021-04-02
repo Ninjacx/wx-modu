@@ -18,7 +18,16 @@ const getType = data => {
 		data
 	})
 }
+// 列表
+const getTypePublishData = data => {
+	return _request({
+		url: '/wechat/publishData',
+		method: 'get',
+		data
+	})
+}
 module.exports =  {
 	getLicensePlate,
-	getType
+	getType,
+	getTypePublishData
 }
