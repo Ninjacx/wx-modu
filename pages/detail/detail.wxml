@@ -8,7 +8,8 @@
     <view class="fs32 bold">车辆信息</view>
     <!-- <view>联系电话：18121118073</view> -->
     <!-- icon-jiaocheqiche -->
-    <view class="mt20"> <i class="iconfont {{isMoto?'icon-icon-test': 'icon-jiaocheqiche'}}  fs60 vm"></i> 沪A 铃木GSX250（排量：250cc） <text class="colorf5">300/月</text></view>
+    <view class="mt20"> <i class="iconfont {{isMoto?'icon-icon-test': 'icon-jiaocheqiche'}}  fs60 vm"></i> 沪A {{pageData.motorcycle_name}}（排量：{{pageData.volume}}cc）
+       <text class="colorf5">{{pageData.rent_day}}/天</text> | <text class="colorf5">{{pageData.rent_month}}/月</text></view>
     <view>
       <image style="width:100%" class="rightImg swiper-item1" src="http://47.98.163.21/static/App/user/userIcon.png"></image>
     </view>
@@ -16,11 +17,11 @@
   <view class="mt50">
     <view class="fs32 bold">联系信息</view>
     <!-- <view>联系电话：18121118073</view> -->
-    <view class="mt20"> <i class="iconfont icon-shouji"></i> 18121118073</view>
+    <view class="mt20"> <i class="iconfont icon-shouji"></i> {{pageData.phone}}</view>
   </view>
   <view class="mt50">
     <view class="fs32 bold">取车位置</view>
-    <view class="mt20"> <i class="iconfont icon-dizhi"></i> 上海市浦东新区浦星公路</view>
+    <view class="mt20"> <i class="iconfont icon-dizhi"></i> {{pageData.region_name}}{{pageData.addr_detail}}</view>
   </view>
   <!-- <view>
     <view>还车位置</view>

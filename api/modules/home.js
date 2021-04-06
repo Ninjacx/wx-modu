@@ -1,6 +1,6 @@
 import {_request} from '../../request/request'
 /* ******** 
- 登录相关接口
+ 相关接口
  ********  */
 // 牌照类型
 const getLicensePlate = data => {
@@ -19,9 +19,17 @@ const getType = data => {
 	})
 }
 // 列表
-const getTypePublishData = data => {
+const publishDataList = data => {
 	return _request({
-		url: '/wechat/publishData',
+		url: '/wechat/publishDataList',
+		method: 'get',
+		data
+	})
+}
+// 详情
+const publishDetailOne = data => {
+	return _request({
+		url: '/wechat/publishDetailOne',
 		method: 'get',
 		data
 	})
@@ -29,5 +37,6 @@ const getTypePublishData = data => {
 module.exports =  {
 	getLicensePlate,
 	getType,
-	getTypePublishData
+	publishDataList,
+	publishDetailOne
 }

@@ -29,16 +29,16 @@
       <text class="leftBorder fs30">{{item.type_name}}</text>
     </view> 
   </view>
-  <view catchtap="toDetail" class="right w100">
+  <view data-publishId="" class="right w100">
     <view class="mt20">
-      <view wx:for="{{rightArray}}" data-leftData="{{item}}" class="bgFFF pt10 bb8" style="display: flex;">
+      <view catchtap="toDetail"  wx:for="{{rightArray}}" data-leftData="{{item}}" class="bgFFF pt10 bb8" style="display: flex;">
         <view>
           <image style="width:200rpx;height:200rpx" class="rightImg" src="http://47.98.163.21/static/App/user/userIcon.png" class='img'></image>
         </view>
         <view style="display: grid;">
           <view style="font-size:30rpx"><text>{{item.motorcycle_name}}</text></view>
-          <view style="font-size:25rpx"><text>电话：{{item.contact_phone}}</text></view>
-          <view style="font-size:25rpx"><text>位置：上海市浦东新区航头镇</text></view>
+          <view style="font-size:25rpx"><text>电话：{{item.phone}}</text></view>
+          <view style="font-size:25rpx"><text>位置：{{item.region_name}}{{item.addr_detail}}</text></view>
           <view class="payColor" style="display: flex;">
             <view style="flex:1;font-size:20rpx;"><text>￥{{item.rent_day}}/日均</text></view>
             <view style="font-size:20rpx;text-align:right;flex:1;"><text>￥{{item.rent_month}}/月均</text></view>

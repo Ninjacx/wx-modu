@@ -1,6 +1,14 @@
 const common = require("../../utils/common")
+import API from '../../api/index'
 Page({
-  onLoad: function () {
+  onLoad: function (params) {
+    console.log('params',params);
+    API.publishDetailOne({publishId: params.publishId}).then(res => {
+      this.setData({
+        pageData: res.data
+      })
+    })
+    return false
     this.setData({
       weekDayStart: common.weekDay(common.getNowDate()),
       weekDayEnd: common.weekDay(common.addDate(common.getNowDate(),+1)),
@@ -12,6 +20,7 @@ Page({
     })
   },
   data: {
+    pageData: [], // 展示参数
     needPayMoney: 0, // 需支付金额
     startTime: '7:00',
     endTime: '7:00',

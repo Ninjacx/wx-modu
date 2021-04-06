@@ -15,13 +15,13 @@ switch (version) {
     // beaseUrl ="http://172.16.19.220:8888/api/v1"; //开发版
     break;
   case 'trial':
-    beaseUrl = "https://qa.tranderpay.com/api/v1"; //体验版
+    beaseUrl = "http://172.16.19.133"; //体验版
     break;
   case 'release':
-    beaseUrl = "https://qa.tranderpay.com/api/v1"; //线上地址
+    beaseUrl = "http://172.16.19.133"; //线上地址
     break;
   default:
-    beaseUrl = "https://qa.tranderpay.com/api/v1";
+    beaseUrl = "http://172.16.19.133";
     break;
 }
 

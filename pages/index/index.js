@@ -39,7 +39,7 @@ Page({
         this.setData({leftIndex: e.currentTarget.dataset.index})
       }
       var { id } = this.data.leftTabArray[this.data.leftIndex]
-      API.getTypePublishData({typeId: id}).then(res => {
+      API.publishDataList({typeId: id}).then(res => {
         this.setData({
           rightArray: res.data
         })
@@ -49,9 +49,9 @@ Page({
       console.log(e);
     },
     // 进入详情
-    toDetail(){
+    toDetail(e){
       wx.navigateTo({
-        url: '/pages/detail/detail?id='
+        url: '/pages/detail/detail?publishId=' + e.currentTarget.dataset.leftdata.id
       })
     },
     bindRegionChange(e){
