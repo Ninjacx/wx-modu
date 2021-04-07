@@ -14,7 +14,7 @@ Page({
     this.setData({
       weekDayStart: common.weekDay(common.getNowDate()),
       weekDayEnd: common.weekDay(common.addDate(common.getNowDate(),+1)),
-      countDay: 1,// 显示周几
+      // countDay: 1,// 显示周几
       initDate: common.getNowDate(),
       startDate: common.getNowDate(),
       endDate: common.addDate(common.getNowDate(),+1),
@@ -24,6 +24,7 @@ Page({
   data: {
     beaseUrl: beaseUrl,
     pageData: [], // 展示参数
+    countDay: 1,
     needPayMoney: 0, // 需支付金额
     startTime: '7:00',
     endTime: '7:00',
@@ -83,14 +84,15 @@ Page({
       })
     },
     WxPayMent: function(e) {
-
+      var {publishId} = this.data.pageData
+      var {startTime, countDay, startDate} = this.data
       // 支付成功，生成订单
-      API.publishDetailOne({publishId: params.publishId}).then(res => {
-        this.setData({
-          pageData: res.data
-        })
+      API.addOrder({publishId, countDay,startDate,startTime}).then(res => {
+        // this.setData({
+        //   pageData: res.data
+        // })
       })
-
+      return false
     //   var str =  "appid=wxd930ea5d5a258f4f&body=test&device_info=1000&mch_id=10000100&nonce_str=ibuaiVcKdpRxkhJA";
     //  var stringSignTemp=str+"&key=192006250b4c09247ec02edce69f6a2d"
     //   var sign= stringSignTemp
