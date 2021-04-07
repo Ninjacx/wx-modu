@@ -5,8 +5,8 @@
   <view class="orderInfo">
     <view class="orderInfo-item" wx:for="{{sendList}}" wx:key="index"> 这是内容{{item.content}} </view> 
   </view>
-  <view catchtap="toDetail" class="w100 p30 mt50">
-    <view class="mt20 bgFFF pt10 borderR10" style="display: flex;">
+  <view  catchtap="toDetail" class="w100 p30 mt50">
+    <view wx:for="pageData" class="mt20 bgFFF pt10 borderR10" style="display: flex;">
       <view>
         <image style="width:200rpx;height:200rpx" class="rightImg" src="http://47.98.163.21/static/App/user/userIcon.png" class='img'></image>
       </view>
@@ -16,7 +16,7 @@
         <view><text>车型：沪A川崎Z900</text></view>
         <view><text>位置：上海市浦东新区航头镇</text></view>
         <view class="payColor displayFlex">
-          <view class="flex1"><text>订单金额：￥300</text></view>
+          <view class="flex1"><text>订单金额：￥{{item.amount}}</text></view>
           <view catchtap="cancelOrder">
               取消订单
           </view>
