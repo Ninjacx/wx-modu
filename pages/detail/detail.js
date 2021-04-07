@@ -1,4 +1,5 @@
 const common = require("../../utils/common")
+import {beaseUrl} from '../../request/config'
 import API from '../../api/index'
 Page({
   onLoad: function (params) {
@@ -7,8 +8,9 @@ Page({
       this.setData({
         pageData: res.data
       })
+      this.setPayMoney()
     })
-    return false
+    // return false
     this.setData({
       weekDayStart: common.weekDay(common.getNowDate()),
       weekDayEnd: common.weekDay(common.addDate(common.getNowDate(),+1)),
@@ -20,6 +22,7 @@ Page({
     })
   },
   data: {
+    beaseUrl: beaseUrl,
     pageData: [], // 展示参数
     needPayMoney: 0, // 需支付金额
     startTime: '7:00',
@@ -73,13 +76,21 @@ Page({
         isAgree: !this.data.isAgree
       })
     },
+    // 计算需支付金额
     setPayMoney: function(){
-      
       this.setData({
-        needPayMoney: this.data.countDay*300
+        needPayMoney: this.data.countDay * this.data.pageData.rent_day
       })
     },
     WxPayMent: function(e) {
+
+      // 支付成功，生成订单
+      API.publishDetailOne({publishId: params.publishId}).then(res => {
+        this.setData({
+          pageData: res.data
+        })
+      })
+
     //   var str =  "appid=wxd930ea5d5a258f4f&body=test&device_info=1000&mch_id=10000100&nonce_str=ibuaiVcKdpRxkhJA";
     //  var stringSignTemp=str+"&key=192006250b4c09247ec02edce69f6a2d"
     //   var sign= stringSignTemp

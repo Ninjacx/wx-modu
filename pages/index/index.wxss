@@ -28,6 +28,17 @@ page{
   left: 0;
   right: 0;
 }
+.rightImg{
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  margin-right: 15rpx;
+}
+.rightList{
+  margin-right: 213rpx;
+}
+.imgTxt{
+  position:absolute;top:5rpx;left:7px;padding: 3px;font-size:11px;
+}
 .selectOptView{
   height: 66rpx;
   line-height: 66rpx;

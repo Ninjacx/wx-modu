@@ -1,4 +1,5 @@
 import API from '../../api/index'
+import {beaseUrl} from '../../request/config'
 import {area, carType, motocycle_cc} from '../../utils/commonData'
 
 var app = getApp();  //获取app.js
@@ -12,6 +13,7 @@ Page({
     // }
   },
   data: {
+    beaseUrl: beaseUrl,
     regionArray: area(true),
     regionIndex: 0,
     ccArray: motocycle_cc(true),

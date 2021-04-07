@@ -8,10 +8,10 @@
     <view class="fs32 bold">车辆信息</view>
     <!-- <view>联系电话：18121118073</view> -->
     <!-- icon-jiaocheqiche -->
-    <view class="mt20"> <i class="iconfont {{isMoto?'icon-icon-test': 'icon-jiaocheqiche'}}  fs60 vm"></i> 沪A {{pageData.motorcycle_name}}（排量：{{pageData.volume}}cc）
-       <text class="colorf5">{{pageData.rent_day}}/天</text> | <text class="colorf5">{{pageData.rent_month}}/月</text></view>
-    <view>
-      <image style="width:100%" class="rightImg swiper-item1" src="http://47.98.163.21/static/App/user/userIcon.png"></image>
+    <view class="mt20"> <i class="iconfont {{isMoto?'icon-icon-test': 'icon-jiaocheqiche'}}  fs60 vm"></i> {{pageData.license_plate_name}} {{pageData.motorcycle_name}}（排量：{{pageData.volume}}cc）
+       <view >租金：<text class="colorf5">{{pageData.rent_day}}/天</text> <text class="m10">|</text> <text class="colorf5">{{pageData.rent_month}}/月</text></view></view>
+    <view class="mt20">
+      <image style="width:100%" class="rightImg swiper-item1 borderR10" src="{{beaseUrl+pageData.pic_url}}"></image>
     </view>
   </view>
   <view class="mt50">
@@ -89,7 +89,8 @@
   </view>
   <view class="bottomView fs35">
     <view class="fl fs35 ml30 payColor">需支付金额 ￥{{needPayMoney}}</view>
-    <view catchtap="WxPayMent" style="float:right;padding:0 21px;wxcs_style_padding:0 50rpx;background:#ff9e39;">立即订车</view>
+    <view wx:if="{{pageData.is_active === 1}}" class="submitOrder" style="background: #a5a3a1;">已出租</view>
+    <view wx:else catchtap="WxPayMent" class="submitOrder"  style="background:#ff9e39;">立即订车</view>
   </view>
   <!-- <button catchtap="showPayAmout" class="button commBtnSty">
      <text class="fs30" >立即订车</text>
