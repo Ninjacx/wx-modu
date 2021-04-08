@@ -1,12 +1,12 @@
 <view>
   <!-- <text>位置：上海市 浦东新区</text> -->
-  <view class="section">
+  <!-- <view class="section">
       <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
         <view class="picker">
           选择位置：{{region[0]}}  {{region[1]}}  {{region[2]}}
         </view>
       </picker>
-    </view>
+    </view> -->
 </view>
 <view class="page-section page-section-spacing swiper">
       <swiper circular="true" indicator-dots="{{indicatorDots}}"
@@ -17,7 +17,8 @@
           </swiper-item>
         </block>
       </swiper>
-    </view>
+</view>
+<!-- 此处推荐文章？旅游摩旅 地方推荐等 摩旅攻略 -->
 <view wx:for="[{},{},{},{}]" class="">
   <view catchtap="toDetail" class="m20 w100">
     <view class="mt20 bgFFF pt10" style="display: flex;"> 
