@@ -8,7 +8,7 @@
         </view>
         <view class="displayGrid">
           <view class="fs35 textLeft"><open-data  type="userNickName"></open-data></view>
-          <view class="fs30"><i class="iconfont icon-shouji color8c"></i><text class="ml10">{{userInfo.mobile}}18121118073</text></view>
+          <view class="fs30"><i class="iconfont icon-shouji color8c"></i><text class="ml10">{{userInfo.phone}}</text></view>
         </view>
         <!-- <view class="displayGrid lh120 fs33" >
           请登录

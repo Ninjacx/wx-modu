@@ -7,6 +7,7 @@ Component({
         this.setData({
           pageData: res.data
         })
+        console.log('pageData',this.data.pageData);
       })
 
       if (typeof this.getTabBar === 'function' &&

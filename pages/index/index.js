@@ -25,7 +25,6 @@ Page({
     // region: ['上海市', '上海市', '浦东新区'],
   },
     init(){
-      // console.log(123);
       API.getType({}).then(res => {
         this.setData({
           leftTabArray: res.data

@@ -11,9 +11,12 @@
 <view class="page-section page-section-spacing swiper">
       <swiper circular="true" indicator-dots="{{indicatorDots}}"
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{background}}" wx:key="*this">
+        <block wx:for="{{bannerList}}" wx:key="*this">
           <swiper-item>
-            <view class="swiper-item ">{{item.txt}}</view>
+            <view class="swiper-item ">
+              <!-- <image></image> -->
+              <image style="width:100%;height:380rpx"  src="{{item.image}}" ></image>
+            </view>
           </swiper-item>
         </block>
       </swiper>

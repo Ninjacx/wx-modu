@@ -42,6 +42,9 @@ Component({
           // res.data.phoneNumber
           API.login({ openId: Step1res.data.openid, phoneNumber: res.data.phoneNumber}).then((res)=>{
             if(res.code === 200){
+              // 记录登录时间，每次进入app.js 查到缓存时间，超过1天则清空userInfo 缓存
+              var date = new Date().getTime()
+              console.log('datre',date);
               // 直接赋值
               this.setData({
                 userInfo: res.data,
