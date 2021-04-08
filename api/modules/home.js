@@ -10,6 +10,15 @@ const getLicensePlate = data => {
 		data
 	})
 }
+// 轮播图
+const getBanner = data => {
+	return _request({
+		url: '/wechat/getBanner',
+		method: 'get',
+		data
+	})
+}
+
 // 出租类目菜单
 const getType = data => {
 	return _request({
@@ -35,6 +44,7 @@ const publishDetailOne = data => {
 	})
 }
 module.exports =  {
+	getBanner,
 	getLicensePlate,
 	getType,
 	publishDataList,
