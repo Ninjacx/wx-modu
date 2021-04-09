@@ -126,6 +126,12 @@
           "pathName": "pages/userMenu/publish/publish",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/userMenu/historyOrder/historyOrder",
+          "pathName": "pages/userMenu/historyOrder/historyOrder",
+          "query": "",
+          "scene": null
         }
       ]
     }

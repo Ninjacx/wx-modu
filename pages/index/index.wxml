@@ -41,7 +41,7 @@
           <image style="width:200rpx;height:200rpx" class="rightImg" src="{{beaseUrl + item.pic_url}}" ></image>
         </view>
         <view class="w100 displayGrid">
-          <view class="fs30"><text>{{item.motorcycle_name}}</text></view>
+          <view class="fs30"><text>{{item.license_plate_name}}-{{item.motorcycle_name}}</text></view>
           <view class="fs25"><text>电话：{{item.phone}}</text></view>
           <view class="fs25"><text>位置：{{item.region_name}}{{item.addr_detail}}</text></view>
           <view class="payColor displayFlex">

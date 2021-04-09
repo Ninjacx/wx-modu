@@ -22,7 +22,7 @@
       </swiper>
 </view>
 <!-- 此处推荐文章？旅游摩旅 地方推荐等 摩旅攻略 -->
-<view wx:for="[{},{},{},{}]" class="">
+<!-- <view wx:for="[{},{},{},{}]" class="">
   <view catchtap="toDetail" class="m20 w100">
     <view class="mt20 bgFFF pt10" style="display: flex;"> 
       <view class="mr10">
@@ -39,4 +39,4 @@
       </view>
     </view> 
   </view>
-</view>
+</view> -->

@@ -18,7 +18,9 @@ page {
   justify-content: space-between;
   box-sizing: border-box;
 } 
-
+.boxSizingBorderBox{
+  box-sizing: border-box;
+}
 .warper{
   width: 100%;
   box-sizing: border-box;

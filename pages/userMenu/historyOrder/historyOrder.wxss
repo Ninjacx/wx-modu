@@ -1,21 +1,3 @@
 page{
   background: #f6f6f6;
 }
-.index {
- display: flex
-}
-.left{
-  position: fixed;
-  /* background:#cccccc; */
-  height: 100%;
-}
-
-.selectLeft{
-  background: #ffffff;
-  border-left: 5rpx solid #9e9e9e;
-}
-.leftBorder{
-  position: absolute;
-  left: 0;
-  right: 0;
-}

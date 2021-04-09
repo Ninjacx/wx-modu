@@ -1,23 +1,24 @@
 <view class="index">
   <view class="tabNav">
-      <view wx:for="{{navTab}}" wx:key="index" data-idx="{{index}}" bindtap="currentTab" class="flex1 {{currentTab==index ? 'cur' : ''}}"><text>{{item}}</text></view>
+      <view wx:for="{{navTab}}" wx:key="index" data-idx="{{item.status}}" bindtap="currentTab" class="flex1 {{currentTab==item.status ? 'cur' : ''}}"><text>{{item.statusName}}</text></view>
   </view>
   <view class="orderInfo">
     <view class="orderInfo-item" wx:for="{{sendList}}" wx:key="index"> 这是内容{{item.content}} </view> 
   </view>
   <view  catchtap="toDetail" class="w100 p30 mt50">
     <view wx:for="{{pageData}}" class="mt20 bgFFF pt10 borderR10" style="display: flex;">
-      <view>
-        <image style="width:200rpx;height:200rpx" class="rightImg" src="http://47.98.163.21/static/App/user/userIcon.png" class='img'></image>
+      <view class="ml15 mr15">
+        <image style="width:200rpx;height:200rpx" src="{{beaseUrl+item.pic_url}}" class='borderR10'></image>
       </view>
-      <view class="fs25" style="display: grid;">
-        <view style="font-size:25rpx;">租车时间：2030-03-03 <text>至</text> {{item.end_time}}</view>
+      <view class="fs25 w100" style="display: grid;">
+        <view style="font-size:25rpx;">租车时间：{{item.start_time}} </view>
+        <view style="font-size:25rpx;">还车时间：<text style=""></text>{{item.end_time}} </view>
         <!-- <view>租车日期：2021-02-26 - 2020-01-03</view> -->
-        <view><text>车型：沪A川崎Z900</text></view>
-        <view><text>位置：上海市浦东新区航头镇</text></view>
+        <view><text>车型：{{item.license_plate_name}}-{{item.motorcycle_name}}</text></view>
+        <view><text>位置：{{item.region_name}}{{item.addr_detail}}</text></view>
         <view class="payColor displayFlex">
           <view class="flex1"><text>订单金额：￥{{item.amount}}</text></view>
-          <view catchtap="cancelOrder">
+          <view class="mr20" catchtap="cancelOrder">
               取消订单
           </view>
         </view>

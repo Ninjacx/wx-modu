@@ -163,8 +163,14 @@
 .mr12{
   margin-right: 12rpx;
 }
+.mr15{
+  margin-right: 15rpx;
+}
 .mt20{
   margin-top: 20rpx;
+}
+.ml15{
+  margin-left: 15rpx;
 }
 .ml20{
   margin-left: 20rpx;
