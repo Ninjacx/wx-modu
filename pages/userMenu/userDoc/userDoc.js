@@ -10,6 +10,11 @@ Component({
     }
   },
   data: {
+    multiArray: [{userTypeName: '个人'},{userTypeName: '商户'}],
+    pageData:{
+      user_type: 0,
+
+    },
     sex: '1', // 0 女 1 男
     userName: '首页',
     leftIndex: 0,
@@ -39,6 +44,13 @@ Component({
       this.setData({
         region: e.detail.value
       })
+    },
+    bindPickerChange(e){
+      this.data.pageData['user_type'] = e.detail.value
+      this.setData({
+        pageData: this.data.pageData
+      })
+      console.log(this.data.pageData)
     },
     onReachBottom: function () {
       // this.onBottom();

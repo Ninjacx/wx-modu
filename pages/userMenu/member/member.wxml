@@ -3,7 +3,7 @@
   <view class="bgfff m30 p30 borderR10">
     <view>介绍：</view>
     <view class="mt10">申请成为会员可进行发布车辆的出租信息。</view>
-    <view class="colorRed">(成为会员之前必须先完善个人完整信息)</view>
+    <view class="colorRed">(成为会员之前必须先完善个人/商户完整信息)</view>
   </view>
   <view class="bgfff m30 p30 borderR10"> 申请状态： <text class="colorf5">审核中</text> </view>
   <view>

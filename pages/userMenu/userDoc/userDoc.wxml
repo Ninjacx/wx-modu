@@ -1,6 +1,16 @@
 <view class="">
 <view class="colorRed textCenter">*项为必填信息</view>
 <view class="displayFlex cardView">
+  <view class="flex1 lh50"><text class="mr10 colorRed">*</text>类型</view>
+  <view class="flex1 textRight">
+    <picker bindchange="bindPickerChange" value="{{pageData.user_type}}" range-key="userTypeName" range="{{multiArray}}">
+    <view class="picker">
+      {{multiArray[pageData.user_type].userTypeName}}
+    </view>
+  </picker>
+  </view>
+</view>
+<view class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>姓名</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
@@ -47,14 +57,14 @@
     </view>
   </view>
 </view>
-<view class="displayFlex cardView">
+<!-- <view class="displayFlex cardView">
   <view class="flex1 ml20 lh50">紧急联系人微信号</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
       <input class="weui-input pr10" placeholder="请填写紧急联系人微信号" />
     </view>
   </view>
-</view>
+</view> -->
 <view class="mt30">
   <view class="m20">
     <view><text class="mr10 colorRed">*</text>上传驾驶证照片<text class="colorRed">（正副页）</text></view>

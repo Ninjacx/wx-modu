@@ -39,6 +39,12 @@
         {
           "name": "pages/userMenu/userOrder/userOrder",
           "pathName": "pages/userMenu/userOrder/userOrder",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/userDoc/userDoc",
+          "pathName": "pages/userMenu/userDoc/userDoc",
           "scene": null
         }
       ]
