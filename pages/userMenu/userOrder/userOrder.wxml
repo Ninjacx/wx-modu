@@ -19,7 +19,7 @@
         <view class="payColor displayFlex">
           <view class="flex1"><text>订单金额：￥{{item.amount}}</text></view>
           <view class="mr20" catchtap="cancelOrder">
-              取消订单
+              提前还车
           </view>
         </view>
       </view>

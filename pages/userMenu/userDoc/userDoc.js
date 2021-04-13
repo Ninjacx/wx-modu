@@ -69,6 +69,9 @@ Component({
     selectSex: function(e){
       this.setData({sex: e.currentTarget.dataset.sex})
       console.log(this.data.sex);
-    }
+    },
+    updateInputValue(e){
+      this.data.pageData[e.currentTarget.dataset.inputkey] = e.detail.value
+    },
   }
 })

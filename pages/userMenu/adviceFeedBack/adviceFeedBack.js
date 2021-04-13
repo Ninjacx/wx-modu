@@ -1,25 +1,32 @@
+import API from '../../../api/index'
 Component({
   pageLifetimes: {
     show() {
-      if (typeof this.getTabBar === 'function' &&
-        this.getTabBar()) {
-        this.getTabBar().setData({
-          selected: 0
-        })
-      }
+     
     }
   },
   data: {
-    userName: '首页',
-    leftIndex: 0,
-    leftTab: [{title: '摩托车'},{title: '汽车'}],
-    region: ['上海市', '上海市', '浦东新区'],
+    content: '',
+    phone: '',
   }, // 私有数据，可用于模板渲染
  
   methods: {
     // 拨打电话
     bindTextAreaBlur(){
     
+    },
+    submitAdvice(){
+      var {content, phone} = this.data
+      API.addAdvice({content, phone}).then(res => {
+        wx.navigateBack();
+        wx.showToast({
+          title: res.msg,
+          icon: 'none'
+        })
+      })
+    },
+    updateInputValue(e){
+      this.data[e.currentTarget.dataset.inputkey] = e.detail.value
     },
   }
 })

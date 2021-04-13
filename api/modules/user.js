@@ -34,9 +34,19 @@ const publish = data => {
 		data
 	})
 }
+// 下单
 const addOrder = data => {
 	return _request({
 		url: '/wechat/addOrder',
+		method: 'post',
+		data
+	})
+}
+
+// 意见反馈
+const addAdvice = data => {
+	return _request({
+		url: '/wechat/addAdvice',
 		method: 'post',
 		data
 	})
@@ -62,6 +72,7 @@ module.exports =  {
 	login,
 	publish,
 	addOrder,
+	addAdvice,
 	getUserOrderList
 	// uploadFile
 }

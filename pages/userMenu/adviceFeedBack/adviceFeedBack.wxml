@@ -4,14 +4,14 @@
       <image class="topIcon driveCard" src="/image/feedBack.png"></image>
     </view>
     <view class="pb30 ">
-      <textarea maxlength="200" class="textContent" bindblur="bindTextAreaBlur" placeholder="请填写反馈内容" />
+      <textarea value="{{content}}" bindinput="updateInputValue"  data-inputKey="content" maxlength="200" class="textContent"  placeholder="请填写反馈内容" />
     </view>
   </view>
   <view class="bgfff borderR10 m20 p30">
-      <input confirm-type="done" placeholder="(选填) 手机号/微信号" value="{{contact}}" placeholder-class="colorccc"  />
+      <input value="{{phone}}" bindinput="updateInputValue"  data-inputKey="phone" confirm-type="done" placeholder="(选填) 手机号/微信号"  placeholder-class="colorccc"  />
     </view>
 
-  <button catchtap="showPayAmout" class="button commBtnSty">
+  <button catchtap="submitAdvice" class="button commBtnSty">
       <text class="fs30" >提交</text>
     </button>
 

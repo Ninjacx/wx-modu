@@ -132,6 +132,11 @@
           "pathName": "pages/userMenu/historyOrder/historyOrder",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/userMenu/adviceFeedBack/adviceFeedBack",
+          "pathName": "pages/userMenu/adviceFeedBack/adviceFeedBack",
+          "scene": null
         }
       ]
     }
