@@ -119,6 +119,11 @@ Component({
         url: '/pages/userMenu/historyOrder/historyOrder'
       })
     },
+     to_userPublish(){
+      wx.navigateTo({
+        url: '/pages/userMenu/userPublish/userPublish'
+      })
+    },
     to_newUser(){
       wx.navigateTo({
         url: '/pages/userMenu/newUser/newUser'

@@ -51,6 +51,15 @@ const addAdvice = data => {
 		data
 	})
 }
+// 牌照发布。
+const publishLicensePlate = data => {
+	return _request({
+		url: '/wechat/publishLicensePlate',
+		method: 'post',
+		data
+	})
+}
+
 const getUserOrderList = data => {
 	return _request({
 		url: '/wechat/getUserOrderList',
@@ -71,6 +80,7 @@ module.exports =  {
 	step2,
 	login,
 	publish,
+	publishLicensePlate,
 	addOrder,
 	addAdvice,
 	getUserOrderList

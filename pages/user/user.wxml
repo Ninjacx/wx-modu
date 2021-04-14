@@ -20,6 +20,10 @@
               <view><i class="fs55 iconfont icon-icon2-copy color59 "></i></view>
               <view class="mt10 fs20">我的订单</view>
             </view>
+             <view catchtap="to_userPublish" class="flex1">
+              <view><i class="fs55 iconfont icon-icon2-copy color59 "></i></view>
+              <view class="mt10 fs20">我的发布</view>
+            </view>
             <view catchtap="to_historyOrder" class="flex1">
               <view><i class="fs55 iconfont icon-lishidingdan color59 "></i></view>
               <view class="mt10 fs20">历史订单</view>

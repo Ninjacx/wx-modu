@@ -24,14 +24,15 @@ Component({
   data: {
     files: '/image/driveCardA.png', // 文件对象
     typeArrayIndex: 0,
+    licensePlateIndex: 0,
     pageData: {
       type_id: 1,
       motorcycle_name: '',
-      license_plate_id: 0,
+      license_plate_id: 1,
       volume: '',
       rent_day: '',
       rent_month: '',
-      region_id: 3,
+      region_id: 1,
       addr_detail: '',
       contact: '',
       contact_phone: '',
@@ -53,14 +54,15 @@ Component({
       this.data.pageData[e.currentTarget.dataset.inputkey] = e.detail.value
     },
     bindRegionChange(e){
-      this.data.pageData['region_id'] = e.detail.value
+      this.data.pageData['region_id'] = this.data.regionArray[e.detail.value].id
       this.setData({
         pageData: this.data.pageData
       })
     },
     bindPickerChange(e){
-      this.data.pageData['license_plate_id'] = e.detail.value
+      this.data.pageData['license_plate_id'] = this.data.multiArray[e.detail.value].id
       this.setData({
+        licensePlateIndex: e.detail.value,
         pageData: this.data.pageData
       })
     },
@@ -85,34 +87,35 @@ Component({
       })
     },
     submitUserDoc: function(){
-      console.log('this.data.pageData',this.data.pageData);
-     
-      // 当类别为牌照的时候 调用不上传图片的接口
-      var userInfo = wx.getStorageSync('userInfo')
-      wx.uploadFile({
-        // /upload
-        header: { Authorization: userInfo.id },
-        url: beaseUrl+'/weChat/publish', //仅为示例，非真实的接口地址
-        filePath: this.data.files[0],
-        name: 'file',
-        formData: this.data.pageData,
-        success (res){
-          wx.showToast({
-            title: '发布成功',
-            icon: 'none',
-            duration: 2000
+      // 当选择牌照则调用发布牌照的接口，其它都需要图片
+      if(this.data.typeArray[this.data.typeArrayIndex].id === 3){
+        API.publishLicensePlate(this.data.pageData).then(res=>{
+          console.log('res', res);
+        })
+      }else{
+         // 当类别为牌照的时候 调用不上传图片的接口
+          var userInfo = wx.getStorageSync('userInfo')
+          wx.uploadFile({
+            // /upload
+            header: { Authorization: userInfo.id },
+            url: beaseUrl+'/weChat/publish', //仅为示例，非真实的接口地址
+            filePath: this.data.files[0],
+            name: 'file',
+            formData: this.data.pageData,
+            success (res){
+              // 关闭当前页面，跳转到我的订单里
+              wx.redirectTo({
+                url: '/pages/userMenu/userPublish/userPublish'
+              })
+              wx.showToast({
+                title: '发布成功',
+                icon: 'none',
+                duration: 2000
+              })
+            }
           })
-          // if(res.code === 200){
-          //   // 是否继续发布 继续发布则留在此页面保留部分数据 
-          //   // 不发布则返回
-          //   wx.showToast({
-          //     title: '发布成功',
-          //     icon: 'none',
-          //     duration: 2000
-          //   })
-          // }
-        }
-      })
+      }
+     
     }
   }
 })

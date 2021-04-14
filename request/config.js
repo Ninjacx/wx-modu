@@ -10,7 +10,7 @@ const version = __wxConfig.envVersion;
 switch (version) {
   case 'develop':
     // beaseUrl ="http://47.98.163.21"; //开发版
-    beaseUrl ="http://192.168.226.1";
+    beaseUrl ="http://172.16.19.133";
     // beaseUrl ="https://qa.tranderpay.com/api/v1"; //开发版
     // beaseUrl ="http://172.16.19.220:8888/api/v1"; //开发版
     break;

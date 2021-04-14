@@ -9,6 +9,7 @@
     "pages/userMenu/userDoc/userDoc",
     "pages/userMenu/newUser/newUser",
     "pages/userMenu/userOrder/userOrder",
+    "pages/userMenu/userPublish/userPublish",
     "pages/userMenu/historyOrder/historyOrder",
     "pages/userMenu/adviceFeedBack/adviceFeedBack",
     "pages/userMenu/member/member"

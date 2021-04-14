@@ -29,9 +29,9 @@
 <view class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>牌照类型</view>
   <view class="flex1 textRight">
-    <picker bindchange="bindPickerChange" value="{{pageData.license_plate_id}}" range-key="license_plate_name" range="{{multiArray}}">
+    <picker bindchange="bindPickerChange" value="{{licensePlateIndex}}" range-key="license_plate_name" range="{{multiArray}}">
     <view class="picker">
-      {{multiArray[pageData.license_plate_id].license_plate_name}}
+      {{multiArray[licensePlateIndex].license_plate_name}}
     </view>
   </picker>
   </view>
