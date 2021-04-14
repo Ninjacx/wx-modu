@@ -52,6 +52,14 @@
     </view>
   </view>
 </view>
+<view wx:if="{{typeArray[typeArrayIndex].id === 3}}" class="displayFlex cardView">
+  <view class="flex1 lh50"><span class="ml25">租金（年）</span></view>
+  <view class="flex1 textRight">
+    <view class="weui-cell weui-cell_input">
+      <input maxlength="10" value="{{pageData.rent_month}}" bindinput="updateInputValue"  data-inputKey="rent_month" class="weui-input pr10" type="number" placeholder="请填写月租金" />
+    </view>
+  </view>
+</view>
 <view wx:if="{{typeArray[typeArrayIndex].id !== 3}}" class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>车辆所在区</view>
   <view class="flex1 textRight">

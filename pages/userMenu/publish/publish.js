@@ -1,6 +1,7 @@
 import {area} from '../../../utils/commonData'
 import {beaseUrl} from '../../../request/config'
 import API from '../../../api/index'
+var {wxToast} = getApp().globalData.common
 Component({
   pageLifetimes: {
     show() {
@@ -89,8 +90,12 @@ Component({
     submitUserDoc: function(){
       // 当选择牌照则调用发布牌照的接口，其它都需要图片
       if(this.data.typeArray[this.data.typeArrayIndex].id === 3){
+        // var {} = this.data.pageData
         API.publishLicensePlate(this.data.pageData).then(res=>{
-          console.log('res', res);
+          wx.redirectTo({
+            url: '/pages/userMenu/userPublish/userPublish'
+          })
+          wxToast(res.msg)
         })
       }else{
          // 当类别为牌照的时候 调用不上传图片的接口
@@ -107,11 +112,7 @@ Component({
               wx.redirectTo({
                 url: '/pages/userMenu/userPublish/userPublish'
               })
-              wx.showToast({
-                title: '发布成功',
-                icon: 'none',
-                duration: 2000
-              })
+              wxToast('发布成功')
             }
           })
       }
