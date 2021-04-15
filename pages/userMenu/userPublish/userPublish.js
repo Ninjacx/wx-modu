@@ -3,7 +3,7 @@ import {beaseUrl} from '../../../request/config'
 Component({
   pageLifetimes: {
     show() {
-      this.init(1)
+      this.init()
       if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
         this.getTabBar().setData({
@@ -15,8 +15,8 @@ Component({
   data: {
     beaseUrl: beaseUrl,
     pageData: [],
-    navTab: [{statusName: '未出租',status: 1},{statusName:'已出租',status: 2}],        
-    currentTab: 1,
+    navTab: [{statusName: '未出租',status: 0},{statusName:'已出租',status: 1}],        
+    currentTab: 0,
     // userName: '首页',
     // leftIndex: 0,
     // leftTab: [{title: '摩托车'},{title: '汽车'}],
@@ -32,7 +32,8 @@ Component({
     //   console.log(e);
     // },
     init(status){
-      API.getUserOrderList({status}).then(res => {
+      console.log('this.data.currentTab',this.data.currentTab);
+      API.getUserPublishDataList({lease: this.data.currentTab}).then(res => {
         this.setData({
           pageData: res.data
         })

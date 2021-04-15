@@ -67,6 +67,14 @@ const getUserOrderList = data => {
 		data
 	})
 }
+const getUserPublishDataList = data => {
+	return _request({
+		url: '/wechat/userPublishDataList',
+		method: 'get',
+		data
+	})
+}
+
 // 上传图片
 // const uploadFile = data => {
 // 	return _request({
@@ -83,6 +91,7 @@ module.exports =  {
 	publishLicensePlate,
 	addOrder,
 	addAdvice,
-	getUserOrderList
+	getUserOrderList,
+	getUserPublishDataList
 	// uploadFile
 }
