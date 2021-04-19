@@ -86,9 +86,9 @@ Page({
     WxPayMent: function(e) {
       
       var {publishId} = this.data.pageData
-      var {countDay, startDate, startTime} = this.data
+      var {countDay, startDate, endDate ,startTime, endTime} = this.data
       // 支付成功，生成订单
-      API.addOrder({publishId, countDay,startDate,startTime}).then(res => {
+      API.addOrder({publishId, countDay,startDate,startTime, endDate, endTime}).then(res => {
         // 关闭当前页面，跳转到我的订单里
         wx.redirectTo({
           url: '/pages/userMenu/userOrder/userOrder'

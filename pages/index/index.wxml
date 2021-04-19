@@ -8,6 +8,14 @@
           </view>
         </picker>
       </view>
+      <!-- 出租，未出租，全部状态 -->
+      <view class="flex1 textCenter">
+        <picker bindchange="bindcc_Change" value="{{ccIndex}}" range-key="name" range="{{ccArray}}">
+          <view class="picker">
+            状态 {{ccArray[ccIndex].id!=0?ccArray[ccIndex].name:''}}
+          </view>
+        </picker>
+      </view>
       <view class="flex1 textCenter">
         <picker bindchange="bindcc_Change" value="{{ccIndex}}" range-key="name" range="{{ccArray}}">
           <view class="picker">
@@ -33,7 +41,7 @@
     <view class="mt20">
       <view catchtap="toDetail"  wx:for="{{rightArray}}" data-leftData="{{item}}" class="bgFFF pt10 bb8 rightList displayFlex">
         <view class="posR">
-          <view wx:if="{{item.is_active === 1}}">
+          <view wx:if="{{item.is_lease === 1}}">
             <view class="imgTxt" style="color:#ffffff;z-index:1;">已出租</view>
             <view class="imgTxt" style="background:#000000;opacity:0.5;border-radius:10rpx;">已出租</view>
           </view>
