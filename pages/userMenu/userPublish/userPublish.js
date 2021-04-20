@@ -1,5 +1,6 @@
 import API from '../../../api/index'
 import {beaseUrl} from '../../../request/config'
+import {setDataTime} from '../../../utils/common'
 Component({
   pageLifetimes: {
     show() {
@@ -34,10 +35,16 @@ Component({
     init(status){
       console.log('this.data.currentTab',this.data.currentTab);
       API.getUserPublishDataList({lease: this.data.currentTab}).then(res => {
-        this.setData({
-          pageData: res.data
+        var obj =  res.data.map((item)=>{
+          return {
+            ...item,
+            start_time: setDataTime(item.start_time),
+            end_time: setDataTime(item.end_time),
+          }
         })
-        // console.log('pageData',this.data.pageData[2]['Publish.volume']);
+        this.setData({
+          pageData: obj
+        }) 
       })
     },
     // 取消订单

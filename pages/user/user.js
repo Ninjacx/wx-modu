@@ -57,7 +57,6 @@ Component({
               icon: 'none',
               duration: 2000
             })
-            
           })
         })
       })

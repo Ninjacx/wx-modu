@@ -1,19 +1,12 @@
-Component({
-  pageLifetimes: {
-    show() {
-      if (typeof this.getTabBar === 'function' &&
-        this.getTabBar()) {
-        this.getTabBar().setData({
-          selected: 0
-        })
-      }
-    }
+Page({
+  onLoad: function () {
+      
   },
   data: {
+
     multiArray: [{userTypeName: '个人'},{userTypeName: '商户'}],
     pageData:{
-      user_type: 0,
-
+      user_type: 0, // 默认个人
     },
     sex: '1', // 0 女 1 男
     userName: '首页',
@@ -25,7 +18,6 @@ Component({
     contraryDriveCard: '/image/driveCardB.png',// 驾驶证反面照片
   }, // 私有数据，可用于模板渲染
  
-  methods: {
     // 点击左边菜单
     leftMenu(e){
       this.setData({
@@ -85,5 +77,4 @@ Component({
     updateInputValue(e){
       this.data.pageData[e.currentTarget.dataset.inputkey] = e.detail.value
     },
-  }
 })

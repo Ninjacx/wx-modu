@@ -59,7 +59,15 @@ const publishLicensePlate = data => {
 		data
 	})
 }
-
+// 申请成为商户
+const applyMember = data => {
+	return _request({
+		url: '/wechat/applyMember',
+		method: 'post',
+		data
+	})
+}
+// 用户订单列表
 const getUserOrderList = data => {
 	return _request({
 		url: '/wechat/getUserOrderList',
@@ -67,6 +75,7 @@ const getUserOrderList = data => {
 		data
 	})
 }
+// 我的发布列表
 const getUserPublishDataList = data => {
 	return _request({
 		url: '/wechat/userPublishDataList',
@@ -74,15 +83,14 @@ const getUserPublishDataList = data => {
 		data
 	})
 }
-
-// 上传图片
-// const uploadFile = data => {
-// 	return _request({
-// 		url: '/upload',
-// 		method: 'post',
-// 		data
-// 	})
-// }
+// 查询单条用户信息
+const getFindOneUser = data => {
+	return _request({
+		url: '/wechat/getFindOneUser',
+		method: 'get',
+		data
+	})
+}
 module.exports =  {
 	step1,
 	step2,
@@ -92,6 +100,8 @@ module.exports =  {
 	addOrder,
 	addAdvice,
 	getUserOrderList,
-	getUserPublishDataList
+	getUserPublishDataList,
+	applyMember,
+	getFindOneUser
 	// uploadFile
 }
