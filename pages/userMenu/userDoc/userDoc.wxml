@@ -69,7 +69,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>地址</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData.volume}}" bindinput="updateInputValue"  data-inputKey="volume" class="weui-input pr10" type="number" placeholder="请填写默认店面提车地址" />
+      <input value="{{pageData.volume}}" bindinput="updateInputValue"  data-inputKey="volume" class="weui-input pr10" type="number" placeholder="请填写默认提车地址" />
     </view>
   </view>
 </view>
