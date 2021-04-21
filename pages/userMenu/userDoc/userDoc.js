@@ -1,6 +1,9 @@
+import API from '../../../api/index'
 Page({
   onLoad: function () {
-      
+    API.getFindOneUser().then(res=>{
+      console.log('onload', res);
+    })
   },
   data: {
 
