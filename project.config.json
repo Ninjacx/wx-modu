@@ -154,6 +154,12 @@
         {
           "name": "pages/userMenu/userPublish/userPublish",
           "pathName": "pages/userMenu/userPublish/userPublish",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/userPublicDoc/userPublicDoc",
+          "pathName": "pages/userMenu/userPublicDoc/userPublicDoc",
           "scene": null
         }
       ]

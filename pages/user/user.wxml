@@ -38,6 +38,10 @@
           <view class="flex1">我的资料</view>
           <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
+        <view catchtap="to_userPublicDoc" class="displayFlex cardView">
+          <view class="flex1">我的租借资料</view>
+          <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
+        </view>
         <view catchtap="publish" class="displayFlex cardView">
           <view class="flex1">发布</view>
           <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>

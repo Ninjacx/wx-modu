@@ -34,9 +34,6 @@ Component({
       var {encryptedData,iv} = e.detail
       API.step1({code: this.data.wxLoginResCode}).then((Step1res)=>{
         // this.setData({ OpenidSessionKeyParams: res })
-        // Step1res.data.openid
-        // console.log('"oufS3s_jVlTbYJvyAdtsZLhIbMHk"');
-        // console.log('res.data.sessionKey',res.data.session_key);
         API.step2({ sessionKey: Step1res.data.session_key, encryptedData, iv }).then((res)=>{
           // Step1res.data.openid
           // res.data.phoneNumber
@@ -133,10 +130,15 @@ Component({
         url: '/pages/userMenu/userOrder/userOrder'
       })
     },
-    // 个人资料
+    // 我的资料（租车资料）
     to_userDoc(){
       wx.navigateTo({
         url: '/pages/userMenu/userDoc/userDoc'
+      })
+    },
+    to_userPublicDoc(){
+      wx.navigateTo({
+        url: '/pages/userMenu/userPublicDoc/userPublicDoc'
       })
     }
   }
