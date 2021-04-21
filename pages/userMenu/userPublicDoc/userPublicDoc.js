@@ -1,12 +1,17 @@
+import API from '../../../api/index'
 Page({
   onLoad: function () {
-      
+    API.getFindOneUser().then(res=>{
+      this.setState({
+        pageData: res.data
+      })
+    })
   },
   data: {
 
     multiArray: [{userTypeName: '个人'},{userTypeName: '商户'}],
     pageData:{
-      user_type: 0, // 默认个人
+      lease_user_type: 0, // 默认个人
     },
     sex: '1', // 0 女 1 男
     userName: '首页',
@@ -38,7 +43,7 @@ Page({
       })
     },
     bindPickerChange(e){
-      this.data.pageData['user_type'] = e.detail.value
+      this.data.pageData['lease_user_type'] = e.detail.value
       this.setData({
         pageData: this.data.pageData
       })
