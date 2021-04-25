@@ -86,10 +86,10 @@
     <view><text class="mr10 colorRed">*</text>上传驾驶证照片<text class="colorRed">（正副页）</text></view>
     <view class="displayFlex">
       <view catchtap="uploadImage" data-index="1" class="flex1 mt20">
-          <image class="rightImg driveCard" src="{{frontDriveCard}}"></image>
+          <image class="rightImg driveCard" src="{{files.driveCardA}}"></image>
       </view>
       <view catchtap="uploadImage" data-index="2" class="flex1 mt20">
-          <image class="rightImg driveCard" src="{{contraryDriveCard}}"></image>
+          <image class="rightImg driveCard" src="{{files.driveCardB}}"></image>
       </view>
     </view>
   </view>

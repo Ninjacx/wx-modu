@@ -59,6 +59,13 @@ const publishLicensePlate = data => {
 		data
 	})
 }
+const setUserDoc = data => {
+	return _request({
+		url: '/wechat/setUserDoc',
+		method: 'post',
+		data
+	})
+}
 // 申请成为商户
 const applyMember = data => {
 	return _request({
@@ -96,6 +103,7 @@ module.exports =  {
 	step2,
 	login,
 	publish,
+	setUserDoc,
 	publishLicensePlate,
 	addOrder,
 	addAdvice,

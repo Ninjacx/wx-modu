@@ -3,9 +3,9 @@
 <view class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>类型</view>
   <view class="flex1 textRight">
-    <picker bindchange="bindPickerChange" value="{{pageData.user_type}}" range-key="userTypeName" range="{{multiArray}}">
+    <picker bindchange="bindPickerChange" value="{{pageData.lease_user_type}}" range-key="userTypeName" range="{{multiArray}}">
     <view class="picker">
-      {{multiArray[pageData.user_type].userTypeName}}
+      {{multiArray[pageData.lease_user_type].userTypeName}}
     </view>
   </picker>
   </view>
@@ -26,21 +26,6 @@
     </view>
   </view>
 </view>
-<!-- <view wx:if="{{pageData.user_type == 0}}" class="displayFlex cardView ">
-  <view class="flex1 lh50"><text class="mr10 colorRed">*</text>性别</view>
-  <view class="flex1 mr10">
-    <view catchtap="selectSex" class="fr"  data-sex="0">
-      <image class="sexSize vm ml20" src="/image/{{sex === '0'? 'v1':'v0'}}.png"></image> <text class="ml5 vm {{sex === '0'?'':'colora5'}}">女</text>
-    </view>
-    <view catchtap="selectSex" class="fr" data-sex="1">
-      <image class="sexSize vm" src="/image/{{sex === '1'? 'n1':'n0'}}.png"></image> <text class="ml5 vm {{sex === '1'?'':'colora5'}}">男</text>
-    </view>
-  </view>
-</view> -->
-<!-- <view class="displayFlex cardView ">
-  <view class="flex1"><text class="mr10 colorRed">*</text>国籍</view>
-  <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
-</view> -->
 <view class="displayFlex cardView ">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>紧急联系人</text></view>
   <view class="flex1 textRight">
@@ -57,7 +42,8 @@
     </view>
   </view>
 </view>
-<view wx:if="{{pageData.user_type == 1}}" class="displayFlex cardView">
+<!--  wx:if="{{pageData.lease_user_type == 1}}" -->
+<view class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>地址</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
@@ -73,7 +59,7 @@
     </view>
   </view>
 </view> -->
-<view wx:if="{{pageData.user_type == 0}}" class="mt30">
+<view wx:if="{{pageData.lease_user_type == 0}}" class="mt30">
   <view class="m20">
     <view><text class="mr10 colorRed">*</text>上传身份证照片<text class="colorRed">（正副页）</text></view>
     <view class="displayFlex">
