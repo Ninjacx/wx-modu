@@ -5,13 +5,19 @@ Page({
   onLoad: function () {
     API.getFindOneUser().then(res=>{
       console.log('onload', res);
+      this.setData({
+        pageData: res.data
+      })
     })
   },
   data: {
-    multiArray: [{userTypeName: '个人'},{userTypeName: '商户'}],
     pageData:{
-      user_type: 0, // 默认个人
-      sex: '1', // 0 女 1 男
+      real_name: '', //姓名
+      phone: '', // 联系人电话
+      drive_licence: '', // 驾驶证号码
+      sex: 1, // 性别
+      emergency_contact: '', // 紧急联系人
+      emergency_phone: '', // 紧急联系人电话
     },
     files:{
       driveCardA: '/image/driveCardA.png',// 驾驶证正面照片
@@ -63,7 +69,7 @@ Page({
         success(res){
           // tempFilePath可以作为img标签的src属性显示图片
           const tempFilePaths = res.tempFilePaths
-          var cardJson = {1: {driveCardA: tempFilePaths},2: {driveCardB: tempFilePaths}}
+          // var cardJson = {1: {driveCardA: tempFilePaths},2: {driveCardB: tempFilePaths}}
           var fileList = _this.data.files
           if(e.currentTarget.dataset.index == 1){
             fileList.driveCardA = tempFilePaths
@@ -79,10 +85,20 @@ Page({
     },
     submitUserDoc: function(){
       // 1.上传图片 2. 拿到上传的图片链接，更新用户资料
-      Promise.all(uploadFile(this.data.files.driveCardA[0],{type: 'A'},(res) => {return res}), uploadFile(this.data.files.driveCardB[0],{type: 'B'},(res) => {return res}))
-      .then(arr => {
-        console.log('arr',arr);
-        // var [type, licensePlate] = arr
+      // uploadFile(this.data.files.driveCardA[0],{type: 'A'}), uploadFile(this.data.files.driveCardB[0],{type: 'B'})  , uploadFile(this.data.files.driveCardB[0],{type: 'B'} , (res)=>{console.log('---', res);return res} )
+      Promise.all([uploadFile(this.data.files.driveCardA[0],{type: 'A'}).then((res)=>{return res}),uploadFile(this.data.files.driveCardB[0],{type: 'B'}).then((res)=>{return res})])
+      .then(result => {
+        // console.log('result',result);
+        var [driveCardA, driveCardB] = result
+        console.log('driveCardA.data.params.filePathName',driveCardA.data.params.filePathName);
+        console.log('driveCardA.data.params.filePathName',driveCardB.data.params.filePathName);
+        // if(driveCardA.data.params.type === 'A'){
+        //   driveCardA.data.params.filePathName
+        // }
+        // if(driveCardB.data.params.type === 'B'){
+        //   driveCardA.data.params.filePathName
+        // }
+        // console.log('driveCardA, driveCardB',driveCardA.data.params.type === 'A', driveCardB);
         // this.setData({
         //   typeArray: type.data,
         //   multiArray: licensePlate.data
@@ -107,8 +123,8 @@ Page({
       // })
     },
     selectSex: function(e){
-      this.setData({sex: e.currentTarget.dataset.sex})
-      console.log(this.data.sex);
+      this.data.pageData['sex'] =  e.currentTarget.dataset.sex
+      this.setData({pageData: this.data.pageData})
     },
     updateInputValue(e){
       this.data.pageData[e.currentTarget.dataset.inputkey] = e.detail.value
