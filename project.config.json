@@ -160,6 +160,12 @@
         {
           "name": "pages/userMenu/userPublicDoc/userPublicDoc",
           "pathName": "pages/userMenu/userPublicDoc/userPublicDoc",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/userPublicDoc/userPublicDoc",
+          "pathName": "pages/userMenu/userPublicDoc/userPublicDoc",
           "scene": null
         }
       ]
