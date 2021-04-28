@@ -3,7 +3,7 @@
 <view class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>类型</view>
   <view class="flex1 textRight">
-    <picker bindchange="bindPickerChange" value="{{pageData.lease_user_type}}" range-key="userTypeName" range="{{multiArray}}">
+    <picker bindchange="bindPickerChange" value="{{pageData.lease_user_type}}" range-key="lease_user_type" range="{{multiArray}}">
     <view class="picker">
       {{multiArray[pageData.lease_user_type].userTypeName}}
     </view>
@@ -14,7 +14,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>姓名</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input class="weui-input" maxlength="10" placeholder="请填写姓名" />
+      <input value="{{pageData.lease_contact}}" bindinput="updateInputValue"  data-inputKey="lease_contact" class="weui-input" maxlength="10" placeholder="请填写姓名" />
     </view>
   </view>
 </view>
@@ -22,7 +22,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>联系人电话</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData.phone}}" bindinput="updateInputValue"  data-inputKey="phone" class="weui-input pr10" type="number" placeholder="请填写联系人电话" />
+      <input value="{{pageData.lease_contact_phone}}" bindinput="updateInputValue"  data-inputKey="lease_contact_phone"  class="weui-input pr10" type="number" placeholder="请填写联系人电话" />
     </view>
   </view>
 </view>
@@ -30,7 +30,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>紧急联系人</text></view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input class="weui-input pr10" placeholder="请填写紧急联系人" />
+      <input value="{{pageData.lease_emergency_contact}}" bindinput="updateInputValue"  data-inputKey="lease_emergency_contact" class="weui-input pr10" placeholder="请填写紧急联系人" />
     </view>
   </view>
 </view>
@@ -38,7 +38,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>紧急联系人电话</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData.volume}}" bindinput="updateInputValue"  data-inputKey="volume" class="weui-input pr10" type="number" placeholder="请填写紧急联系人电话" />
+      <input value="{{pageData.lease_emergency_phone}}" bindinput="updateInputValue"  data-inputKey="lease_emergency_phone" class="weui-input pr10" type="number" placeholder="请填写紧急联系人电话" />
     </view>
   </view>
 </view>
@@ -47,7 +47,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>地址</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData.volume}}" bindinput="updateInputValue"  data-inputKey="volume" class="weui-input pr10" type="number" placeholder="请填写默认提车地址" />
+      <input value="{{pageData.lease_addr}}" bindinput="updateInputValue"  data-inputKey="lease_addr" class="weui-input pr10" type="number" placeholder="请填写默认提车地址" />
     </view>
   </view>
 </view>
