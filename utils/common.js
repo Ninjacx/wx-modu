@@ -70,6 +70,10 @@ const clearUserInfo = () => {
     return wx.setStorageSync('userInfo','')
   }
 }
+// 接口去除后获取需要的字段指定
+const setResultList = (res, arr) => { 
+  return JSON.parse(JSON.stringify(res, arr))
+}
 // const result = (res) => {
 //   if(res.code){
 
@@ -83,5 +87,6 @@ module.exports = {
   setUserInfo,
   getUserInfo,
   clearUserInfo,
-  setDataTime
+  setDataTime,
+  setResultList
 }

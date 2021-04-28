@@ -1,16 +1,23 @@
 import API from '../../../api/index'
-import {beaseUrl} from '../../../request/config'
+import {imgUrlHost} from '../../../request/config'
+import {setResultList} from '../../../utils/common'
+var {wxToast} = getApp().globalData.common
+// 
 import {uploadFile} from '../../../utils/upload'
 Page({
   onLoad: function () {
     API.getFindOneUser().then(res=>{
-      console.log('onload', res);
+      // console.log('onload', res.data);
+      var result = setResultList(res.data, ['real_name', 'phone', 'drive_licence', 'sex', 'emergency_contact', 'emergency_phone', 'drive_cardA', 'drive_cardB'])
+      this.data.initPageData = JSON.parse(JSON.stringify(result))
       this.setData({
-        pageData: res.data
+        pageData: result
       })
     })
-  },
+  }, 
   data: {
+    imgUrlHost: imgUrlHost,
+    initPageData: [],
     pageData:{
       real_name: '', //姓名
       phone: '', // 联系人电话
@@ -18,7 +25,9 @@ Page({
       sex: 1, // 性别
       emergency_contact: '', // 紧急联系人
       emergency_phone: '', // 紧急联系人电话
-    },
+      drive_cardA: '',
+      drive_cardB: '',
+    }, 
     files:{
       driveCardA: '/image/driveCardA.png',// 驾驶证正面照片
       driveCardB: '/image/driveCardB.png',// 驾驶证反面照片
@@ -44,13 +53,6 @@ Page({
         region: e.detail.value
       })
     },
-    bindPickerChange(e){
-      this.data.pageData['user_type'] = e.detail.value
-      this.setData({
-        pageData: this.data.pageData
-      })
-      console.log(this.data.pageData)
-    },
     onReachBottom: function () {
       // this.onBottom();
       console.log('123');
@@ -72,55 +74,43 @@ Page({
           // var cardJson = {1: {driveCardA: tempFilePaths},2: {driveCardB: tempFilePaths}}
           var fileList = _this.data.files
           if(e.currentTarget.dataset.index == 1){
+            _this.data.pageData.drive_cardA = ''
             fileList.driveCardA = tempFilePaths
           }
           if(e.currentTarget.dataset.index == 2){
+            _this.data.pageData.drive_cardB = ''
             fileList.driveCardB = tempFilePaths
           }
           _this.setData({
-            files: fileList
+            files: fileList,
+            pageData: _this.data.pageData
           })
         }
       })
     },
     submitUserDoc: function(){
-      // 1.上传图片 2. 拿到上传的图片链接，更新用户资料
-      // uploadFile(this.data.files.driveCardA[0],{type: 'A'}), uploadFile(this.data.files.driveCardB[0],{type: 'B'})  , uploadFile(this.data.files.driveCardB[0],{type: 'B'} , (res)=>{console.log('---', res);return res} )
-      Promise.all([uploadFile(this.data.files.driveCardA[0],{type: 'A'}).then((res)=>{return res}),uploadFile(this.data.files.driveCardB[0],{type: 'B'}).then((res)=>{return res})])
-      .then(result => {
-        // console.log('result',result);
-        var [driveCardA, driveCardB] = result
-        console.log('driveCardA.data.params.filePathName',driveCardA.data.params.filePathName);
-        console.log('driveCardA.data.params.filePathName',driveCardB.data.params.filePathName);
-        // if(driveCardA.data.params.type === 'A'){
-        //   driveCardA.data.params.filePathName
-        // }
-        // if(driveCardB.data.params.type === 'B'){
-        //   driveCardA.data.params.filePathName
-        // }
-        // console.log('driveCardA, driveCardB',driveCardA.data.params.type === 'A', driveCardB);
-        // this.setData({
-        //   typeArray: type.data,
-        //   multiArray: licensePlate.data
-        // })
-      })
-      .catch(err=>{
-        console.log(err);
-      })
+      // 当修改了图片则走上传图片
+      if(this.data.initPageData.drive_cardA != this.data.pageData.drive_cardA || this.data.initPageData.drive_cardB != this.data.pageData.drive_cardB){
+          // 1.上传图片 2. 拿到上传的图片链接，更新用户资料
+          Promise.all([uploadFile(this.data.files.driveCardA[0],{type: 'A'}).then((res)=>{return res}),uploadFile(this.data.files.driveCardB[0],{type: 'B'}).then((res)=>{return res})])
+          .then(result => {
+            // console.log('result',result);
+            var [driveCardA, driveCardB] = result
+            this.data.pageData.drive_cardA = driveCardA.data.filePathName
+            this.data.pageData.drive_cardB = driveCardB.data.filePathName
+            API.setUserDoc(this.data.pageData).then(res=>{ 
+              wxToast(res.msg)
+            })
+          })
+          .catch(err=>{
+            console.log(err);
+          })
+      }else{ 
+        API.setUserDoc(this.data.pageData).then(res=>{ 
+          wxToast(res.msg)
+        })
+      }
       
-      
-      // var userInfo = wx.getStorageSync('userInfo')
-      // console.log(beaseUrl+'/weChat/setUserDoc');
-      // wx.uploadFile({
-      //   // /upload
-      //   header: { Authorization: userInfo.id },
-      //   url: beaseUrl+'/weChat/setUserDoc', //仅为示例，非真实的接口地址
-      //   filePath: `${this.data.files.driveCardA[0]},${this.data.files.driveCardB[0]}`,
-      //   name: 'file',
-      //   formData: this.data.pageData,
-      //   success (res){
-      //   }
-      // })
     },
     selectSex: function(e){
       this.data.pageData['sex'] =  e.currentTarget.dataset.sex

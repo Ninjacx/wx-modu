@@ -27,7 +27,7 @@ switch (version) {
 }
 
 //文件地址拼接
-const imgUrlHost = beaseUrl.indexOf('.com') !== -1 ? beaseUrl.split('.com')[0] + '.com/tranderpayfiles' : beaseUrl.split(':8888')[0] + '/tranderpayfiles'
+const imgUrlHost = beaseUrl+'/upload/'
 module.exports = {
   beaseUrl,
   imgUrlHost
