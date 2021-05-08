@@ -6,9 +6,9 @@ Page({
       // console.log('onload', res.data);
       var result = setResultList(res.data, ['lease_user_type', 'lease_contact', 'lease_contact_phone', 'lease_emergency_contact', 'lease_emergency_phone', 'lease_addr', 'lease_cardA', 'lease_cardB', 'lease_addr_photo'])
       // this.data.initPageData = JSON.parse(JSON.stringify(result))
-      this.setData({
-        pageData: result
-      })
+      // this.setData({
+      //   pageData: result
+      // })
       console.log('pageData',this.data.pageData);
     })
   },
@@ -16,7 +16,7 @@ Page({
 
     multiArray: [{userTypeName: '个人'},{userTypeName: '商户'}],
     pageData:{
-      lease_user_type: '',
+      lease_user_type: 0,
       lease_contact: '',
       lease_contact_phone: '',
       lease_emergency_contact: '',

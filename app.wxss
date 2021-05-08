@@ -73,7 +73,9 @@ page {
 .m20{margin: 20rpx;}
 .m30{margin: 30rpx;}
 /* padding */
+.p20{padding: 20rpx;}
 .p30{padding: 30rpx;}
+.pt20lr30{padding: 20rpx 30rpx}
 .pt10{padding-top: 10rpx;}
 .pr10{padding-right: 10rpx;}
 .pl20{padding-left: 20rpx;}
@@ -88,6 +90,7 @@ page {
 .payColor{color: #ee8c31;}
 .colorf5{color:#F57807}
 .color6a{color:#6a7377}
+.color5e{color:#5e5e5e}
 .bg6a{background:#6a7377}
 .color333{color:#333333}
 .colora5{color:#a5a5a5e6;}
