@@ -6,6 +6,7 @@ page{
 }
 .left{
   position: fixed;
+  top: 50rpx;
   /* background:#cccccc; */
   height: 100%;
 }
@@ -43,4 +44,7 @@ page{
   height: 66rpx;
   line-height: 66rpx;
   background: #FFFFFF;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }

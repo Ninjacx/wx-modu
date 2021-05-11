@@ -38,7 +38,7 @@
     </view> 
   </view>
   <view data-publishId="" class="right w100">
-    <view class="mt20">
+    <view class="mt70">
       <view catchtap="toDetail"  wx:for="{{rightArray}}" data-leftData="{{item}}" class="bgFFF pt10 bb8 rightList displayFlex">
         <view class="posR">
           <view wx:if="{{item.is_lease === 1}}">

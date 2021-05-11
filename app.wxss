@@ -69,6 +69,8 @@ page {
 .mt40{margin-top: 40rpx;}
 .mt50{margin-top: 50rpx;}
 .mt60{margin-top: 60rpx !important;}
+.mt70{margin-top: 70rpx !important;}
+
 .m10{margin: 10rpx;}
 .m20{margin: 20rpx;}
 .m30{margin: 30rpx;}
