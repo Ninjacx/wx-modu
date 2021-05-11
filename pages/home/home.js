@@ -11,7 +11,8 @@ Page({
       // }
   },
   data: {
-    bannerList: [],
+    bannerList: [], // 轮播图列表
+    demandList: [], // 需求列表
     background: [{id:1,txt:'a'},{id: 2,txt:'b'},{id:3,txt:'c'}],
     indicatorDots: true,
     vertical: false,
@@ -24,11 +25,28 @@ Page({
     region: ['上海市', '上海市', '浦东新区'],
   }, // 私有数据，可用于模板渲染
   init(){
-    API.getBanner({}).then(res => {
-      this.setData({
-        bannerList: res.data
-      })
-    })
+    Promise.all([API.getBanner({}).then(res => { return res }), API.getDemand({}).then(res => { return res })])
+          .then(result => {
+            var [bannerList, demandList] = result
+            console.log('result',result);
+            this.setData({
+              bannerList: bannerList.data,
+              demandList: demandList.data
+            })
+            
+            // var [lease_cardA, lease_cardB] = result
+            // this.data.pageData.lease_cardA = lease_cardA.data.filePathName
+            // this.data.pageData.lease_cardB = lease_cardB.data.filePathName
+            // API.setUserDoc(this.data.pageData).then(res=>{ 
+            //   wxToast(res.msg)
+            // })
+          })
+          .catch(err=>{
+            console.log(err);
+          })
+    
+    // 
+    
   },
     // 点击左边菜单
     leftMenu(e){

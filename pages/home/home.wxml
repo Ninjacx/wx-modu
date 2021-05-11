@@ -13,13 +13,13 @@
 </view>
 <view>
   <view catchtap="to_member" class="displayFlex cardView">
-       <view class="flex1 color5e">需求</view>
+       <view class="flex1 color5e"><i class="iconfont icon-xiangzuo color59 mr10"></i>求购专区</view>
        <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
   </view>
   <view class="bgfff">
-      <view class="pt20lr30">
-        <view>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
-        <view class="color6a mt10 fs20"><text>张三</text><text class="fr">2020-01-01</text></view>
+      <view wx:for="{{demandList}}" class="pt20lr30">
+        <view>{{item.content}}</view>
+        <view class="color6a mt15 fs20"><text>{{item.real_name}}</text><text class="fr">{{item.create_time}}</text></view>
       </view>
   </view>
 </view>

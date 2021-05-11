@@ -110,7 +110,6 @@ Page({
           wxToast(res.msg)
         })
       }
-      
     },
     selectSex: function(e){
       this.data.pageData['sex'] =  e.currentTarget.dataset.sex

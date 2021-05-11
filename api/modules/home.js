@@ -27,7 +27,7 @@ const getType = data => {
 		data
 	})
 }
-// 列表
+// 发布列表
 const publishDataList = data => {
 	return _request({
 		url: '/wechat/publishDataList',
@@ -35,6 +35,15 @@ const publishDataList = data => {
 		data
 	})
 }
+// 需求列表
+const getDemand = data => {
+	return _request({
+		url: '/wechat/getDemand',
+		method: 'get',
+		data
+	})
+}
+
 // 详情
 const publishDetailOne = data => {
 	return _request({
@@ -45,6 +54,7 @@ const publishDetailOne = data => {
 }
 module.exports =  {
 	getBanner,
+	getDemand,
 	getLicensePlate,
 	getType,
 	publishDataList,
