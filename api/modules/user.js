@@ -74,6 +74,14 @@ const applyMember = data => {
 		data
 	})
 }
+// 删除我的发布中的车型 
+const delPublishOne = data => {
+	return _request({
+		url: '/wechat/delPublishOne',
+		method: 'post',
+		data
+	})
+}
 // 用户订单列表
 const getUserOrderList = data => {
 	return _request({
@@ -110,6 +118,7 @@ module.exports =  {
 	getUserOrderList,
 	getUserPublishDataList,
 	applyMember,
-	getFindOneUser
+	getFindOneUser,
+	delPublishOne
 	// uploadFile
 }

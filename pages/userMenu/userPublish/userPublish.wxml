@@ -26,9 +26,9 @@
         <view class="payColor displayFlex">
           <view wx:if="{{currentTab === 1}}" class="flex1"><text>订单金额：￥{{item.amount}}</text></view>
           <view wx:else class="flex1"><text>编辑车辆信息</text></view>
-          <!-- <view wx:if="{{currentTab === 0}}" catchtap="" class="mr20" catchtap="cancelOrder">
+          <view wx:if="{{currentTab === 0}}" class="mr20" data-pid="{{item.id}}" catchtap="removeModels">
               删除
-          </view> -->
+          </view>
         </view>
       </view>
     </view> 

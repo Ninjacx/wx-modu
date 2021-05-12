@@ -1,6 +1,7 @@
 import API from '../../../api/index'
 import {beaseUrl} from '../../../request/config'
 import {setDataTime} from '../../../utils/common'
+var {wxShowModal} = getApp().globalData.common
 Component({
   pageLifetimes: {
     show() {
@@ -45,6 +46,18 @@ Component({
         this.setData({
           pageData: obj
         }) 
+      })
+    },
+    removeModels(item){
+      console.log('item',item.currentTarget.dataset.pid);
+      wxShowModal('是否确认删除此车型', '删除操作不可逆' ,(res)=>{
+        // 确认删除
+        if(res.confirm){
+          // API.delPublishOne
+          API.delPublishOne({pid: item.currentTarget.dataset.pid}).then(res => {
+            console.log('res',res);
+          })
+        }
       })
     },
     // 取消订单
