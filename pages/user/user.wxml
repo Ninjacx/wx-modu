@@ -42,11 +42,11 @@
           <view class="flex1">我的租借资料</view>
           <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
-        <view catchtap="publish" class="displayFlex cardView">
+        <view wx:if="{{userInfo.apply_status === 1}}" catchtap="publish" class="displayFlex cardView">
           <view class="flex1">发布</view>
           <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
-        <view catchtap="to_member" class="displayFlex cardView border0">
+        <view wx:else catchtap="to_member" class="displayFlex cardView border0">
           <view class="flex1">成为商户</view>
           <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>

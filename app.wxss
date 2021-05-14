@@ -86,6 +86,7 @@ page {
 .pb20{padding-bottom: 20rpx;}
 .pb30{padding-bottom: 30rpx;}
 .pb50{padding-bottom: 50rpx;}
+.plr30{padding:0 30rpx;}
 /* color */
 .colorFFF{color: #FFFFFF;}
 .colorF6{color: #f6f6f6;}
@@ -112,6 +113,15 @@ page {
 /* common button */
 .commBtnSty{
   width: 600rpx;
+  display: block;
+  background: #434c52c7;
+  font-size: 30rpx;
+  padding: 28rpx 12rpx;
+  line-height: 30rpx;
+  margin: 50rpx auto 30rpx;
+}
+.commBtnStyW100{
+  width: 100%;
   display: block;
   background: #434c52c7;
   font-size: 30rpx;

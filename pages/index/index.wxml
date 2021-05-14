@@ -10,9 +10,10 @@
       </view>
       <!-- 出租，未出租，全部状态 -->
       <view class="flex1 textCenter">
-        <picker bindchange="bindcc_Change" value="{{ccIndex}}" range-key="name" range="{{ccArray}}">
+        <picker bindchange="bindType_Change" value="{{typeIndex}}" range-key="name" range="{{typeArray}}">
           <view class="picker">
-            状态 {{ccArray[ccIndex].id!=0?ccArray[ccIndex].name:''}}
+            {{typeArray[typeIndex].name}}
+             <!-- {{typeArray[typeIndex].id!=0?typeArray[typeIndex].name:'状态'}} -->
           </view>
         </picker>
       </view>

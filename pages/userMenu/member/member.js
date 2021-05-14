@@ -1,5 +1,5 @@
 import API from '../../../api/index'
-var {wxToast} = getApp().globalData.common
+var {wxToast, wxShowModal} = getApp().globalData.common
 // Component({
   // pageLifetimes: {
     // show() {
@@ -29,9 +29,14 @@ var {wxToast} = getApp().globalData.common
     },
     // 申请成为商户
     applyMember(){
-      API.applyMember({}).then(res => {
-        wxToast(res.msg)
-      })
+      wxShowModal('是否已经完善完整租借资料', '没有完善资料则不能通过' ,(res)=>{
+        // 确认删除
+        if(res.confirm){
+          API.applyMember({}).then(res => {
+            wxToast(res.msg)
+          })
+        }
+      }) 
     },
     // 拨打电话
     callPhone(){

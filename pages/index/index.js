@@ -17,6 +17,8 @@ Page({
     regionArray: area(true),
     regionIndex: 0,
     ccArray: motocycle_cc(true),
+    typeIndex: 0,
+    typeArray: [{name: '未出租'}, {name: '已出租'}],
     ccIndex: 0,
     userName: '首页',
     leftIndex: 0,
@@ -63,6 +65,11 @@ Page({
     bindcc_Change(e){
       this.setData({
         ccIndex: e.detail.value
+      })
+    },
+    bindType_Change(e){
+      this.setData({
+        typeIndex: e.detail.value
       })
     },
     

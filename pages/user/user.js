@@ -2,9 +2,8 @@ import API from '../../api/index'
 import {getUserInfo} from '../../utils/common'
 var app = getApp();  //获取app.js
 // import {area,carNumberType, carType} from '../../../utils/commonData'
-Component({
-  pageLifetimes: {
-    show() {
+Page({
+  onLoad() {
      if(!getUserInfo()){
         wx.login({
           success :(res) => {
@@ -12,22 +11,24 @@ Component({
           }
         })
      }else{
-       this.setData({
-        isLogin: false,
-        userInfo: getUserInfo()
-       })
+      this.setData({isLogin: false})
+      // 根据最新的数据获取是否显示菜单
+      API.getFindOneUser({}).then((res)=>{
+        this.setData({
+          userInfo: res.data
+         })
+      })
+     
      }
     },
     hide () { },
     resize () { },
-  },
   data: {
     wxLoginResCode: '',
     isLogin: true, // 默认未登录
     userInfo: [], // 用户信息
     userName: '张三',
   }, // 私有数据，可用于模板渲染
-  methods: {
     // 获取手机号
   getPhoneNumber (e) {
     if (e.detail.errMsg == "getPhoneNumber:ok") {
@@ -141,6 +142,4 @@ Component({
         url: '/pages/userMenu/userPublicDoc/userPublicDoc'
       })
     }
-  }
-  
 })
