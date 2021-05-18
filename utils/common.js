@@ -1,3 +1,20 @@
+// 是否为空
+const isNull = (data, value ,message)=>{
+  // 为true 则代表有空数据
+  var msg = message || '不能为空'
+  console.log('values', value);
+  if(String(value).trim() === ''){
+    data.isNullFlag = true
+    wx.showToast({
+      title: msg,
+      icon: 'none',
+      duration: 2000
+    })
+    return false
+  }
+  data.isNullFlag = false
+  return true
+}
 // 年月日获取星期
 const weekDay = date => {
   var dt = new Date(date.split("-")[0], date.split("-")[1]-1,date = date.split("-")[2]);
@@ -80,6 +97,7 @@ const setResultList = (res, arr) => {
 //   }
 // }
 module.exports = {
+  isNull,
   weekDay,
   dateDiff,
   getNowDate,

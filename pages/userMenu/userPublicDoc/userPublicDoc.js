@@ -1,5 +1,5 @@
 import API from '../../../api/index'
-import {setResultList} from '../../../utils/common'
+import {isNull, setResultList} from '../../../utils/common'
 import {imgUrlHost} from '../../../request/config'
 var {wxToast} = getApp().globalData.common
 import {uploadFile} from '../../../utils/upload'
@@ -16,6 +16,7 @@ Page({
     })
   },
   data: {
+    isNullFlag: false, // 全局校验的标识，true为不让提交，false 过验证能提交
     imgUrlHost: imgUrlHost,
     multiArray: [{userTypeName: '个人'},{userTypeName: '商户'}],
     pageData:{
@@ -116,7 +117,49 @@ Page({
         }
       })
     },
+    validate: function(){
+      // lease_contact: '',
+      // lease_contact_phone: '',
+      // lease_emergency_contact: '',
+      // lease_emergency_phone: '',
+      // lease_addr: '',
+      // lease_addr_photo: '', // 店面照片
+      // lease_cardA: '', // 身份证照片 正面
+      // lease_cardB: '', // 身份证照片 反面
+      // frontDriveCard: '',// 驾驶证正面照片
+      // contraryDriveCard: '',// 驾驶证反面照片
+      var strType = {0: '姓名', 1: '商户名'}
+      var {lease_contact, lease_contact_phone, lease_emergency_contact, lease_emergency_phone, lease_addr, lease_addr_photo, lease_cardA, 
+        lease_cardB, frontDriveCard, contraryDriveCard} = this.data.pageData
+      if(!isNull(this.data, lease_contact, '请填写'+strType[this.data.pageData.lease_user_type])){
+        return false
+      }
+      if(!isNull(this.data, lease_contact_phone, '请填写联系人电话')){
+        return false
+      }
+      if(!isNull(this.data, lease_emergency_contact, '请填写紧急联系人')){
+        return false
+      }
+      if(!isNull(this.data, lease_emergency_phone, '请填写紧急联系人电话')){
+        return false
+      }
+      if(!isNull(this.data, lease_addr, '请填写车辆地址')){
+        return false
+      }
+
+      // if(!isNull(this.data, drive_cardA, '请上传驾驶证正面')){
+      //   return false
+      // }
+      // if(!isNull(this.data, drive_cardB, '请上传驾驶证反面')){
+      //   return false
+      // }
+    },
     submitUserDoc: function(){
+      this.validate()
+      // 没有必填项则不走下面
+      if(this.data.isNullFlag){
+        return false
+      }
       // console.log('this.data.files',this.data.files);
       // 当修改了图片则走上传图片
       // if(this.data.initPageData.drive_cardA != this.data.pageData.drive_cardA || this.data.initPageData.drive_cardB != this.data.pageData.drive_cardB){

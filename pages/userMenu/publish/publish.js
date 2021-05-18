@@ -1,4 +1,5 @@
 import {area} from '../../../utils/commonData'
+import {isNull} from '../../../utils/common'
 import {beaseUrl} from '../../../request/config'
 import API from '../../../api/index'
 var {wxToast} = getApp().globalData.common
@@ -23,6 +24,8 @@ Component({
     }
   },
   data: {
+    isNullFlag: false, // 全局校验的标识，true为不让提交，false 过验证能提交
+
     files: '/image/driveCardA.png', // 文件对象
     typeArrayIndex: 0,
     licensePlateIndex: 0,
@@ -87,7 +90,46 @@ Component({
         }
       })
     },
+    
+    validate: function(){
+      // motorcycle_name: '',
+      // license_plate_id: 1,
+      // volume: '',
+      // rent_day: '',
+      // rent_month: '',
+      // region_id: 1,
+      // addr_detail: '',
+      // contact: '',
+      // contact_phone: '',
+      var {motorcycle_name, volume, rent_day, addr_detail, contact, contact_phone} = this.data.pageData
+   
+      if(!isNull(this.data, motorcycle_name, '请填写车型名称')){
+        return false
+      }
+      if(!isNull(this.data, volume, '请填写排量')){
+        return false
+      }
+      if(!isNull(this.data, rent_day, '请填写日租金')){
+        return false
+      }
+      if(!isNull(this.data, addr_detail, '请填写详细地址')){
+        return false
+      }
+      if(!isNull(this.data, contact, '请填写联系人')){
+        return false
+      }
+      if(!isNull(this.data, contact_phone, '请填写电话')){
+        return false
+      }
+    },
     submitUserDoc: function(){
+
+      this.validate()
+      // 没有必填项则不走下面
+      if(this.data.isNullFlag){
+        return false
+      }
+
       // 当选择牌照则调用发布牌照的接口，其它都需要图片
       if(this.data.typeArray[this.data.typeArrayIndex].id === 3){
         // var {} = this.data.pageData

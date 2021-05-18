@@ -71,7 +71,7 @@
   </view>
 </view>
 <view wx:if="{{typeArray[typeArrayIndex].id !== 3}}" class="displayFlex cardView ">
-  <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>详细位置</text></view>
+  <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>详细地址</text></view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
       <input maxlength="100" value="{{pageData.addr_detail}}" bindinput="updateInputValue"  data-inputKey="addr_detail" class="weui-input pr10" placeholder="请填写详细位置" />

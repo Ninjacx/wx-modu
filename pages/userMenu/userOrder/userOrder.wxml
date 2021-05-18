@@ -30,8 +30,8 @@
               提前归还
           </view>
           <!-- 续租跳转详情页 -->
-          <view catchtap="toDetail" wx:else class="mr20" catchtap="keepOrder">
-              续租
+          <view catchtap="toDetail" wx:else class="mr20" data-publishId="{{item.publish_id}}" catchtap="keepOrder">
+            续租
           </view>
         </view>
       </view>

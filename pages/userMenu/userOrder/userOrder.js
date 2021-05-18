@@ -1,17 +1,10 @@
 import API from '../../../api/index'
 import {beaseUrl} from '../../../request/config'
 import {setDataTime} from '../../../utils/common'
-Component({
-  pageLifetimes: {
-    show() {
+Page({
+  onLoad: function () {
+      console.log(111111);
       this.init(1)
-      if (typeof this.getTabBar === 'function' &&
-        this.getTabBar()) {
-        this.getTabBar().setData({
-          selected: 0
-        })
-      }
-    }
   },
   data: {
     beaseUrl: beaseUrl,
@@ -24,7 +17,6 @@ Component({
     region: ['上海市', '上海市', '浦东新区'],
   }, // 私有数据，可用于模板渲染
  
-  methods: {
     // 点击左边菜单
     // leftMenu(e){
     //   this.setData({
@@ -49,6 +41,11 @@ Component({
     // 取消订单
     cancelOrder(){
       console.log('订单取消');
+    },
+    keepOrder(e){
+      wx.navigateTo({
+        url: '/pages/detail/detail?publishId=' + e.currentTarget.dataset.publishid
+      })
     },
     // 进入详情
     toDetail(){
@@ -80,5 +77,4 @@ Component({
         // 更新属性和数据的方法与更新页面数据的方法类似
       })
     }
-  }
 })

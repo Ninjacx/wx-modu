@@ -1,6 +1,6 @@
 import API from '../../../api/index'
 import {imgUrlHost} from '../../../request/config'
-import {setResultList} from '../../../utils/common'
+import {isNull, setResultList} from '../../../utils/common'
 var {wxToast} = getApp().globalData.common
 // 
 import {uploadFile} from '../../../utils/upload'
@@ -16,6 +16,7 @@ Page({
     })
   }, 
   data: {
+    isNullFlag: false,
     imgUrlHost: imgUrlHost,
     initPageData: [],
     pageData:{
@@ -88,7 +89,36 @@ Page({
         }
       })
     },
+    validate: function(){
+      var {real_name, phone, drive_licence, emergency_contact, emergency_phone, drive_cardA, drive_cardB} = this.data.pageData
+      if(!isNull(this.data, real_name, '请填写姓名')){
+        return false
+      }
+      if(!isNull(this.data, phone, '请填写联系人电话')){
+        return false
+      }
+      if(!isNull(this.data, drive_licence, '请填写驾驶证号码')){
+        return false
+      }
+      if(!isNull(this.data, emergency_contact, '请填写紧急联系人')){
+        return false
+      }
+      if(!isNull(this.data, emergency_phone, '请填写紧急联系人电话')){
+        return false
+      }
+      if(!isNull(this.data, drive_cardA, '请上传驾驶证正面')){
+        return false
+      }
+      if(!isNull(this.data, drive_cardB, '请上传驾驶证反面')){
+        return false
+      }
+    },
     submitUserDoc: function(){
+      this.validate()
+      // 没有必填项则不走下面
+      if(this.data.isNullFlag){
+        return false
+      }
       // 当修改了图片则走上传图片
       if(this.data.initPageData.drive_cardA != this.data.pageData.drive_cardA || this.data.initPageData.drive_cardB != this.data.pageData.drive_cardB){
           // 1.上传图片 2. 拿到上传的图片链接，更新用户资料

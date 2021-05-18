@@ -47,7 +47,7 @@
 </view>
 <!--  wx:if="{{pageData.lease_user_type == 1}}" -->
 <view class="displayFlex cardView">
-  <view class="flex1 lh50"><text class="mr10 colorRed">*</text>地址</view>
+  <view class="flex1 lh50"><text class="mr10 colorRed">*</text>车辆地址</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
       <input value="{{pageData.lease_addr}}" bindinput="updateInputValue"  data-inputKey="lease_addr" class="weui-input pr10" type="number" placeholder="请填写默认提车地址" />
