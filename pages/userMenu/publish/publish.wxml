@@ -63,15 +63,15 @@
 <view wx:if="{{typeArray[typeArrayIndex].id !== 3}}" class="displayFlex cardView">
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>车辆所在区</view>
   <view class="flex1 textRight">
-    <picker bindchange="bindRegionChange" value="{{pageData.region_id}}" range-key="name" range="{{regionArray}}">
+    <picker bindchange="bindRegionChange" value="{{regionIndex}}" range-key="region_name" range="{{regionArray}}">
       <view class="picker">
-        {{regionArray[pageData.region_id].name}}
+        {{regionArray[regionIndex].region_name}}
       </view>
     </picker>
   </view>
 </view>
 <view wx:if="{{typeArray[typeArrayIndex].id !== 3}}" class="displayFlex cardView ">
-  <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>详细地址</text></view>
+  <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>车辆详细地址</text></view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
       <input maxlength="100" value="{{pageData.addr_detail}}" bindinput="updateInputValue"  data-inputKey="addr_detail" class="weui-input pr10" placeholder="请填写详细位置" />

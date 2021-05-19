@@ -1,23 +1,12 @@
 import API from '../../../api/index'
 var {wxToast, wxShowModal} = getApp().globalData.common
-// Component({
-  // pageLifetimes: {
-    // show() {
       Page({
         onLoad: function () {
           this.init()
         },
-      // if (typeof this.getTabBar === 'function' &&
-      //   this.getTabBar()) {
-      //   this.getTabBar().setData({
-      //     selected: 0
-      //   })
-      // }
-    // }
-  // },
   data: {
     pageData: [],
-    status: {0: '审核中',1: '申请成功'}
+    status: {0: '审核中',1: '申请成功',2: '已拒绝'}
   }, // 私有数据，可用于模板渲染
     init(){
       API.getFindOneUser({}).then(res => {
@@ -27,13 +16,25 @@ var {wxToast, wxShowModal} = getApp().globalData.common
         console.log('pageData',this.data.pageData);
       })
     },
+    toUserPublicDoc(){
+      wx.navigateTo({
+        url: '/pages/userMenu/userPublicDoc/userPublicDoc'
+      })
+    },
     // 申请成为商户
     applyMember(){
       wxShowModal('是否已经完善完整租借资料', '没有完善资料则不能通过' ,(res)=>{
         // 确认删除
         if(res.confirm){
           API.applyMember({}).then(res => {
-            wxToast(res.msg)
+            if(res.data === 1){
+              this.data.pageData.apply_status = 0
+              this.setData({
+                pageData: this.data.pageData
+              })
+              wxToast(res.msg)
+            }
+            
           })
         }
       }) 

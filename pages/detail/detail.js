@@ -1,4 +1,5 @@
 const common = require("../../utils/common")
+var {wxToast} = getApp().globalData.common
 import {beaseUrl} from '../../request/config'
 import API from '../../api/index'
 Page({
@@ -23,6 +24,7 @@ Page({
   },
   data: {
     beaseUrl: beaseUrl,
+    isAgreeContract: true,
     pageData: [], // 展示参数
     countDay: 1,
     needPayMoney: 0, // 需支付金额
@@ -42,6 +44,17 @@ Page({
       this.setData({
         userName: '李四'
         // 更新属性和数据的方法与更新页面数据的方法类似
+      })
+    },
+    ht: function() {
+      // 跳转webView
+      wx.navigateTo({
+        url: '/pages/webView/webView?type='+ 'ht',
+        success: function () {
+  
+        },       //成功后的回调；
+        fail: function () { },         //失败后的回调；
+        complete: function () { }      //结束后的回调(成功，失败都会执行)
       })
     },
     bindTimeEndChange: function(e) {
@@ -74,7 +87,7 @@ Page({
     },
     toggleChecked:function(e){
       this.setData({
-        isAgree: !this.data.isAgree
+        isAgreeContract: !this.data.isAgreeContract
       })
     },
     // 计算需支付金额
@@ -84,7 +97,10 @@ Page({
       })
     },
     WxPayMent: function(e) {
-      
+      if(!this.data.isAgreeContract){
+        wxToast('请阅读并勾选合同及协议')
+        return false
+      }
       var {publishId} = this.data.pageData
       var {countDay, startDate, endDate ,startTime, endTime} = this.data
       // 支付成功，生成订单

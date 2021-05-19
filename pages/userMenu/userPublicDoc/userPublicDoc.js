@@ -5,21 +5,44 @@ var {wxToast} = getApp().globalData.common
 import {uploadFile} from '../../../utils/upload'
 Page({
   onLoad: function () {
-    API.getFindOneUser().then(res=>{
-      // console.log('onload', res.data);
-      var result = setResultList(res.data, ['lease_user_type', 'lease_contact', 'lease_contact_phone', 'lease_emergency_contact', 'lease_emergency_phone', 'lease_addr', 'lease_cardA', 'lease_cardB', 'lease_addr_photo'])
-      this.data.initPageData = JSON.parse(JSON.stringify(result))
-      this.setData({
-        pageData: result
+     Promise.all([API.getFindOneUser({}).then(res=>{return res}), API.getRegion({}).then(res=>{ return res })])
+      .then(arr => {
+        var [userInfo, region] = arr
+           //   var result = setResultList(res.data, ['lease_user_type', 'lease_contact', 'lease_contact_phone', 'lease_emergency_contact', 'lease_emergency_phone', 'lease_addr', 'lease_cardA', 'lease_cardB', 'lease_addr_photo'])
+           //   this.data.initPageData = JSON.parse(JSON.stringify(result))
+           //   this.setData({
+           //     pageData: result
+           //   })
+        // console.log('region',region.data);
+        // this.setData({
+        //   typeArray: type.data,
+        //   multiArray: licensePlate.data,
+        //   regionArray: region.data
+        // })
+        // console.log(type.data); 
+        // console.log(licensePlate.data); 
       })
-      console.log('pageData',this.data.pageData);
-    })
+      .catch(err=>{
+        console.log(err);
+      })
+    // API.getFindOneUser().then(res=>{
+    //   // console.log('onload', res.data);
+    //   var result = setResultList(res.data, ['lease_user_type', 'lease_contact', 'lease_contact_phone', 'lease_emergency_contact', 'lease_emergency_phone', 'lease_addr', 'lease_cardA', 'lease_cardB', 'lease_addr_photo'])
+    //   this.data.initPageData = JSON.parse(JSON.stringify(result))
+    //   this.setData({
+    //     pageData: result
+    //   })
+    //   console.log('pageData',this.data.pageData);
+    // })
   },
   data: {
     isNullFlag: false, // 全局校验的标识，true为不让提交，false 过验证能提交
     imgUrlHost: imgUrlHost,
     multiArray: [{userTypeName: '个人'},{userTypeName: '商户'}],
+    regionIndex: 0,
+    regionArray: [],
     pageData:{
+      region_id: 0,
       lease_user_type: 0,
       lease_contact: '',
       lease_contact_phone: '',
@@ -37,6 +60,7 @@ Page({
       lease_cardB: '/image/driveCardB.png',// 驾驶证反面照片
       lease_addr_photo: '/image/driveCardA.png' //店面照片
     },
+    
     sex: '1', // 0 女 1 男
     userName: '首页',
     leftIndex: 0,
@@ -52,18 +76,25 @@ Page({
       })
       console.log(e);
     },
+    bindRegionChange(e){
+      this.data.pageData['region_id'] = this.data.regionArray[e.detail.value].id
+      this.setData({
+        regionIndex: e.detail.value,
+        pageData: this.data.pageData
+      })
+    },
     // 进入详情
     toDetail(){
       wx.navigateTo({
         url: '/pages/detail/detail?id='
       })
     },
-    bindRegionChange: function (e) {
-      console.log('picker发送选择改变，携带值为', e.detail.value)
-      this.setData({
-        region: e.detail.value
-      })
-    },
+    // bindRegionChange: function (e) {
+    //   console.log('picker发送选择改变，携带值为', e.detail.value)
+    //   this.setData({
+    //     region: e.detail.value
+    //   })
+    // },
     bindPickerChange(e){
       this.data.pageData['lease_user_type'] = e.detail.value
       this.setData({

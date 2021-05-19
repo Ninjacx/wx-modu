@@ -26,11 +26,11 @@
         <view><text>位置：{{item.region_name}}{{item.addr_detail}}</text></view>
         <view class="payColor displayFlex">
           <view class="flex1"><text>订单金额：￥{{item.amount}}</text></view>
-          <view wx:if="{{currentTab === 1}}" class="mr20" catchtap="cancelOrder">
+          <!-- <view wx:if="{{currentTab === 1}}" class="mr20" catchtap="overOrder">
               提前归还
-          </view>
+          </view> -->
           <!-- 续租跳转详情页 -->
-          <view catchtap="toDetail" wx:else class="mr20" data-publishId="{{item.publish_id}}" catchtap="keepOrder">
+          <view catchtap="toDetail" wx:if="{{currentTab !== 1}}" class="mr20" data-publishId="{{item.publish_id}}" catchtap="keepOrder">
             续租
           </view>
         </view>

@@ -166,6 +166,24 @@
         {
           "name": "pages/userMenu/userPublicDoc/userPublicDoc",
           "pathName": "pages/userMenu/userPublicDoc/userPublicDoc",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/member/member",
+          "pathName": "pages/userMenu/member/member",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/userOrder/userOrder",
+          "pathName": "pages/userMenu/userOrder/userOrder",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/adviceFeedBack/adviceFeedBack",
+          "pathName": "pages/userMenu/adviceFeedBack/adviceFeedBack",
           "scene": null
         }
       ]

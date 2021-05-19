@@ -6,13 +6,15 @@ var {wxToast} = getApp().globalData.common
 Component({
   pageLifetimes: {
     show() {
-      // 获取牌照类型下拉与类别下拉
-      Promise.all([API.getType({}).then(res=>{return res}), API.getLicensePlate({}).then(res=>{ return res })])
+      // 获取牌照类型下拉与类别下拉 
+      Promise.all([API.getType({}).then(res=>{return res}), API.getLicensePlate({}).then(res=>{ return res }), API.getRegion({}).then(res=>{ return res })])
       .then(arr => {
-        var [type, licensePlate] = arr
+        var [type, licensePlate, region] = arr
+        console.log('region',region.data);
         this.setData({
           typeArray: type.data,
-          multiArray: licensePlate.data
+          multiArray: licensePlate.data,
+          regionArray: region.data
         })
         console.log(type.data); 
         console.log(licensePlate.data); 
@@ -29,6 +31,7 @@ Component({
     files: '/image/driveCardA.png', // 文件对象
     typeArrayIndex: 0,
     licensePlateIndex: 0,
+    regionIndex: 0,
     pageData: {
       type_id: 1,
       motorcycle_name: '',
@@ -36,7 +39,7 @@ Component({
       volume: '',
       rent_day: '',
       rent_month: '',
-      region_id: 1,
+      region_id: 0,
       addr_detail: '',
       contact: '',
       contact_phone: '',
@@ -47,7 +50,7 @@ Component({
     sex: '1', // 0 女 1 男
     userName: '首页',
     leftIndex: 0,
-    regionArray: area(),
+    regionArray: [],
     // regionIndex: 0,
     // photo: '/image/driveCardA.png',// 车子照片
     contraryDriveCard: '/image/driveCardB.png',// 驾驶证反面照片
@@ -60,6 +63,7 @@ Component({
     bindRegionChange(e){
       this.data.pageData['region_id'] = this.data.regionArray[e.detail.value].id
       this.setData({
+        regionIndex: e.detail.value,
         pageData: this.data.pageData
       })
     },

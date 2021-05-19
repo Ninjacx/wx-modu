@@ -1,16 +1,24 @@
 <view class="">
   <view class="bgfff m30 p30 borderR10">
     <view>介绍：</view>
-    <view class="mt10">申请成为商户可进行发布车辆的出租信息。</view>
-    <view  class="colorRed">
-      <view>成为商户之前必须先完善我的租借资料完整信息，</view>
+    <view class="mt10">申请成为租借方可进行发布车辆的出租信息。</view>
+    <view  class="colorRed mt10">
+      <view>成为租借方之前必须先完善我的租借资料完整信息，</view>
       <view>(否则将无法审核通过)</view>
+      <view catchtap="toUserPublicDoc" class="mt20">去完善信息</view>
     </view>
   </view>
-  <view class="bgfff m30 p30 borderR10"> 申请状态： <text class="colorf5">{{status[pageData.apply_status]}}</text> </view>
+
+  <view class="bgfff m30 p30 borderR10 "> 
+    <text>申请状态：</text> 
+    <text class="colorf5">
+      <text wx:if="{{pageData.apply_status === null}}">待申请</text>
+      <text >{{status[pageData.apply_status]}} </text> 
+    </text>
+  </view>
   <!-- wx:if="{{pageData.apply_status === 1}}" -->
   <view class="plr30">
-    <button catchtap="applyMember" class="button commBtnStyW100">
+    <button wx:if="{{pageData.apply_status !== 1}}" catchtap="applyMember" class="button commBtnStyW100">
       <text class="fs30">申 请</text>
     </button>
   </view>

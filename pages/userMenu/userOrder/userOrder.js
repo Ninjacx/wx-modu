@@ -1,6 +1,7 @@
 import API from '../../../api/index'
 import {beaseUrl} from '../../../request/config'
 import {setDataTime} from '../../../utils/common'
+var {wxToast, wxShowModal} = getApp().globalData.common
 Page({
   onLoad: function () {
       console.log(111111);
@@ -38,9 +39,12 @@ Page({
         })
       })
     },
-    // 取消订单
-    cancelOrder(){
-      console.log('订单取消');
+    // 提前结束订单
+    overOrder(){
+      wxShowModal('操作确认', '确认提前归订单将提前结束' ,(res)=>{
+        
+      })
+      
     },
     keepOrder(e){
       wx.navigateTo({

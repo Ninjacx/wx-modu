@@ -18,7 +18,14 @@ const getBanner = data => {
 		data
 	})
 }
-
+// 上海区 
+const getRegion = data => {
+	return _request({
+		url: '/wechat/getRegion',
+		method: 'get',
+		data
+	})
+}
 // 出租类目菜单
 const getType = data => {
 	return _request({
@@ -57,6 +64,7 @@ module.exports =  {
 	getDemand,
 	getLicensePlate,
 	getType,
+	getRegion,
 	publishDataList,
 	publishDetailOne
 }

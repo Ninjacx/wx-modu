@@ -47,7 +47,7 @@
           <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
         <view wx:else catchtap="to_member" class="displayFlex cardView border0">
-          <view class="flex1">成为商户</view>
+          <view class="flex1">申请成为租借方</view>
           <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
         <view class="bt20">

@@ -85,11 +85,11 @@
       <view class="fr wh96"><radio  color="#ffc384" checked="{{isAgree}}"/></view><!-- catchtap="toggleChecked" -->
     </view>
   </view>
-  <view style="margin-bottom:130rpx" class="ml30 mt50"><radio class="mr10" catchtap="toggleChecked" color="#6a7377" checked="{{isAgree}}"/>我已同意<text>《租车服务合同》</text>及<text>《预定服务协议》</text>
+  <view style="margin-bottom:130rpx" class="ml30 mt50"><radio class="mr10" catchtap="toggleChecked" color="#6a7377" checked="{{isAgreeContract}}"/>我已同意<text catchtap="ht">《租车服务合同》</text>及<text catchtap="xy">《预定服务协议》</text>
   </view>
   <view class="bottomView fs35">
     <view class="fl fs35 ml30 payColor">需支付金额 ￥{{needPayMoney}}</view>
-    <view wx:if="{{pageData.is_active === 1}}" class="submitOrder" style="background: #a5a3a1;">已出租</view>
+    <view wx:if="{{pageData.is_lease === 1}}" class="submitOrder" style="background: #a5a3a1;">已出租</view>
     <view wx:else catchtap="WxPayMent" class="submitOrder"  style="background:#ff9e39;">立即订车</view>
   </view>
   <!-- <button catchtap="showPayAmout" class="button commBtnSty">
