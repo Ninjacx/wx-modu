@@ -25,7 +25,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>联系人电话</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData.lease_contact_phone}}" bindinput="updateInputValue"  data-inputKey="lease_contact_phone"  class="weui-input pr10" type="number" placeholder="请填写联系人电话" />
+      <input value="{{pageData.lease_contact_phone}}" bindinput="updateInputValue"  data-inputKey="lease_contact_phone" maxlength="11" class="weui-input pr10" type="number" placeholder="请填写联系人电话" />
     </view>
   </view>
 </view>
@@ -33,7 +33,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>紧急联系人</text></view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData.lease_emergency_contact}}" bindinput="updateInputValue"  data-inputKey="lease_emergency_contact" class="weui-input pr10" placeholder="请填写紧急联系人" />
+      <input value="{{pageData.lease_emergency_contact}}" bindinput="updateInputValue"  data-inputKey="lease_emergency_contact" maxlength="10" class="weui-input pr10" placeholder="请填写紧急联系人" />
     </view>
   </view>
 </view>
@@ -41,7 +41,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>紧急联系人电话</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData.lease_emergency_phone}}" bindinput="updateInputValue"  data-inputKey="lease_emergency_phone" class="weui-input pr10" type="number" placeholder="请填写紧急联系人电话" />
+      <input value="{{pageData.lease_emergency_phone}}" bindinput="updateInputValue"  data-inputKey="lease_emergency_phone" maxlength="11" class="weui-input pr10" type="number" placeholder="请填写紧急联系人电话" />
     </view>
   </view>
 </view>
@@ -76,7 +76,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>车辆详细地址</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData.lease_addr}}" bindinput="updateInputValue"  data-inputKey="lease_addr" class="weui-input pr10" type="number" placeholder="请填写默认提车地址" />
+      <input value="{{pageData.lease_addr}}" bindinput="updateInputValue"  data-inputKey="lease_addr" maxlength="50" class="weui-input pr10" type="number" placeholder="请填写默认提车地址" />
     </view>
   </view>
 </view>

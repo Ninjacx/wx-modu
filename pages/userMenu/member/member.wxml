@@ -10,15 +10,15 @@
   </view>
 
   <view class="bgfff m30 p30 borderR10 "> 
-    <text>申请状态：</text> 
-    <text class="colorf5">
-      <text wx:if="{{pageData.apply_status === null}}">待申请</text>
-      <text >{{status[pageData.apply_status]}} </text> 
-    </text>
-  </view>
+      <text>申请状态：</text> 
+      <text class="colorf5">
+        <text wx:if="{{pageData.apply_status === null}}">待申请</text>
+        <text >{{status[pageData.apply_status]}} </text> 
+      </text>
+   </view>
   <!-- wx:if="{{pageData.apply_status === 1}}" -->
   <view class="plr30">
-    <button wx:if="{{pageData.apply_status !== 1}}" catchtap="applyMember" class="button commBtnStyW100">
+    <button wx:if="{{pageData.apply_status !== 1 &&  pageData.apply_status !== 0}}" catchtap="applyMember" class="button commBtnStyW100">
       <text class="fs30">申 请</text>
     </button>
   </view>

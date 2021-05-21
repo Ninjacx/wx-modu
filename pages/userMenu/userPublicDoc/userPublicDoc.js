@@ -8,19 +8,21 @@ Page({
      Promise.all([API.getFindOneUser({}).then(res=>{return res}), API.getRegion({}).then(res=>{ return res })])
       .then(arr => {
         var [userInfo, region] = arr
-           //   var result = setResultList(res.data, ['lease_user_type', 'lease_contact', 'lease_contact_phone', 'lease_emergency_contact', 'lease_emergency_phone', 'lease_addr', 'lease_cardA', 'lease_cardB', 'lease_addr_photo'])
-           //   this.data.initPageData = JSON.parse(JSON.stringify(result))
-           //   this.setData({
-           //     pageData: result
-           //   })
-        // console.log('region',region.data);
-        // this.setData({
-        //   typeArray: type.data,
-        //   multiArray: licensePlate.data,
-        //   regionArray: region.data
-        // })
-        // console.log(type.data); 
-        // console.log(licensePlate.data); 
+             var result = setResultList(userInfo.data, ['lease_user_type', 'lease_region_id', 'lease_contact', 'lease_contact_phone', 'lease_emergency_contact', 'lease_emergency_phone', 'lease_addr', 'lease_cardA', 'lease_cardB', 'lease_addr_photo'])
+             this.data.initPageData = JSON.parse(JSON.stringify(result))
+            
+             // 根据regionId 获取下标赋值车辆所在区
+             var regionIndex = 0
+              region.data.filter((item, index)=>{
+                if(item.id === result.lease_region_id){
+                  regionIndex = index
+                }
+             })
+             this.setData({
+               pageData: result,
+               regionIndex: regionIndex,
+               regionArray: region.data
+             })
       })
       .catch(err=>{
         console.log(err);
@@ -42,7 +44,7 @@ Page({
     regionIndex: 0,
     regionArray: [],
     pageData:{
-      region_id: 0,
+      lease_region_id: 0,
       lease_user_type: 0,
       lease_contact: '',
       lease_contact_phone: '',
@@ -77,7 +79,7 @@ Page({
       console.log(e);
     },
     bindRegionChange(e){
-      this.data.pageData['region_id'] = this.data.regionArray[e.detail.value].id
+      this.data.pageData['lease_region_id'] = this.data.regionArray[e.detail.value].id
       this.setData({
         regionIndex: e.detail.value,
         pageData: this.data.pageData
@@ -97,20 +99,21 @@ Page({
     // },
     bindPickerChange(e){
       this.data.pageData['lease_user_type'] = e.detail.value
+      // 选择商户则清空掉个人上传的图片重新上传
+      if(e.detail.value === '1'){
+        this.data.pageData['lease_addr_photo'] = ''
+      }else{ // 选择个人则清空掉个人上传的图片重新上传
+        this.data.pageData['lease_cardA'] = ''
+        this.data.pageData['lease_cardB'] = ''
+      }
       this.setData({
         pageData: this.data.pageData
       })
-      console.log(this.data.pageData)
     },
     // onReachBottom: function () {
     //   // this.onBottom();
     //   console.log('123');
     // },
-    setUserName: function(){
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      })
-    },
     uploadImage: function(e){
       var _this = this
       wx.chooseImage({
@@ -161,7 +164,7 @@ Page({
       // contraryDriveCard: '',// 驾驶证反面照片
       var strType = {0: '姓名', 1: '商户名'}
       var {lease_contact, lease_contact_phone, lease_emergency_contact, lease_emergency_phone, lease_addr, lease_addr_photo, lease_cardA, 
-        lease_cardB, frontDriveCard, contraryDriveCard} = this.data.pageData
+        lease_cardB } = this.data.pageData
       if(!isNull(this.data, lease_contact, '请填写'+strType[this.data.pageData.lease_user_type])){
         return false
       }
@@ -177,13 +180,31 @@ Page({
       if(!isNull(this.data, lease_addr, '请填写车辆地址')){
         return false
       }
-
-      // if(!isNull(this.data, drive_cardA, '请上传驾驶证正面')){
-      //   return false
-      // }
-      // if(!isNull(this.data, drive_cardB, '请上传驾驶证反面')){
-      //   return false
-      // }
+      
+      if(this.data.pageData.lease_user_type == 1){
+        if(this.data.files.lease_addr_photo === '/image/driveCardA.png' &&!isNull(this.data, lease_addr_photo, '', false)){
+          wxToast('请上传店面照片')
+          return false
+        }
+      }else{
+          if(this.data.files.lease_cardA  === '/image/driveCardA.png' &&!isNull(this.data, lease_cardA, '', false)){
+            wxToast('请上传身份证正面')
+            return false
+          }
+          if(this.data.files.lease_cardB === '/image/driveCardB.png' &&!isNull(this.data, lease_cardB, '', false)){
+            wxToast('请上传身份证反面')
+            return false
+          }
+      }
+     
+     
+      this.data.isNullFlag = false
+    },
+    // 更新用户信息
+    setUserDoc: function(){
+      API.setUserDoc(this.data.pageData).then(res=>{ 
+        wxToast(res.msg)
+      })
     },
     submitUserDoc: function(){
       this.validate()
@@ -191,36 +212,34 @@ Page({
       if(this.data.isNullFlag){
         return false
       }
-      // console.log('this.data.files',this.data.files);
-      // 当修改了图片则走上传图片
-      // if(this.data.initPageData.drive_cardA != this.data.pageData.drive_cardA || this.data.initPageData.drive_cardB != this.data.pageData.drive_cardB){
-        //  type: 'A'
-        uploadFile(this.data.files.lease_addr_photo[0]).then((fiileRes)=>{
-          this.data.pageData.lease_addr_photo = fiileRes.data.filePathName
-          API.setUserDoc(this.data.pageData).then(res=>{ 
-            wxToast(res.msg)
-          })
-        })
-      return false
-          // 1.上传图片 2. 拿到上传的图片链接，更新用户资料
-          Promise.all([uploadFile(this.data.files.lease_cardA[0],{type: 'A'}).then((res)=>{return res}),uploadFile(this.data.files.lease_cardB[0],{type: 'B'}).then((res)=>{return res})])
-          .then(result => {
-            // console.log('result',result);
-            var [lease_cardA, lease_cardB] = result
-            this.data.pageData.lease_cardA = lease_cardA.data.filePathName
-            this.data.pageData.lease_cardB = lease_cardB.data.filePathName
-            API.setUserDoc(this.data.pageData).then(res=>{ 
-              wxToast(res.msg)
-            })
-          })
-          .catch(err=>{
-            console.log(err);
-          })
-      // }else{ 
-      //   API.setUserDoc(this.data.pageData).then(res=>{ 
-      //     wxToast(res.msg)
-      //   })
-      // }
+        // 商户的上传
+        if(this.data.pageData.lease_user_type == 1){
+          if(this.data.initPageData.lease_addr_photo != this.data.pageData.lease_addr_photo || !this.data.pageData.lease_addr_photo){
+              uploadFile(this.data.files.lease_addr_photo[0]).then((fiileRes)=> {
+                this.data.pageData.lease_addr_photo = fiileRes.data.filePathName
+                this.setUserDoc()
+              })
+          }else{
+            this.setUserDoc()
+          }
+        }else { // 个人的上传
+          if(this.data.initPageData.lease_cardA != this.data.pageData.lease_cardA || this.data.initPageData.lease_cardB != this.data.pageData.lease_cardB || !this.data.initPageData.lease_cardA || !this.data.initPageData.lease_cardB){
+            // 1.上传图片 2. 拿到上传的图片链接，更新用户资料
+              Promise.all([uploadFile(this.data.files.lease_cardA[0],{type: 'A'}).then((res)=>{return res}),uploadFile(this.data.files.lease_cardB[0],{type: 'B'}).then((res)=>{return res})])
+              .then(result => {
+                // console.log('result',result);
+                var [lease_cardA, lease_cardB] = result
+                this.data.pageData.lease_cardA = lease_cardA.data.filePathName
+                this.data.pageData.lease_cardB = lease_cardB.data.filePathName
+                this.setUserDoc()
+              })
+              .catch(err=>{
+                console.log(err);
+              })
+          }else{
+            this.setUserDoc()
+          }
+        }
     },
     selectSex: function(e){
       this.setData({sex: e.currentTarget.dataset.sex})

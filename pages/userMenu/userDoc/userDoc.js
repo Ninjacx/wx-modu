@@ -8,7 +8,7 @@ Page({
   onLoad: function () {
     API.getFindOneUser().then(res=>{
       // console.log('onload', res.data);
-      var result = setResultList(res.data, ['real_name', 'phone', 'drive_licence', 'sex', 'emergency_contact', 'emergency_phone', 'drive_cardA', 'drive_cardB'])
+      var result = setResultList(res.data, ['real_name', 'contact_phone', 'drive_licence', 'sex', 'emergency_contact', 'emergency_phone', 'drive_cardA', 'drive_cardB'])
       this.data.initPageData = JSON.parse(JSON.stringify(result))
       this.setData({
         pageData: result
@@ -21,14 +21,14 @@ Page({
     initPageData: [],
     pageData:{
       real_name: '', //姓名
-      phone: '', // 联系人电话
+      contact_phone: '', // 联系人电话
       drive_licence: '', // 驾驶证号码
       sex: 1, // 性别
       emergency_contact: '', // 紧急联系人
       emergency_phone: '', // 紧急联系人电话
       drive_cardA: '',
       drive_cardB: '',
-    }, 
+    },
     files:{
       driveCardA: '/image/driveCardA.png',// 驾驶证正面照片
       driveCardB: '/image/driveCardB.png',// 驾驶证反面照片
@@ -56,7 +56,6 @@ Page({
     },
     onReachBottom: function () {
       // this.onBottom();
-      console.log('123');
     },
     setUserName: function(){
       this.setData({
@@ -90,11 +89,11 @@ Page({
       })
     },
     validate: function(){
-      var {real_name, phone, drive_licence, emergency_contact, emergency_phone, drive_cardA, drive_cardB} = this.data.pageData
+      var {real_name, contact_phone, drive_licence, emergency_contact, emergency_phone, drive_cardA, drive_cardB} = this.data.pageData
       if(!isNull(this.data, real_name, '请填写姓名')){
         return false
       }
-      if(!isNull(this.data, phone, '请填写联系人电话')){
+      if(!isNull(this.data, contact_phone, '请填写联系人电话')){
         return false
       }
       if(!isNull(this.data, drive_licence, '请填写驾驶证号码')){
@@ -106,15 +105,19 @@ Page({
       if(!isNull(this.data, emergency_phone, '请填写紧急联系人电话')){
         return false
       }
-      if(!isNull(this.data, drive_cardA, '请上传驾驶证正面')){
+      if(this.data.files.driveCardA === '/image/driveCardA.png' &&!isNull(this.data, drive_cardA, '', false)){
+        wxToast('请上传驾驶证正面')
         return false
       }
-      if(!isNull(this.data, drive_cardB, '请上传驾驶证反面')){
+      if(this.data.files.driveCardB === '/image/driveCardB.png' &&!isNull(this.data, drive_cardB, '', false)){
+        wxToast('请上传驾驶证反面')
         return false
       }
+      this.data.isNullFlag = false
     },
     submitUserDoc: function(){
       this.validate()
+      console.log('this.data.isNullFlag',this.data.isNullFlag);
       // 没有必填项则不走下面
       if(this.data.isNullFlag){
         return false

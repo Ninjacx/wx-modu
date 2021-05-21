@@ -3,31 +3,26 @@ import {isNull} from '../../../utils/common'
 import {beaseUrl} from '../../../request/config'
 import API from '../../../api/index'
 var {wxToast} = getApp().globalData.common
-Component({
-  pageLifetimes: {
-    show() {
+Page({
+  onLoad() {
       // 获取牌照类型下拉与类别下拉 
-      Promise.all([API.getType({}).then(res=>{return res}), API.getLicensePlate({}).then(res=>{ return res }), API.getRegion({}).then(res=>{ return res })])
+      Promise.all([API.getFindOneUser({}).then(res=>{return res}), API.getType({}).then(res=>{return res}), API.getLicensePlate({}).then(res=>{ return res }), API.getRegion({}).then(res=>{ return res })])
       .then(arr => {
-        var [type, licensePlate, region] = arr
-        console.log('region',region.data);
+        var [userInfo, type, licensePlate, region] = arr
+        var result = setResultList(userInfo.data, ['lease_region_id', 'lease_contact', 'lease_contact_phone', 'lease_addr'])
+        // console.log('userInfo',result);
         this.setData({
           typeArray: type.data,
           multiArray: licensePlate.data,
           regionArray: region.data
         })
-        console.log(type.data); 
-        console.log(licensePlate.data); 
       })
       .catch(err=>{
         console.log(err);
       })
-
-    }
   },
   data: {
     isNullFlag: false, // 全局校验的标识，true为不让提交，false 过验证能提交
-
     files: '/image/driveCardA.png', // 文件对象
     typeArrayIndex: 0,
     licensePlateIndex: 0,
@@ -55,8 +50,6 @@ Component({
     // photo: '/image/driveCardA.png',// 车子照片
     contraryDriveCard: '/image/driveCardB.png',// 驾驶证反面照片
   }, // 私有数据，可用于模板渲染
- 
-  methods: {
     updateInputValue(e){
       this.data.pageData[e.currentTarget.dataset.inputkey] = e.detail.value
     },
@@ -127,13 +120,11 @@ Component({
       }
     },
     submitUserDoc: function(){
-
       this.validate()
       // 没有必填项则不走下面
       if(this.data.isNullFlag){
         return false
       }
-
       // 当选择牌照则调用发布牌照的接口，其它都需要图片
       if(this.data.typeArray[this.data.typeArrayIndex].id === 3){
         // var {} = this.data.pageData
@@ -162,7 +153,5 @@ Component({
             }
           })
       }
-     
     }
-  }
 })

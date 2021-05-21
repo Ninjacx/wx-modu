@@ -15,5 +15,5 @@
       <text class="fs30" >提交</text>
     </button>
 
-    <!-- <view class="bottomView"><text>客服热线：</text>18121118073<text catchtap="callPhone" class="callPhone">拨打</text></view> -->
+    <view class="bottomView"><text>客服热线：</text>18121118073<text catchtap="callPhone" class="callPhone">拨打</text></view>
 </view>

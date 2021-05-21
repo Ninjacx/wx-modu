@@ -1,18 +1,19 @@
 // 是否为空
-const isNull = (data, value ,message)=>{
+const isNull = (data, value ,message, isShowMsg = true)=>{
   // 为true 则代表有空数据
   var msg = message || '不能为空'
   console.log('values', value);
-  if(String(value).trim() === ''){
+  if(String(value).trim() === '' || value === null || value === 'null' || value === undefined || value === 'undefined'){
     data.isNullFlag = true
-    wx.showToast({
-      title: msg,
-      icon: 'none',
-      duration: 2000
-    })
+    if(isShowMsg){
+      wx.showToast({
+        title: msg,
+        icon: 'none',
+        duration: 2000
+      })
+    }
     return false
   }
-  data.isNullFlag = false
   return true
 }
 // 年月日获取星期

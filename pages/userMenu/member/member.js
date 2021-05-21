@@ -21,20 +21,22 @@ var {wxToast, wxShowModal} = getApp().globalData.common
         url: '/pages/userMenu/userPublicDoc/userPublicDoc'
       })
     },
-    // 申请成为商户
+    // 申请成为租借方
     applyMember(){
-      wxShowModal('是否已经完善完整租借资料', '没有完善资料则不能通过' ,(res)=>{
-        // 确认删除
+      wxShowModal( {title: '是否已经完善完整租借资料', content: '没有完善资料则不能通过', cancelText: '去完善'},(res)=>{
         if(res.confirm){
           API.applyMember({}).then(res => {
-            if(res.data === 1){
+            if(res.data === 1) {
               this.data.pageData.apply_status = 0
               this.setData({
                 pageData: this.data.pageData
               })
               wxToast(res.msg)
             }
-            
+          })
+        }else{
+          wx.navigateTo({
+            url: '/pages/userMenu/userPublicDoc/userPublicDoc'
           })
         }
       }) 

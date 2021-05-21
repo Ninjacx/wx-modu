@@ -12,7 +12,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>联系人电话</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData.phone}}" bindinput="updateInputValue"  data-inputKey="phone" class="weui-input pr10" type="number" placeholder="请填写联系人电话" />
+      <input value="{{pageData.contact_phone}}" bindinput="updateInputValue"  data-inputKey="contact_phone" maxlength="11" class="weui-input pr10" type="number" placeholder="请填写联系人电话" />
     </view>
   </view>
 </view>
@@ -20,7 +20,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>驾驶证号码</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData.drive_licence}}"  bindinput="updateInputValue"  data-inputKey="drive_licence" class="weui-input pr10" type="number" placeholder="请填写驾驶证号码" />
+      <input value="{{pageData.drive_licence}}"  bindinput="updateInputValue"  data-inputKey="drive_licence" maxlength="20" class="weui-input pr10" type="number" placeholder="请填写驾驶证号码" />
     </view>
   </view>
 </view>
@@ -43,7 +43,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>紧急联系人</text></view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData. emergency_contact}}" bindinput="updateInputValue"  data-inputKey="emergency_contact" class="weui-input pr10" placeholder="请填写紧急联系人" />
+      <input value="{{pageData. emergency_contact}}" bindinput="updateInputValue"  data-inputKey="emergency_contact" maxlength="10" class="weui-input pr10" placeholder="请填写紧急联系人" />
     </view>
   </view>
 </view>
@@ -51,7 +51,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text>紧急联系人电话</view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input value="{{pageData.emergency_phone}}" bindinput="updateInputValue"  data-inputKey="emergency_phone" class="weui-input pr10" type="number" placeholder="请填写紧急联系人电话" />
+      <input value="{{pageData.emergency_phone}}" bindinput="updateInputValue"  data-inputKey="emergency_phone" maxlength="11" class="weui-input pr10" type="number" placeholder="请填写紧急联系人电话" />
     </view>
   </view>
 </view>
