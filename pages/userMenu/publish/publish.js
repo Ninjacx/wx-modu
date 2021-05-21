@@ -1,15 +1,16 @@
 import {area} from '../../../utils/commonData'
-import {isNull} from '../../../utils/common'
+import {isNull, setResultList} from '../../../utils/common'
 import {beaseUrl} from '../../../request/config'
 import API from '../../../api/index'
 var {wxToast} = getApp().globalData.common
 Page({
   onLoad() {
       // 获取牌照类型下拉与类别下拉 
-      Promise.all([API.getFindOneUser({}).then(res=>{return res}), API.getType({}).then(res=>{return res}), API.getLicensePlate({}).then(res=>{ return res }), API.getRegion({}).then(res=>{ return res })])
+      Promise.all([ API.getType({}).then(res=>{return res}), API.getLicensePlate({}).then(res=>{ return res }), API.getRegion({}).then(res=>{ return res },API.getFindOneUser({}).then(res=>{return res}))])
       .then(arr => {
-        var [userInfo, type, licensePlate, region] = arr
-        var result = setResultList(userInfo.data, ['lease_region_id', 'lease_contact', 'lease_contact_phone', 'lease_addr'])
+        var [type, licensePlate, region, userInitInfo] = arr
+        // console.log('userInitInfo',userInitInfo);
+        // var result = setResultList(userInitInfo.data, ['lease_region_id', 'lease_contact', 'lease_contact_phone', 'lease_addr'])
         // console.log('userInfo',result);
         this.setData({
           typeArray: type.data,
