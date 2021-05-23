@@ -5,7 +5,7 @@ function _request({url , data , method},isWxUrl = false) {
   wx.showLoading({mask: true});
   return new Promise((resolve , reject)=> {
     var userInfo = wx.getStorageSync('userInfo')
-    console.log('userInfo',userInfo);
+    // console.log('userInfo',userInfo);
     console.log(Object.assign({'content-type':'application/x-www-form-urlencoded'},userInfo ? { Authorization: userInfo.id }: {}));
       wx.request({
           url: isWxUrl? beaseUrlWx + url: beaseUrl + url,

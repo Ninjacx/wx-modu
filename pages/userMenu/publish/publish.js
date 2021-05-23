@@ -6,12 +6,12 @@ var {wxToast} = getApp().globalData.common
 Page({
   onLoad() {
       // 获取牌照类型下拉与类别下拉 
-      Promise.all([ API.getType({}).then(res=>{return res}), API.getLicensePlate({}).then(res=>{ return res }), API.getRegion({}).then(res=>{ return res },API.getFindOneUser({}).then(res=>{return res}))])
+      Promise.all([ API.getType({}).then(res=>{return res}), API.getLicensePlate({}).then(res=>{ return res }), API.getRegion({}).then(res=>{ return res }), API.getFindOneUser({}).then(res=>{return res})])
       .then(arr => {
         var [type, licensePlate, region, userInitInfo] = arr
         // console.log('userInitInfo',userInitInfo);
-        // var result = setResultList(userInitInfo.data, ['lease_region_id', 'lease_contact', 'lease_contact_phone', 'lease_addr'])
-        // console.log('userInfo',result);
+        var result = setResultList(userInitInfo.data, ['lease_region_id', 'lease_contact', 'lease_contact_phone', 'lease_addr'])
+        console.log('userInfo123',result);
         this.setData({
           typeArray: type.data,
           multiArray: licensePlate.data,
@@ -35,6 +35,7 @@ Page({
       volume: '',
       rent_day: '',
       rent_month: '',
+      rent_year: '',
       region_id: 0,
       addr_detail: '',
       contact: '',
@@ -89,28 +90,13 @@ Page({
       })
     },
     
-    validate: function(){
-      // motorcycle_name: '',
-      // license_plate_id: 1,
-      // volume: '',
-      // rent_day: '',
-      // rent_month: '',
-      // region_id: 1,
-      // addr_detail: '',
-      // contact: '',
-      // contact_phone: '',
-      var {motorcycle_name, volume, rent_day, addr_detail, contact, contact_phone} = this.data.pageData
-   
-      if(!isNull(this.data, motorcycle_name, '请填写车型名称')){
+    // 类别为牌照的校验
+    validateLicensePlate: function(){
+      var {rent_month, rent_year, contact, contact_phone} = this.data.pageData
+      if(!isNull(this.data, rent_month, '请填写月租金')){
         return false
       }
-      if(!isNull(this.data, volume, '请填写排量')){
-        return false
-      }
-      if(!isNull(this.data, rent_day, '请填写日租金')){
-        return false
-      }
-      if(!isNull(this.data, addr_detail, '请填写详细地址')){
+      if(!isNull(this.data, rent_year, '请填写年租金')){
         return false
       }
       if(!isNull(this.data, contact, '请填写联系人')){
@@ -119,15 +105,40 @@ Page({
       if(!isNull(this.data, contact_phone, '请填写电话')){
         return false
       }
+      // var {motorcycle_name, volume, rent_day, addr_detail, contact, contact_phone} = this.data.pageData
+   
+      // if(!isNull(this.data, motorcycle_name, '请填写车型名称')){
+      //   return false
+      // }
+      // if(!isNull(this.data, volume, '请填写排量')){
+      //   return false
+      // }
+      // if(!isNull(this.data, rent_day, '请填写日租金')){
+      //   return false
+      // }
+      // if(!isNull(this.data, addr_detail, '请填写详细地址')){
+      //   return false
+      // }
+      // if(!isNull(this.data, contact, '请填写联系人')){
+      //   return false
+      // }
+      // if(!isNull(this.data, contact_phone, '请填写电话')){
+      //   return false
+      // }
+      this.data.isNullFlag = false
     },
     submitUserDoc: function(){
-      this.validate()
-      // 没有必填项则不走下面
-      if(this.data.isNullFlag){
-        return false
-      }
+      
       // 当选择牌照则调用发布牌照的接口，其它都需要图片
       if(this.data.typeArray[this.data.typeArrayIndex].id === 3){
+
+        this.validateLicensePlate()
+        // 没有必填项则不走下面
+        if(this.data.isNullFlag){
+          return false
+        }
+
+
         // var {} = this.data.pageData
         API.publishLicensePlate(this.data.pageData).then(res=>{
           wx.redirectTo({
@@ -136,23 +147,22 @@ Page({
           wxToast(res.msg)
         })
       }else{
-         // 当类别为牌照的时候 调用不上传图片的接口
-          var userInfo = wx.getStorageSync('userInfo')
-          wx.uploadFile({
-            // /upload
-            header: { Authorization: userInfo.id },
-            url: beaseUrl+'/weChat/publish', //仅为示例，非真实的接口地址
-            filePath: this.data.files[0],
-            name: 'file',
-            formData: this.data.pageData,
-            success (res){
-              // 关闭当前页面，跳转到我的订单里
-              wx.redirectTo({
-                url: '/pages/userMenu/userPublish/userPublish'
-              })
-              wxToast('发布成功')
-            }
-          })
+          // var userInfo = wx.getStorageSync('userInfo')
+          // wx.uploadFile({
+          //   // /upload
+          //   header: { Authorization: userInfo.id },
+          //   url: beaseUrl+'/weChat/publish', //仅为示例，非真实的接口地址
+          //   filePath: this.data.files[0],
+          //   name: 'file',
+          //   formData: this.data.pageData,
+          //   success (res){
+          //     // 关闭当前页面，跳转到我的订单里
+          //     wx.redirectTo({
+          //       url: '/pages/userMenu/userPublish/userPublish'
+          //     })
+          //     wxToast('发布成功')
+          //   }
+          // })
       }
     }
 })

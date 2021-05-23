@@ -17,7 +17,7 @@ Component({
   data: {
     beaseUrl: beaseUrl,
     pageData: [],
-    navTab: [{statusName: '未出租',status: 0},{statusName:'已出租',status: 1}],        
+    navTab: [{statusName: '审核中',status: 2}, {statusName: '未出租',status: 0},{statusName:'已出租',status: 1}],        
     currentTab: 0,
     // userName: '首页',
     // leftIndex: 0,
