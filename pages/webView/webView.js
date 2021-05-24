@@ -1,10 +1,11 @@
 // pages/webView/webView.js
+import {beaseUrl} from '../../request/config'
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    beaseUrl: beaseUrl,
     url: '',
   },
 
@@ -12,12 +13,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // http://172.16.19.133/AppView/agreement.html
-    // http://172.16.19.133/AppView/AuthDetail.html
-    console.log('options', options.type);
-    this.setData({
-      url: 'http://172.16.19.133/AppView/agreement.html'
-    })
+    // console.log('beaseUrl', beaseUrl);
+    switch (options.type) {
+      case 'faq':
+        this.setData({
+          url: beaseUrl + '/AppView/faq.html'
+        })
+      break;
+    
+      default:
+        break;
+    }
+    
   },
 
   /**

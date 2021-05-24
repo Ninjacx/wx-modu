@@ -121,9 +121,9 @@ Page({
         url: '/pages/userMenu/userPublish/userPublish'
       })
     },
-    to_newUser(){
+    to_faq(){
       wx.navigateTo({
-        url: '/pages/userMenu/newUser/newUser'
+        url: '/pages/webView/webView?type=faq'
       })
     },
     to_userOrder(){

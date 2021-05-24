@@ -52,8 +52,8 @@
           <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
         <view class="bt20">
-          <view catchtap="to_newUser" class="displayFlex cardView">
-          <view class="flex1">新人指引</view>
+          <view catchtap="to_faq" class="displayFlex cardView">
+          <view class="flex1">用户指南</view>
           <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
         <view catchtap="to_adviceFeedBack" class="displayFlex cardView border0">
