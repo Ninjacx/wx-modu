@@ -83,7 +83,7 @@
   <view class="flex1 lh50"><text class="mr10 colorRed">*</text><text>联系人</text></view>
   <view class="flex1 textRight">
     <view class="weui-cell weui-cell_input">
-      <input  maxlength="15" value="{{pageData.contact}}" bindinput="updateInputValue"  data-inputKey="contact" class="weui-input pr10" placeholder="请填写联系人" />
+      <input maxlength="15" value="{{pageData.contact}}" bindinput="updateInputValue"  data-inputKey="contact" class="weui-input pr10" placeholder="请填写联系人" />
     </view>
   </view>
 </view>

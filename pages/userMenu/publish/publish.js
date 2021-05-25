@@ -2,6 +2,7 @@ import {area} from '../../../utils/commonData'
 import {isNull, setResultList} from '../../../utils/common'
 import {beaseUrl} from '../../../request/config'
 import API from '../../../api/index'
+import {uploadFile} from '../../../utils/upload'
 var {wxToast} = getApp().globalData.common
 Page({
   onLoad() {
@@ -11,8 +12,23 @@ Page({
         var [type, licensePlate, region, userInitInfo] = arr
         // console.log('userInitInfo',userInitInfo);
         var result = setResultList(userInitInfo.data, ['lease_region_id', 'lease_contact', 'lease_contact_phone', 'lease_addr'])
-        console.log('userInfo123',result);
+        console.log('result',result.lease_region_id);
+        /*****带出默认的数据***START***/
+        region.data.map((item, index)=>{
+          if(item.id === result.lease_region_id){
+            this.data.initRegionIndex = index
+            return
+          }
+        })
+        this.data.pageData['contact'] = result.lease_contact
+        this.data.pageData['contact_phone'] = result.lease_contact_phone
+        this.data.pageData['addr_detail'] = result.lease_addr
+        this.data.pageData['region_id'] = result.lease_region_id
+        /*****带出默认的数据***END***/
         this.setData({
+          // initLeaseUserInfo: initLeaseUserInfo,
+          pageData: this.data.pageData,
+          regionIndex: this.data.initRegionIndex,
           typeArray: type.data,
           multiArray: licensePlate.data,
           regionArray: region.data
@@ -23,6 +39,9 @@ Page({
       })
   },
   data: {
+    initRegionIndex: 0,
+    // initLeaseUserInfo: [], // 保存默认基本数据（方便用户少填写一点）
+
     isNullFlag: false, // 全局校验的标识，true为不让提交，false 过验证能提交
     files: '/image/driveCardA.png', // 文件对象
     typeArrayIndex: 0,
@@ -40,6 +59,7 @@ Page({
       addr_detail: '',
       contact: '',
       contact_phone: '',
+      pic_url: ''
     },
     // multiIndex: 0,
     multiArray: [],
@@ -49,8 +69,6 @@ Page({
     leftIndex: 0,
     regionArray: [],
     // regionIndex: 0,
-    // photo: '/image/driveCardA.png',// 车子照片
-    contraryDriveCard: '/image/driveCardB.png',// 驾驶证反面照片
   }, // 私有数据，可用于模板渲染
     updateInputValue(e){
       this.data.pageData[e.currentTarget.dataset.inputkey] = e.detail.value
@@ -63,6 +81,7 @@ Page({
       })
     },
     bindPickerChange(e){
+      console.log(123);
       this.data.pageData['license_plate_id'] = this.data.multiArray[e.detail.value].id
       this.setData({
         licensePlateIndex: e.detail.value,
@@ -127,19 +146,37 @@ Page({
       // }
       this.data.isNullFlag = false
     },
+    validateMoto: function(){
+      var {motorcycle_name, volume, rent_day, addr_detail, contact, contact_phone} = this.data.pageData
+   
+      if(!isNull(this.data, motorcycle_name, '请填写车型名称')){
+        return false
+      }
+      if(!isNull(this.data, volume, '请填写摩托车排量')){
+        return false
+      }
+      if(!isNull(this.data, rent_day, '请填写日租金')){
+        return false
+      }
+      if(!isNull(this.data, addr_detail, '请填写详细地址')){
+        return false
+      }
+      if(!isNull(this.data, contact, '请填写联系人')){
+        return false
+      }
+      if(!isNull(this.data, contact_phone, '请填写电话')){
+        return false
+      }
+      this.data.isNullFlag = false
+    },
     submitUserDoc: function(){
-      
       // 当选择牌照则调用发布牌照的接口，其它都需要图片
       if(this.data.typeArray[this.data.typeArrayIndex].id === 3){
-
         this.validateLicensePlate()
         // 没有必填项则不走下面
         if(this.data.isNullFlag){
           return false
         }
-
-
-        // var {} = this.data.pageData
         API.publishLicensePlate(this.data.pageData).then(res=>{
           wx.redirectTo({
             url: '/pages/userMenu/userPublish/userPublish'
@@ -147,6 +184,25 @@ Page({
           wxToast(res.msg)
         })
       }else{
+          this.validateMoto()
+          // 没有必填项则不走下面
+          if(this.data.isNullFlag){
+            return false
+          }
+          if(this.data.files === '/image/driveCardA.png'){
+            wxToast('请上传车辆照片')
+            return false
+          }
+          uploadFile(this.data.files[0]).then((res)=>{
+            this.data.pageData['pic_url'] = res.data.filePathName
+            API.publish(this.data.pageData).then(res=>{
+              // wx.redirectTo({
+              //   url: '/pages/userMenu/userPublish/userPublish'
+              // })
+              wxToast(res.msg)
+            })
+            
+          })
           // var userInfo = wx.getStorageSync('userInfo')
           // wx.uploadFile({
           //   // /upload

@@ -9,8 +9,11 @@ const uploadFile = (filePath, data) => {
         filePath: filePath,
         name: 'file',
         formData: data,
-        success (res){
-          resolve(JSON.parse(res.data))
+        success (result){
+          var res = JSON.parse(result.data)
+          if(res.code === 200){
+            resolve(res)
+          }
         }
       })
   })
