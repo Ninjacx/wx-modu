@@ -21,10 +21,10 @@
               <view class="mt10 fs20">我的租车</view>
             </view>
              
-            <view catchtap="to_historyOrder" class="flex1">
+            <!-- <view catchtap="to_historyOrder" class="flex1">
               <view><i class="fs55 iconfont icon-lishidingdan color59 "></i></view>
               <view class="mt10 fs20">我的出租</view>
-            </view>
+            </view> -->
             <view catchtap="to_userPublish" class="flex1">
               <view><i class="fs55 iconfont icon-icon2-copy color59 "></i></view>
               <view class="mt10 fs20">我的发布</view>
@@ -70,7 +70,6 @@
       <view>
           <view class="textCenter"><image style="height: 150rpx;width: 150rpx;" src="/image/zu.png"></image></view>
           <button class="mt30" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >本机号码一键登录</button>
-          
       </view>
       <view class="textCenter mt60"> 同意《服务条款》并授权获取本机号码</view>
     </view>

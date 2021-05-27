@@ -1,6 +1,6 @@
 <view class="index">
   <view class="tabNav">
-      <view wx:for="{{navTab}}" wx:key="index" data-idx="{{item.status}}" bindtap="currentTab" class="flex1 {{currentTab === item.status ? 'cur' : ''}}"><text>{{item.statusName}}</text></view>
+      <view wx:for="{{navTab}}" wx:key="index" data-idx="{{index}}" bindtap="currentTab" class="flex1 {{currentTab === index ? 'cur' : ''}}"><text>{{item.statusName}}</text></view>
   </view>
   <view class="orderInfo">
     <view class="orderInfo-item" wx:for="{{sendList}}" wx:key="index"> 这是内容{{item.content}} </view> 

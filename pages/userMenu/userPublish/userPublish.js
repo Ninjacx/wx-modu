@@ -2,17 +2,9 @@ import API from '../../../api/index'
 import {beaseUrl} from '../../../request/config'
 import {setDataTime} from '../../../utils/common'
 var {wxShowModal} = getApp().globalData.common
-Component({
-  pageLifetimes: {
-    show() {
+Page({
+ onLoad: function () {
       this.init()
-      if (typeof this.getTabBar === 'function' &&
-        this.getTabBar()) {
-        this.getTabBar().setData({
-          selected: 0
-        })
-      }
-    }
   },
   data: {
     beaseUrl: beaseUrl,
@@ -24,8 +16,6 @@ Component({
     // leftTab: [{title: '摩托车'},{title: '汽车'}],
     region: ['上海市', '上海市', '浦东新区'],
   }, // 私有数据，可用于模板渲染
- 
-  methods: {
     // 点击左边菜单
     // leftMenu(e){
     //   this.setData({
@@ -33,8 +23,11 @@ Component({
     //   })
     //   console.log(e);
     // },
-    init(status){
+    init(index){
+      console.log('index',index);
+      var type = {0: '',1: '', 2:''}
       console.log('this.data.currentTab',this.data.currentTab);
+      return false
       API.getUserPublishDataList({lease: this.data.currentTab}).then(res => {
         var obj =  res.data.map((item)=>{
           return {
@@ -94,5 +87,4 @@ Component({
         // 更新属性和数据的方法与更新页面数据的方法类似
       })
     }
-  }
 })
