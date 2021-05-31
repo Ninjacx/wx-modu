@@ -184,6 +184,12 @@
         {
           "name": "pages/userMenu/adviceFeedBack/adviceFeedBack",
           "pathName": "pages/userMenu/adviceFeedBack/adviceFeedBack",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/userPublish/userPublish",
+          "pathName": "pages/userMenu/userPublish/userPublish",
           "scene": null
         }
       ]

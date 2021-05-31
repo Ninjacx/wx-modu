@@ -2,31 +2,29 @@
   <view class="tabNav">
       <view wx:for="{{navTab}}" wx:key="index" data-idx="{{index}}" bindtap="currentTab" class="flex1 {{currentTab === index ? 'cur' : ''}}"><text>{{item.statusName}}</text></view>
   </view>
-  <view class="orderInfo">
+  <!-- <view class="orderInfo">
     <view class="orderInfo-item" wx:for="{{sendList}}" wx:key="index"> 这是内容{{item.content}} </view> 
-  </view>
+  </view> -->
   <view  catchtap="toDetail" class="w100 p30 mt50">
-    <view wx:for="{{pageData}}" class="mt20 bgFFF pt10 borderR10" style="display: flex;">
+    <view wx:for="{{pageData}}" class="mt20 bgFFF pt10 borderR10 displayFlex">
       <view class="ml15 mr15">
         <image style="width:200rpx;height:200rpx" src="{{beaseUrl+item.pic_url}}" class='borderR10'></image>
       </view>
       <view class="fs25 w100" style="display: grid;">
         <view><text>车型：{{item.license_plate_name}}-{{item.motorcycle_name}}</text></view>
-        <view wx:if="{{currentTab === 0}}" class="displayGrid" ><!-- wx:if="{{currentTab === 0}}" -->
+        <view wx:if="{{currentTab !== 2}}" class="displayGrid" >
           <view style="font-size:25rpx;">发布时间：{{item.create_time}} </view>
-          <!-- <view style="font-size:25rpx;">还车时间：<text style=""></text>{{item.end_time}}</view> -->
         </view>  
-        <view wx:else class="displayGrid"><!-- wx:if="{{currentTab === 0}}" -->
+        <view wx:else class="displayGrid">
           <view style="font-size:25rpx;">起租时间：{{item.start_time}} </view>
           <view style="font-size:25rpx;">还车时间：<text style=""></text>{{item.end_time}}</view>
         </view>  
         <!-- <view>租车日期：2021-02-26 - 2020-01-03</view> -->
-       
         <view><text>位置：{{item.region_name}}{{item.addr_detail}}</text></view>
         <view class="payColor displayFlex">
           <view wx:if="{{currentTab === 1}}" class="flex1"><text>订单金额：￥{{item.amount}}</text></view>
-          <view wx:else class="flex1"><text>编辑车辆信息</text></view>
-          <view wx:if="{{currentTab === 0}}" class="mr20" data-pid="{{item.id}}" catchtap="removeModels">
+          <view wx:else class="flex1"><text></text></view>
+          <view wx:if="{{currentTab === 0}}" class="mr30" data-pid="{{item.id}}" catchtap="removeModels">
               删除
           </view>
         </view>

@@ -63,6 +63,9 @@ const setUserInfo = (data) => {
 }
 // 时间戳转时间
 var setDataTime = (str) => {
+  if(!str){
+    return ''
+  }
   var n = parseInt(str)*1000;
   var D = new Date(n);
   var year = D.getFullYear();//四位数年份

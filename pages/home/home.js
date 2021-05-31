@@ -44,9 +44,13 @@ Page({
           .catch(err=>{
             console.log(err);
           })
-    
-    // 
-    
+  },
+  onPullDownRefresh(){
+      wx.stopPullDownRefresh({
+        success: (res) => {
+          console.log(123);
+        },
+      })
   },
     // 点击左边菜单
     leftMenu(e){

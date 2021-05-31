@@ -12,20 +12,27 @@ Page({
     //     })
     // }
   },
-  data: {
-    beaseUrl: beaseUrl,
-    regionArray: area(true),
-    regionIndex: 0,
-    ccArray: motocycle_cc(true),
-    typeIndex: 0,
-    typeArray: [{name: '未出租'}, {name: '已出租'}],
-    ccIndex: 0,
-    userName: '首页',
-    leftIndex: 0,
-    leftTabArray: [],
-    rightArray: [],
-    // region: ['上海市', '上海市', '浦东新区'],
-  },
+    data: {
+      beaseUrl: beaseUrl,
+      regionArray: area(true),
+      regionIndex: 0,
+      ccArray: motocycle_cc(true),
+      typeIndex: 0,
+      typeArray: [{name: '未出租'}, {name: '已出租'}],
+      ccIndex: 0,
+      userName: '首页',
+      leftIndex: 0,
+      leftTabArray: [],
+      rightArray: [],
+      // region: ['上海市', '上海市', '浦东新区'],
+    },
+    onPullDownRefresh(){
+        wx.stopPullDownRefresh({
+          success: (res) => {
+            console.log(123);
+          },
+        })
+    },
     init(){
       API.getType({}).then(res => {
         this.setData({

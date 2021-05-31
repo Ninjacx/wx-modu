@@ -91,3 +91,10 @@
   width: 50rpx;
   height: 50rpx;
 }
+.textContent{
+  border: 3rpx solid #b3b3b3f2;
+  padding: 20rpx;
+  margin: auto;
+  border-radius: 10rpx;
+  height: 160rpx;
+}

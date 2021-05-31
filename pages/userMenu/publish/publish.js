@@ -40,6 +40,7 @@ Page({
   },
   data: {
     initRegionIndex: 0,
+    
     // initLeaseUserInfo: [], // 保存默认基本数据（方便用户少填写一点）
 
     isNullFlag: false, // 全局校验的标识，true为不让提交，false 过验证能提交
@@ -52,6 +53,7 @@ Page({
       motorcycle_name: '',
       license_plate_id: 1,
       volume: '',
+      deposit: '',
       rent_day: '',
       rent_month: '',
       rent_year: '',
@@ -59,6 +61,7 @@ Page({
       addr_detail: '',
       contact: '',
       contact_phone: '',
+      description: '',
       pic_url: ''
     },
     // multiIndex: 0,
@@ -147,12 +150,15 @@ Page({
       this.data.isNullFlag = false
     },
     validateMoto: function(){
-      var {motorcycle_name, volume, rent_day, addr_detail, contact, contact_phone} = this.data.pageData
-   
+      var {motorcycle_name, volume, deposit, rent_day, addr_detail, contact, contact_phone} = this.data.pageData
+      
       if(!isNull(this.data, motorcycle_name, '请填写车型名称')){
         return false
       }
       if(!isNull(this.data, volume, '请填写摩托车排量')){
+        return false
+      }
+      if(!isNull(this.data, deposit, '请填写押金')){
         return false
       }
       if(!isNull(this.data, rent_day, '请填写日租金')){
