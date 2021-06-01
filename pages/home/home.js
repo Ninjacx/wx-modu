@@ -45,6 +45,16 @@ Page({
             console.log(err);
           })
   },
+/*******图标菜单START******/
+to_faq(){
+  wx.navigateTo({
+    url: '/pages/webView/webView?type=faq'
+  })
+},
+to_sign_in(){
+  console.log('signIn');
+},
+/*******图标菜单END******/
   onPullDownRefresh(){
       wx.stopPullDownRefresh({
         success: (res) => {

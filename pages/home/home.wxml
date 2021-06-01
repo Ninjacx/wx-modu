@@ -11,7 +11,40 @@
         </block>
       </swiper>
 </view>
+  <view class="displayFlex orderView menuList">
+            <view catchtap="to_faq" class="flex1">
+              <view>
+                <image class="rightImg driveCard" src="../../image/icon/home/menu1.png"></image>
+              </view>
+              <view class="mt10 fs20">新手指引</view>
+            </view>
+            <view catchtap="to_sign_in" class="flex1">
+              <view><image class="rightImg driveCard" src="../../image/icon/home/menu2.png"></image></view>
+              <view class="mt10 fs20">积分签到</view>
+            </view>
+            <view catchtap="to_userOrder" class="flex1">
+              <view><image class="rightImg driveCard" src="../../image/icon/home/menu3.png"></image></view>
+              <view class="mt10 fs20">发布车辆</view>
+            </view>
+            <view catchtap="to_userPublish" class="flex1">
+              <view><image class="rightImg driveCard" src="../../image/icon/home/menu4.png"></image></view>
+              <view class="mt10 fs20">限时活动</view>
+            </view>
+  </view>
 <view>
+  <view catchtap="to_member" class="displayFlex cardView">
+       <view class="flex1 color5e"><i class="iconfont icon-xiangzuo color59 mr10"></i>热门推荐</view>
+       <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
+  </view>
+  <view class="bgfff">
+    <view>
+      左右结构图片显示
+    </view>
+      <!-- <view wx:for="{{demandList}}" class="pt20lr30">
+        <view>{{item.content}}</view>
+        <view class="color6a mt15 fs20"><text>{{item.real_name}}</text><text class="fr">{{item.create_time}}</text></view>
+      </view> -->
+  </view>
   <view catchtap="to_member" class="displayFlex cardView">
        <view class="flex1 color5e"><i class="iconfont icon-xiangzuo color59 mr10"></i>求购专区</view>
        <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>

@@ -7,3 +7,12 @@ page{
   background:#ffffff;
   margin-top: 20rpx;
 }
+.menuList image{
+  width: 32px;
+  height: 32px;
+}
+.orderView{
+  text-align: center;
+  background: #ffffff;
+  padding: 30rpx 0;
+}
