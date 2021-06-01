@@ -166,6 +166,9 @@
 .mr15{
   margin-right: 15rpx;
 }
+.mt5{
+  margin-top: 5rpx;
+}
 .mt20{
   margin-top: 20rpx;
 }

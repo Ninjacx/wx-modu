@@ -37,8 +37,27 @@
        <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
   </view>
   <view class="bgfff">
-    <view>
-      左右结构图片显示
+    <view class="displayFlex textCenter">
+      <view catchtap="toDetail"  wx:for="{{rightArray}}" data-leftData="{{item}}" class="bgFFF pt10 bb8 rightList flex1">
+        <view class="posR">
+          <view wx:if="{{item.is_lease === 1}}">
+            <view class="imgTxt" style="color:#ffffff;z-index:1;">已出租</view>
+            <view class="imgTxt" style="background:#000000;opacity:0.5;border-radius:10rpx;">已出租</view>
+          </view>
+          <!-- http://172.16.19.133/upload/ef7edcba-402a-5f07-a10e-4ea4c2cf44a4 -->
+          <image style="width:320rpx;height:200rpx;border-radius: 10rpx" class="rightImg" src="http://172.16.19.133/upload/ef7edcba-402a-5f07-a10e-4ea4c2cf44a4" ></image>
+          <!-- <image style="width:200rpx;height:200rpx" class="rightImg" src="{{beaseUrl + '/upload/' + item.pic_url}}" ></image> -->
+        </view>
+        <view class="w100 displayGrid" style="width: 320rpx;margin: auto;text-align: left;">   
+          <view class="fs26"><text>沪A GSX250 </text> </view>
+          <view class="fs25"><text>位置：上海市松江区沪青平公路1633号601弄</text></view>
+          <view class="payColor displayFlex mt5">
+            <view wx:if="{{leftIndex !== 2}}" class="flex1 fs20"><text>￥200{{item.rent_day}}/日</text></view>
+            <view class="flex1 fs20 mr20 "><text>￥3000{{item.rent_month}}/月</text></view>
+            <!-- <view wx:if="{{leftIndex === 2}}" class="flex1 fs20 textRight  mr20"><text>￥{{item.rent_year}}/年</text></view> -->
+          </view>
+        </view>
+      </view>
     </view>
       <!-- <view wx:for="{{demandList}}" class="pt20lr30">
         <view>{{item.content}}</view>

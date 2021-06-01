@@ -36,5 +36,7 @@
     border-bottom: 20rpx solid #eaeaea;
 }
 .submitOrder{
-    float:right;padding:0 21px;wxcs_style_padding:0 50rpx;
+    float:right;
+    padding:0 42rpx;
+    /* wxcs_style_padding:0 50rpx; */
 }

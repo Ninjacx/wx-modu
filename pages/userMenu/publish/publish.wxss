@@ -38,7 +38,7 @@
 .userTop{
   background: linear-gradient(180deg, #1f1f1f 0%, #6a7377 100%);
   padding: 110rpx 0 150rpx 40rpx;
-  box-shadow: 0px 4px 8px 0px #F5F5F5, 0px 0px 10px 0px #E8E8E8;
+  box-shadow: 0 8rpx 16rpx 0 #F5F5F5, 0 0 20rpx 0 #E8E8E8;
 }
 .orderView{
   text-align: center;

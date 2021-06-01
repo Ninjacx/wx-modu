@@ -2,7 +2,7 @@ page{
   background: #f6f6f6;
 }
 .cardView{
-  border-bottom: 1px solid #dedede;
+  /* border-bottom: 1px solid #dedede; */
   padding: 20rpx;
   background:#ffffff;
   margin-top: 20rpx;
