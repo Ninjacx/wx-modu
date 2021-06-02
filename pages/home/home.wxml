@@ -11,24 +11,24 @@
         </block>
       </swiper>
 </view>
-  <view class="displayFlex orderView menuList bbec">
+  <view class="displayFlex orderView menuList bbec fs23">
             <view catchtap="to_faq" class="flex1">
               <view>
                 <image class="rightImg driveCard" src="../../image/icon/home/menu1.png"></image>
               </view>
-              <view class="mt10 fs20">新手指引</view>
+              <view class="mt10 ">新手指引</view>
             </view>
             <view catchtap="to_sign_in" class="flex1">
               <view><image class="rightImg driveCard" src="../../image/icon/home/menu2.png"></image></view>
-              <view class="mt10 fs20">积分签到</view>
+              <view class="mt10 ">积分签到</view>
             </view>
             <view catchtap="to_userOrder" class="flex1">
               <view><image class="rightImg driveCard" src="../../image/icon/home/menu3.png"></image></view>
-              <view class="mt10 fs20">发布车辆</view>
+              <view class="mt10 ">摩都聚集</view>
             </view>
             <view catchtap="to_activity" class="flex1">
               <view><image class="rightImg driveCard" src="../../image/icon/home/menu4.png"></image></view>
-              <view class="mt10 fs20">限时活动</view>
+              <view class="mt10 ">限时活动</view>
             </view>
   </view>
 <view>
