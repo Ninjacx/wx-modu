@@ -3,9 +3,9 @@ page{
 }
 .cardView{
   /* border-bottom: 1px solid #dedede; */
-  padding: 20rpx 0;
-  margin-top: 30rpx;
+  padding: 20rpx;
   background:#ffffff;
+  margin-top: 20rpx;
 }
 .menuList image{
   width: 32px;

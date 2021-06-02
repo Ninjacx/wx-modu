@@ -190,6 +190,12 @@
         {
           "name": "pages/userMenu/userPublish/userPublish",
           "pathName": "pages/userMenu/userPublish/userPublish",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/activity",
+          "pathName": "pages/home/home",
           "scene": null
         }
       ]

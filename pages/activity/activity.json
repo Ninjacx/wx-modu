@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "限时活动",
+  "navigationBarBackgroundColor": "#ffffff",
+  "onReachBottomDistance": 5,
+  "usingComponents": {}
+}

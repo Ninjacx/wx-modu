@@ -7,7 +7,8 @@ page{
 }
 .left{
   position: fixed;
-  top: 50rpx;
+  /* top: 50rpx; */
+  margin-top: 70rpx;
   /* background:#cccccc; */
   height: 100%;
 }

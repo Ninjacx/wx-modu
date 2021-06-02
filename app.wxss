@@ -26,6 +26,7 @@ page {
   box-sizing: border-box;
   padding: 0 30rpx;
 }
+.displayIb{display: inline-block}
 .posA{position: absolute;}
 .posR{position: relative;}
 .vm{vertical-align: middle;}
@@ -65,6 +66,11 @@ page {
 .mt20{margin-top: 20rpx;}
 .mt25{margin-top: 25rpx;}
 .mt30{margin-top: 30rpx;}
+.mb10{margin-bottom: 10rpx;}
+.mb15{margin-bottom: 15rpx;}
+.mb20{margin-bottom: 20rpx;}
+.mb25{margin-bottom: 25rpx;}
+.mb30{margin-bottom: 30rpx;}
 .mt35{margin-top: 35rpx;}
 .mt40{margin-top: 40rpx;}
 .mt50{margin-top: 50rpx;}
@@ -104,6 +110,7 @@ page {
 
 /* border */
 .bt20{border-top: 20rpx solid #f8f8f8;}
+.bbec{border-bottom: 8rpx solid #ececec;}
 .bb8{border-bottom: 8rpx solid #f8f8f8}
 .border0{border: 0 !important}
 .borderR10{border-radius: 10rpx;}

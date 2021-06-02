@@ -14,6 +14,7 @@
     "pages/userMenu/historyOrder/historyOrder",
     "pages/userMenu/adviceFeedBack/adviceFeedBack",
     "pages/userMenu/member/member",
+    "pages/activity/activity",
     "pages/webView/webView"
   ],
   "tabBar": {

@@ -11,7 +11,7 @@ Page({
       // }
   },
   data: {
-    rightArray:[{},{}],
+    rightArray:[{}],
     bannerList: [], // 轮播图列表
     demandList: [], // 需求列表
     background: [{id:1,txt:'a'},{id: 2,txt:'b'},{id:3,txt:'c'}],
@@ -62,12 +62,6 @@ to_sign_in(){
           console.log(123);
         },
       })
-  },
-  // 限时活动跳转
-  to_activity(){
-    wx.navigateTo({
-      url: '/pages/activity/activity'
-    })
   },
     // 点击左边菜单
     leftMenu(e){
