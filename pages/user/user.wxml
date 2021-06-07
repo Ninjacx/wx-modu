@@ -25,30 +25,38 @@
               <view><i class="fs55 iconfont icon-lishidingdan color59 "></i></view>
               <view class="mt10 fs20">我的出租</view>
             </view> -->
-            <view catchtap="to_userPublish" class="flex1">
+            <view catchtap="to_userDoc" class="flex1">
               <view><i class="fs55 iconfont icon-icon2-copy color59 "></i></view>
-              <view class="mt10 fs20">我的发布</view>
+              <view class="mt10 fs20">租车资料</view>
             </view>
           </view>
+      <!-- 出借方 -->
       <view class="pb50 userMenuView">
+        <view catchtap="to_member" class="displayFlex cardView">
+            <view class="flex1 color5e">
+                <!-- <image style="height: 18px;width: 18px;vertical-align: bottom;margin: 0 15rpx;" src="/image/icon/home/tj.png" /> -->
+                <text>出借方</text>
+            </view>
+          </view>
         <view class="displayFlex cardView">
           <view class="flex1">我的等級</view>
           <view class="flex1 textRight">普通会员</view>
         </view>
-        <view catchtap="to_userDoc" class="displayFlex cardView">
-          <view class="flex1">我的资料</view>
+        <view catchtap="to_userPublish" class="displayFlex cardView">
+          <view class="flex1">我的车辆</view>
           <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
         <view catchtap="to_userPublicDoc" class="displayFlex cardView">
-          <view class="flex1">我的租借资料</view>
+          <view class="flex1">认证资料</view>
           <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
         <view wx:if="{{userInfo.apply_status === 1}}" catchtap="publish" class="displayFlex cardView">
-          <view class="flex1">发布</view>
+          <view class="flex1">发布车辆</view>
           <view class="flex1 textRight"><i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
-        <view wx:else catchtap="to_member" class="displayFlex cardView border0">
-          <view class="flex1">申请成为租借方</view>
+        <!-- wx:else -->
+        <view  catchtap="to_member" class="displayFlex cardView border0">
+          <view class="flex1">认证管理</view>
           <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view>
         </view>
         <view class="bt20">

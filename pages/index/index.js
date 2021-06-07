@@ -5,12 +5,7 @@ import {area, carType, motocycle_cc} from '../../utils/commonData'
 var app = getApp();  //获取app.js
 Page({
   onLoad: function () {
-    this.init()
-    // if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-    //     this.getTabBar().setData({
-    //       selected: 0
-    //     })
-    // }
+    this.initLeftMenu()
   },
     data: {
       beaseUrl: beaseUrl,
@@ -33,7 +28,7 @@ Page({
           },
         })
     },
-    init(){
+    initLeftMenu(){
       API.getType({}).then(res => {
         this.setData({
           leftTabArray: res.data
@@ -43,20 +38,20 @@ Page({
         // return res
       })
     },
-    // 点击左边菜单
-    leftMenu(e){
-      if(e !== 0){
-        this.setData({leftIndex: e.currentTarget.dataset.index})
-      }
+    initPublishDataList(){
       var { id } = this.data.leftTabArray[this.data.leftIndex]
       API.publishDataList({typeId: id}).then(res => {
         this.setData({
           rightArray: res.data
         })
       })
-
-     
-      console.log(e);
+    },
+    // 点击左边菜单
+    leftMenu(e){
+      if(e !== 0){
+        this.setData({leftIndex: e.currentTarget.dataset.index})
+      }
+     this.initPublishDataList()
     },
     // 进入详情
     toDetail(e){

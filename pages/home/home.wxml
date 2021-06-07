@@ -33,11 +33,10 @@
   </view>
 <view>
   <view catchtap="to_member" class="displayFlex cardView">
-       <view class="flex1 color5e">
-         <!-- <i class="iconfont icon-xiangzuo color59 mr10"></i> -->
-      <image style="height: 18px;width: 18px;vertical-align: bottom;margin: 0 15rpx;" src="/image/icon/home/tj.png" />
-      <text>热门推荐</text></view>
-       <!-- <view class="flex1 textRight"> <i class="iconfont icon-xiangzuo color59 "></i></view> -->
+     <view class="flex1 color5e">
+        <image style="height: 18px;width: 18px;vertical-align: bottom;margin: 0 15rpx;" src="/image/icon/home/tj.png" />
+        <text>热门推荐</text>
+     </view>
   </view>
   <view class="bgfff">
     <view class="textCenter displayIb w100">
