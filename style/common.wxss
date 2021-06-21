@@ -132,6 +132,9 @@
 .displayFlex{
   display: flex;
 }
+.vm{
+  vertical-align: middle;
+}
 .section__title{
   flex: 1;
 }

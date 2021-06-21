@@ -19,6 +19,7 @@ Page({
       leftIndex: 0,
       leftTabArray: [],
       rightArray: [],
+      pageSize: 1,
       // region: ['上海市', '上海市', '浦东新区'],
     },
     onPullDownRefresh(){
@@ -40,7 +41,7 @@ Page({
     },
     initPublishDataList(){
       var { id } = this.data.leftTabArray[this.data.leftIndex]
-      API.publishDataList({typeId: id}).then(res => {
+      API.publishDataList({typeId: id, pageSize: this.data.pageSize}).then(res => {
         this.setData({
           rightArray: res.data
         })
@@ -49,7 +50,7 @@ Page({
     // 点击左边菜单
     leftMenu(e){
       if(e !== 0){
-        this.setData({leftIndex: e.currentTarget.dataset.index})
+        this.setData({leftIndex: e.currentTarget.dataset.index, pageSize: 1})
       }
      this.initPublishDataList()
     },
@@ -76,8 +77,8 @@ Page({
     },
     
     onReachBottom: function () {
-      // this.onBottom();
-      console.log('123');
+      this.data.pageSize += 1
+      this.initPublishDataList()
     },
     setUserName: function(){
       this.setData({
