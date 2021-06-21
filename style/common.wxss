@@ -142,16 +142,6 @@
   flex: 1;
   text-align: right;
 }
-.picker{
-  color:#8C8C8C ;
-}
-/* fontsize */
-.fs30{
-  font-size: 30rpx;
-}
-.fs32{
-  font-size: 32rpx;
-}
 /* color */
 .bgFFF{
   background-color: #FFFFFF;

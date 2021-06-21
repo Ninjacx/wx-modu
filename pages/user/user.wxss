@@ -64,6 +64,7 @@
   margin-left: 13rpx;
 }
 .cardView{
+  border-top: 2rpx solid #dedede;
   border-bottom: 2rpx solid #dedede;
   margin: 30rpx 0;
 }
@@ -85,4 +86,10 @@
   bottom: 0;
   left: 0;
   right: 0;
+}
+.menuHeight{
+  height: 100rpx;line-height: 100rpx;
+}
+.borderRight1{
+  border-right: 2rpx solid #dedede;
 }

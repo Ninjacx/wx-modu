@@ -12,10 +12,6 @@ switch (version) {
     // beaseUrl ="http://47.98.163.21"; //开发版
     // beaseUrl ="http://172.16.19.133";
     beaseUrl ="http://192.168.1.1";
-    // beaseUrl ="http://192.168.1.5";
-    // beaseUrl ="http://192.168.0.103";
-    // 172.16.19.133
-    // beaseUrl ="http://192.168.1.33";
     // beaseUrl ="https://qa.tranderpay.com/api/v1"; //开发版
     // beaseUrl ="http://172.16.19.220:8888/api/v1"; //开发版
     break;
