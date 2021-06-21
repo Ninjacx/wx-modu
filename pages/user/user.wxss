@@ -65,8 +65,7 @@
 }
 .cardView{
   border-bottom: 2rpx solid #dedede;
-  margin: 0 30rpx;
-  padding: 30rpx 0;
+  margin: 30rpx 0;
 }
 .userMenuView{
   position: absolute;
