@@ -66,13 +66,13 @@
 .cardView{
   border-top: 2rpx solid #dedede;
   border-bottom: 2rpx solid #dedede;
-  margin: 30rpx 0;
+  /* margin-bottom: 30rpx; */
 }
-.userMenuView{
+/* .userMenuView{
   position: absolute;
   top: 113rpx;
   width: 100%;
-}
+} */
 .loginView{
   margin: 0 auto;
   position: relative;
@@ -88,7 +88,15 @@
   right: 0;
 }
 .menuHeight{
-  height: 100rpx;line-height: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.menuTitle{
+  padding-left: 30rpx;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  /* border-top: 15rpx solid #efefef; */
 }
 .borderRight1{
   border-right: 2rpx solid #dedede;

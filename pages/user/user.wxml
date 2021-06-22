@@ -28,7 +28,7 @@
       <!-- 租车 -->
       <view class="pb50 userMenuView">
         <view>
-          <view class="color5e">
+          <view class="color5e menuTitle">
             <text>我要租车</text>
           </view>
           <view class="cardView">
@@ -44,36 +44,36 @@
           </view>
         </view>
         <view>
-          <view class="color5e">
+          <view class="color5e menuTitle">
             <text>我要出借</text>
           </view>
           <view class="cardView">
               <view class="displayFlex menuHeight">
-                <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
-                <view catchtap="publish"><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">发布车辆</text> </view>
+                <view catchtap="publish" class="flex1 ml30 borderRight1">
+                <view><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">发布车辆</text> </view>
               </view>
-              <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
-                <view catchtap="to_userPublish"><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text>我的车辆</text> </view>
+              <view catchtap="to_userPublish" class="flex1 ml30 borderRight1">
+                <view><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">我的车辆</text> </view>
               </view>
-              <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
-                <view><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text>出借资料</text> </view>
+              <view catchtap="to_userPublicDoc" class="flex1 ml30 borderRight1">
+                <view><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">出借资料</text> </view>
                 <!-- <view class="mt10 fs20"></view> -->
               </view>
             </view>
           </view>
         </view>
         <view>
-          <view class="color5e">
+          <view class="color5e menuTitle">
             <text>其它</text>
           </view>
           <view class="cardView">
               <view class="displayFlex menuHeight">
                 <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
-                <view catchtap="to_faq" ><i class="fs55 iconfont icon-icon2-copy color59 "></i> <text>用户指南</text>
+                <view catchtap="to_faq" ><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">用户指南</text>
                 </view>
               </view>
               <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
-                <view catchtap="to_adviceFeedBack" ><i class="fs55 iconfont icon-icon2-copy color59 "></i> <text>意见反馈</text> </view>
+                <view catchtap="to_adviceFeedBack" ><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">意见反馈</text> </view>
               </view>
             </view>
           </view>
