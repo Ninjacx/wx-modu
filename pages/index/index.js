@@ -8,6 +8,8 @@ Page({
     this.initLeftMenu()
   },
     data: {
+      isMore: true, // 是否有更多数据
+      // isMoreTxt: '加载更多…',
       beaseUrl: beaseUrl,
       regionArray: area(true),
       regionIndex: 0,
@@ -41,16 +43,26 @@ Page({
     },
     initPublishDataList(){
       var { id } = this.data.leftTabArray[this.data.leftIndex]
+      if(!this.data.isMore){
+        return false
+      }
       API.publishDataList({typeId: id, pageSize: this.data.pageSize}).then(res => {
+        if(!res.data.length){
+          this.setData({
+            isMore: false
+          })
+          return false
+        }
+        var appendData = this.data.rightArray.concat(res.data)
         this.setData({
-          rightArray: res.data
+          rightArray: appendData
         })
       })
     },
     // 点击左边菜单
     leftMenu(e){
       if(e !== 0){
-        this.setData({leftIndex: e.currentTarget.dataset.index, pageSize: 1})
+        this.setData({leftIndex: e.currentTarget.dataset.index, pageSize: 1, rightArray: [], isMore: true})
       }
      this.initPublishDataList()
     },

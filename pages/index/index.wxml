@@ -24,9 +24,6 @@
           </view>
         </picker>
       </view>
-      <!-- <view class="flex1 textCenter">
-        价格 .
-      </view> -->
     </view>
 </view>
 <view class="index">
@@ -39,7 +36,7 @@
     </view> 
   </view>
   <view data-publishId="" class="right w100">
-    <view class="mt70">
+    <view class="mt70 mb20">
       <view catchtap="toDetail"  wx:for="{{rightArray}}" data-leftData="{{item}}" class="bgFFF pt10 bb8 rightList displayFlex">
         <view class="posR">
           <view wx:if="{{item.is_lease === 1}}">

@@ -1,7 +1,7 @@
 import API from '../../api/index'
+import {beaseUrl} from '../../request/config'
 Page({
   onLoad: function () {
-    console.log(123);
       this.init()
       // if (typeof this.getTabBar === 'function' &&
       //   this.getTabBar()) {
@@ -11,9 +11,11 @@ Page({
       // }
   },
   data: {
+    beaseUrl: beaseUrl,
     rightArray:[{},{}],
     bannerList: [], // 轮播图列表
     demandList: [], // 需求列表
+    recommendList: [], // 推荐列表
     background: [{id:1,txt:'a'},{id: 2,txt:'b'},{id:3,txt:'c'}],
     indicatorDots: true,
     vertical: false,
@@ -26,13 +28,15 @@ Page({
     region: ['上海市', '上海市', '浦东新区'],
   }, // 私有数据，可用于模板渲染
   init(){
-    Promise.all([API.getBanner({}).then(res => { return res }), API.getDemand({}).then(res => { return res })])
+    
+    
+    Promise.all([API.getBanner({}).then(res => { return res }), API.getDemand({}).then(res => { return res }),API.recommendList({typeId: 1, pageSize: 1}).then(res => { return res })])
           .then(result => {
-            var [bannerList, demandList] = result
-            console.log('result',result);
+            var [bannerList, demandList, recommendList] = result
             this.setData({
               bannerList: bannerList.data,
-              demandList: demandList.data
+              demandList: demandList.data,
+              recommendList: recommendList.data
             })
             
             // var [lease_cardA, lease_cardB] = result

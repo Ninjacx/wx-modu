@@ -42,6 +42,14 @@ const publishDataList = data => {
 		data
 	})
 }
+// 推荐的列表
+const recommendList = data => {
+	return _request({
+		url: '/wechat/recommendList',
+		method: 'get',
+		data
+	})
+}
 // 需求列表
 const getDemand = data => {
 	return _request({
@@ -66,5 +74,6 @@ module.exports =  {
 	getType,
 	getRegion,
 	publishDataList,
+	recommendList,
 	publishDetailOne
 }
