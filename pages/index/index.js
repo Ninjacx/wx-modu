@@ -8,6 +8,15 @@ Page({
     this.initLeftMenu()
   },
     data: {
+      // <view>价格由低到高</view>
+      //   <view>价格由高到低</view>
+      //   <view>押金最少</view>
+      //   <view>押金最多</view>
+      //   <view>排量由小到大</view>
+      //   <view>排量由大到小</view>
+      searchList:[{name: '综合排序'},{name: '价格由低到高'}, {name: '价格由高到低'}, {name: '押金最少'}, {name: '押金最多'}, {name: '排量由小到大'}, {name: '排量由大到小'}],
+      isShowSearchBlock: false,
+      searchIndex: 0,
       isMore: true, // 是否有更多数据
       // isMoreTxt: '加载更多…',
       beaseUrl: beaseUrl,
@@ -23,6 +32,17 @@ Page({
       rightArray: [],
       pageSize: 1,
       // region: ['上海市', '上海市', '浦东新区'],
+    },
+    setSearch(item){
+      console.log(item.currentTarget.dataset.index);
+      var searchIndex = item.currentTarget.dataset.index
+      this.setData({
+        isShowSearchBlock: false,
+        searchIndex,
+      })
+    },
+    toggleSearch(){
+      this.setData({isShowSearchBlock: !this.data.isShowSearchBlock})
     },
     onPullDownRefresh(){
         wx.stopPullDownRefresh({
