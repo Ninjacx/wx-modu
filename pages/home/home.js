@@ -1,5 +1,6 @@
 import API from '../../api/index'
 import {beaseUrl} from '../../request/config'
+var {wxToast} = getApp().globalData.common
 Page({
   onLoad: function () {
       this.init()
@@ -56,16 +57,26 @@ to_faq(){
     url: '/pages/webView/webView?type=faq'
   })
 },
+to_gather(){
+  wx.navigateTo({
+    url: '/pages/webView/webView?type=gather'
+  })
+},
 to_sign_in(){
-  console.log('signIn');
+  // API
+  wxToast('签到成功+50积分')
 },
 /*******图标菜单END******/
   onPullDownRefresh(){
-      wx.stopPullDownRefresh({
+    API.recommendList({typeId: 1, pageSize: 1}).then((res)=>{
+       wx.stopPullDownRefresh({
         success: (res) => {
-          console.log(123);
+          this.setData({
+            recommendList: res.data
+          })
         },
       })
+    })
   },
   // 限时活动跳转
   to_activity(){
@@ -81,9 +92,9 @@ to_sign_in(){
       console.log(e);
     },
     // 进入详情
-    toDetail(){
+    toDetail(e){
       wx.navigateTo({
-        url: '/pages/detail/detail?id='
+        url: '/pages/detail/detail?publishId=' + e.currentTarget.dataset.item.id
       })
     },
     bindRegionChange: function (e) {

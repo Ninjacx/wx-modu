@@ -20,7 +20,11 @@ Page({
           url: beaseUrl + '/AppView/faq.html'
         })
       break;
-    
+      case 'gather':
+        this.setData({
+          url: beaseUrl + '/AppView/gather.html'
+        })
+      break;
       default:
         break;
     }

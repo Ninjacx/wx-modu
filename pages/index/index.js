@@ -45,10 +45,21 @@ Page({
       this.setData({isShowSearchBlock: !this.data.isShowSearchBlock})
     },
     onPullDownRefresh(){
+      // wx.startPullDownRefresh({
+      //   success: (res) => {
+      //     console.log(321);
+      //   }
+      // })
         wx.stopPullDownRefresh({
           success: (res) => {
             console.log(123);
+            // this.setData({pageSize: 1, isMore: true})
+            // this.initPublishDataList()
+            // // console.log(123);
           },
+          fail: (res) => {
+            console.log(231);
+          }
         })
     },
     initLeftMenu(){
@@ -73,10 +84,17 @@ Page({
           })
           return false
         }
-        var appendData = this.data.rightArray.concat(res.data)
-        this.setData({
-          rightArray: appendData
-        })
+        if(this.data.pageSize === 1){
+          this.setData({
+            rightArray: res.data
+          })
+        }else{
+          var appendData = this.data.rightArray.concat(res.data)
+          this.setData({
+            rightArray: appendData
+          })
+        }
+       
       })
     },
     // 点击左边菜单

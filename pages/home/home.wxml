@@ -22,7 +22,7 @@
               <view><image class="rightImg driveCard" src="../../image/icon/home/menu2.png"></image></view>
               <view class="mt10 ">积分签到</view>
             </view>
-            <view catchtap="to_userOrder" class="flex1">
+            <view catchtap="to_gather" class="flex1">
               <view><image class="rightImg driveCard" src="../../image/icon/home/menu3.png"></image></view>
               <view class="mt10 ">摩都聚集</view>
             </view>
@@ -40,7 +40,7 @@
   </view>
   <view class="bgfff">
     <view class="textCenter displayIb w100">
-      <view catchtap="toDetail"  wx:for="{{recommendList}}" data-leftData="{{item}}" class="bgFFF pt10  fl" style="width: 50%">
+      <view catchtap="toDetail"  wx:for="{{recommendList}}" data-item="{{item}}" class="bgFFF pt10  fl" style="width: 50%">
         <view class="posR">
           <!-- <view wx:if="{{item.is_lease === 1}}">
             <view class="imgTxt" style="color:#ffffff;z-index:1;">已出租</view>
