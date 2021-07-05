@@ -202,29 +202,12 @@ Page({
           uploadFile(this.data.files[0]).then((res)=>{
             this.data.pageData['pic_url'] = res.data.filePathName
             API.publish(this.data.pageData).then(res=>{
-              // wx.redirectTo({
-              //   url: '/pages/userMenu/userPublish/userPublish'
-              // })
+              wx.redirectTo({
+                url: '/pages/userMenu/userPublish/userPublish'
+              })
               wxToast(res.msg)
             })
-            
           })
-          // var userInfo = wx.getStorageSync('userInfo')
-          // wx.uploadFile({
-          //   // /upload
-          //   header: { Authorization: userInfo.id },
-          //   url: beaseUrl+'/weChat/publish', //仅为示例，非真实的接口地址
-          //   filePath: this.data.files[0],
-          //   name: 'file',
-          //   formData: this.data.pageData,
-          //   success (res){
-          //     // 关闭当前页面，跳转到我的订单里
-          //     wx.redirectTo({
-          //       url: '/pages/userMenu/userPublish/userPublish'
-          //     })
-          //     wxToast('发布成功')
-          //   }
-          // })
       }
     }
 })

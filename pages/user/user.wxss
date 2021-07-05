@@ -91,6 +91,9 @@
   height: 100rpx;
   line-height: 100rpx;
 }
+.oneMenu{
+  border-top: 2rpx solid #dedede;
+}
 .menuTitle{
   padding-left: 30rpx;
   font-size: 30rpx;

@@ -1,5 +1,5 @@
 { 
-  "enablePullDownRefresh": false,
+  "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
   "navigationBarTitleText": "租车",
   "navigationBarBackgroundColor": "#ffffff",

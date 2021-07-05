@@ -2,15 +2,16 @@
   <!-- <text>位置：上海市 浦东新区</text> -->
   <view class="displayFlex selectOptView">
       <view  style="background: #ffffff;position: fixed;width: 100%">
-        <view class="pl20" catchtap="toggleSearch" style="background: #f3f3f3">
-          {{searchList[searchIndex].name}}     
-          <!-- <label class="checkbox">
-            <checkbox value="cb" checked="true"/>仅显示可借
-          </label> -->
+        <view class="pl20 displayFlex" catchtap="toggleSearch" style="background: #f3f3f3">
+          <view class="flex1">{{searchList[searchIndex].name}}</view>
+          <view class="flex1 textRight mr30">
+            <image class="vm" style="height: 50rpx;width: 50rpx;" src="../../image/icon/index/searchSort.png"></image>
+          </view>
         </view>
         <view wx:if="{{isShowSearchBlock}}" class="pl20">
-            <view catchtap="setSearch" data-index="{{index}}" wx:key="index"  wx:for="{{searchList}}">
-              <text class="{{searchIndex === index ? 'colorRed' : ''}}">{{item.name}} </text>
+            <view class="displayFlex" catchtap="setSearch" data-index="{{index}}" wx:key="index"  wx:for="{{searchList}}">
+              <text class="flex1 {{searchIndex === index ? 'colorRed' : ''}}">{{item.name}} </text>
+              <view wx:if="{{searchIndex === index}}" class="flex1 textRight mr30"><image class="vm" style="height: 25rpx;width: 25rpx;" src="../../image/icon/index/searchTick.png"></image></view>
             </view>
         </view>
       </view>

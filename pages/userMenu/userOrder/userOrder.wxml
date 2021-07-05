@@ -8,7 +8,7 @@
   <view  class="w100 p30 mt50">
     <view wx:for="{{pageData}}" class="mt20 bgFFF pt10 borderR10" style="display: flex;">
       <view class="ml15 mr15">
-        <image style="width:200rpx;height:200rpx" src="{{beaseUrl+item.pic_url}}" class='borderR10'></image>
+        <image style="width:200rpx;height:200rpx" src="{{imgUrlHost+item.pic_url}}" class='borderR10'></image>
       </view>
       <view class="fs25 w100 displayGrid">
         <view class="displayGrid" wx:if="{{currentTab === 2}}">

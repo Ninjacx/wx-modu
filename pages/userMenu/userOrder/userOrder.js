@@ -1,5 +1,5 @@
 import API from '../../../api/index'
-import {beaseUrl} from '../../../request/config'
+import {imgUrlHost} from '../../../request/config'
 import {setDataTime} from '../../../utils/common'
 var {wxToast, wxShowModal} = getApp().globalData.common
 Page({
@@ -8,7 +8,7 @@ Page({
       this.init(1)
   },
   data: {
-    beaseUrl: beaseUrl,
+    imgUrlHost: imgUrlHost,
     pageData: [],
     navTab: [{statusName: '进行中',status: 1},{statusName:'已完成',status: 2}],        
     currentTab: 1,

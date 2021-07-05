@@ -48,10 +48,7 @@
             <text>我要出借</text>
           </view>
           <view class="cardView">
-              <view class="displayFlex menuHeight">
-                <view catchtap="publish" class="flex1 ml30 borderRight1">
-                <view><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">发布车辆</text> </view>
-              </view>
+             <view class="displayFlex menuHeight">
               <view catchtap="to_userPublish" class="flex1 ml30 borderRight1">
                 <view><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">我的车辆</text> </view>
               </view>
@@ -59,6 +56,9 @@
                 <view><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">出借资料</text> </view>
                 <!-- <view class="mt10 fs20"></view> -->
               </view>
+            </view>
+            <view catchtap="publish" class="flex1 ml30 borderRight1 menuHeight oneMenu">
+                <view><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">发布车辆</text> </view>
             </view>
           </view>
         </view>

@@ -52,9 +52,8 @@ Page({
       // })
         wx.stopPullDownRefresh({
           success: (res) => {
-            console.log(123);
-            // this.setData({pageSize: 1, isMore: true})
-            // this.initPublishDataList()
+            this.setData({pageSize: 1, isMore: true})
+            this.initPublishDataList()
             // // console.log(123);
           },
           fail: (res) => {

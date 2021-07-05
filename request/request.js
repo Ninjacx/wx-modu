@@ -1,6 +1,6 @@
 import {beaseUrl} from './config'
-import {beaseUrlWx} from './configWx'
-function _request({url , data , method},isWxUrl = false) {
+// import {beaseUrlWx} from './configWx'
+function _request({url , data , method}) {
   console.log('datadatadatadatadatadatadata',method);
   wx.showLoading({mask: true});
   return new Promise((resolve , reject)=> {
@@ -8,7 +8,7 @@ function _request({url , data , method},isWxUrl = false) {
     // console.log('userInfo',userInfo);
     console.log(Object.assign({'content-type':'application/x-www-form-urlencoded'},userInfo ? { Authorization: userInfo.id }: {}));
       wx.request({
-          url: isWxUrl? beaseUrlWx + url: beaseUrl + url,
+          url: beaseUrl + url,
           data,
           header: Object.assign({'content-type':'application/x-www-form-urlencoded'},userInfo ? { Authorization: userInfo.id }: {}),//{'content-type':'application/x-www-form-urlencoded'},//Object.assign({'content-type':'application/json'},userInfo ? {Authorization: + userInfo.id}: {}),
           method: method || 'get',
