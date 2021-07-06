@@ -105,13 +105,15 @@ Page({
       var {countDay, startDate, endDate ,startTime, endTime} = this.data
       // 支付成功，生成订单
       API.addOrder({publishId, countDay,startDate,startTime, endDate, endTime}).then(res => {
+        // -2 代表未登录 直接弹提示
+        if(res.code === -2){
+          wxToast(res.msg)
+          return false
+        }
         // 关闭当前页面，跳转到我的订单里
         wx.redirectTo({
           url: '/pages/userMenu/userOrder/userOrder'
         })
-        // this.setData({
-        //   pageData: res.data
-        // })
       })
       return false
     //   var str =  "appid=wxd930ea5d5a258f4f&body=test&device_info=1000&mch_id=10000100&nonce_str=ibuaiVcKdpRxkhJA";
