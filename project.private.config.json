@@ -51,6 +51,12 @@
         {
           "name": "pages/userMenu/publish/publish",
           "pathName": "pages/userMenu/publish/publish",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userMenu/userPublicDoc/userPublicDoc",
+          "pathName": "pages/userMenu/userPublicDoc/userPublicDoc",
           "scene": null
         }
       ]

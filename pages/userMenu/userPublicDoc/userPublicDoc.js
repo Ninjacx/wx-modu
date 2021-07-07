@@ -196,12 +196,10 @@ Page({
             return false
           }
       }
-     
-     
       this.data.isNullFlag = false
     },
     // 更新用户信息
-    setUserDoc: function(){
+    updateUserDoc: function(){
       API.setUserDoc(this.data.pageData).then(res=>{ 
         wxToast(res.msg)
       })
@@ -217,28 +215,64 @@ Page({
           if(this.data.initPageData.lease_addr_photo != this.data.pageData.lease_addr_photo || !this.data.pageData.lease_addr_photo){
               uploadFile(this.data.files.lease_addr_photo[0]).then((fiileRes)=> {
                 this.data.pageData.lease_addr_photo = fiileRes.data.filePathName
-                this.setUserDoc()
+                this.updateUserDoc()
               })
           }else{
-            this.setUserDoc()
+            this.updateUserDoc()
           }
-        }else { // 个人的上传
-          if(this.data.initPageData.lease_cardA != this.data.pageData.lease_cardA || this.data.initPageData.lease_cardB != this.data.pageData.lease_cardB || !this.data.initPageData.lease_cardA || !this.data.initPageData.lease_cardB){
-            // 1.上传图片 2. 拿到上传的图片链接，更新用户资料
+        }else { 
+          // 个人的上传
+          if(this.data.initPageData.lease_cardA != this.data.pageData.lease_cardA && this.data.initPageData.lease_cardB != this.data.pageData.lease_cardB){
+            console.log('全改了');
+              // 1.上传图片 2. 拿到上传的图片链接，更新用户资料
               Promise.all([uploadFile(this.data.files.lease_cardA[0],{type: 'A'}).then((res)=>{return res}),uploadFile(this.data.files.lease_cardB[0],{type: 'B'}).then((res)=>{return res})])
               .then(result => {
                 // console.log('result',result);
                 var [lease_cardA, lease_cardB] = result
                 this.data.pageData.lease_cardA = lease_cardA.data.filePathName
                 this.data.pageData.lease_cardB = lease_cardB.data.filePathName
-                this.setUserDoc()
-              })
-              .catch(err=>{
+                this.updateUserDoc()
+              }).catch(err=>{
                 console.log(err);
               })
+          }else if(this.data.initPageData.lease_cardA != this.data.pageData.lease_cardA && this.data.initPageData.lease_cardB == this.data.pageData.lease_cardB) {
+            console.log('只改了A');
+            uploadFile(this.data.files.lease_cardA[0],{type: 'A'}).then((res)=>{
+                this.data.pageData.lease_cardA = res.data.filePathName
+                this.updateUserDoc()
+            }).catch(err=>{
+                console.log(err);
+            })
+          }else if(this.data.initPageData.lease_cardB != this.data.pageData.lease_cardB && this.data.initPageData.lease_cardA == this.data.pageData.lease_cardA) {
+            console.log('只改了B');
+            uploadFile(this.data.files.lease_cardB[0],{type: 'A'}).then((res)=>{
+                this.data.pageData.lease_cardB = res.data.filePathName
+                this.updateUserDoc()
+            }).catch(err=>{
+                console.log(err);
+            })
           }else{
-            this.setUserDoc()
+            console.log('没改图');
+            this.updateUserDoc()
           }
+
+
+          // if(this.data.initPageData.lease_cardA != this.data.pageData.lease_cardA || this.data.initPageData.lease_cardB != this.data.pageData.lease_cardB || !this.data.initPageData.lease_cardA || !this.data.initPageData.lease_cardB){
+          //   // 1.上传图片 2. 拿到上传的图片链接，更新用户资料
+          //     Promise.all([uploadFile(this.data.files.lease_cardA[0],{type: 'A'}).then((res)=>{return res}),uploadFile(this.data.files.lease_cardB[0],{type: 'B'}).then((res)=>{return res})])
+          //     .then(result => {
+          //       // console.log('result',result);
+          //       var [lease_cardA, lease_cardB] = result
+          //       this.data.pageData.lease_cardA = lease_cardA.data.filePathName
+          //       this.data.pageData.lease_cardB = lease_cardB.data.filePathName
+          //       this.updateUserDoc()
+          //     })
+          //     .catch(err=>{
+          //       console.log(err);
+          //     })
+          // }else{
+          //   this.updateUserDoc()
+          // }
         }
     },
     selectSex: function(e){
