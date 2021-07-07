@@ -119,11 +119,12 @@ Page({
       this.validate()
       console.log('this.data.isNullFlag',this.data.isNullFlag);
       // 没有必填项则不走下面
-      if(this.data.isNullFlag){
+      if(this.data.isNullFlag) {
         return false
       }
       // 当修改了图片则走上传图片
-      if(this.data.initPageData.drive_cardA != this.data.pageData.drive_cardA || this.data.initPageData.drive_cardB != this.data.pageData.drive_cardB){
+      if(this.data.initPageData.drive_cardA != this.data.pageData.drive_cardA && this.data.initPageData.drive_cardB != this.data.pageData.drive_cardB){
+        console.log('全改了');
           // 1.上传图片 2. 拿到上传的图片链接，更新用户资料
           Promise.all([uploadFile(this.data.files.driveCardA[0],{type: 'A'}).then((res)=>{return res}),uploadFile(this.data.files.driveCardB[0],{type: 'B'}).then((res)=>{return res})])
           .then(result => {
@@ -131,18 +132,35 @@ Page({
             var [driveCardA, driveCardB] = result
             this.data.pageData.drive_cardA = driveCardA.data.filePathName
             this.data.pageData.drive_cardB = driveCardB.data.filePathName
-            API.setUserDoc(this.data.pageData).then(res=>{ 
-              wxToast(res.msg)
-            })
-          })
-          .catch(err=>{
+            this.updateUserDoc()
+          }).catch(err=>{
             console.log(err);
           })
-      }else{ 
-        API.setUserDoc(this.data.pageData).then(res=>{ 
-          wxToast(res.msg)
+      }else if(this.data.initPageData.drive_cardA != this.data.pageData.drive_cardA && this.data.initPageData.drive_cardB == this.data.pageData.drive_cardB) {
+        console.log('只改了A');
+        uploadFile(this.data.files.driveCardA[0],{type: 'A'}).then((res)=>{
+            this.data.pageData.drive_cardA = res.data.filePathName
+            this.updateUserDoc()
+        }).catch(err=>{
+            console.log(err);
         })
+      }else if(this.data.initPageData.drive_cardB != this.data.pageData.drive_cardB && this.data.initPageData.drive_cardA == this.data.pageData.drive_cardA) {
+        console.log('只改了B');
+        uploadFile(this.data.files.driveCardB[0],{type: 'A'}).then((res)=>{
+            this.data.pageData.drive_cardB = res.data.filePathName
+            this.updateUserDoc()
+        }).catch(err=>{
+            console.log(err);
+        })
+      }else{
+        console.log('没改图');
+        this.updateUserDoc()
       }
+    },
+    updateUserDoc: function(){
+      API.setUserDoc(this.data.pageData).then(res=>{ 
+        wxToast(res.msg)
+      })
     },
     selectSex: function(e){
       this.data.pageData['sex'] =  e.currentTarget.dataset.sex
