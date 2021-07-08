@@ -35,6 +35,9 @@
   border-radius: 100rpx;
   border: 5rpx solid #fbd388e3;
 }
+.iconWH{
+  width: 60rpx;height: 60rpx;vertical-align: middle;
+}
 .userTop{
   background: linear-gradient(180deg, #1f1f1f 0%, #6a7377 100%);
   padding: 110rpx 0 150rpx 40rpx;

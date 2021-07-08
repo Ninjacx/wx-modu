@@ -29,47 +29,66 @@
       <view class="pb50 userMenuView">
         <view>
           <view class="color5e menuTitle">
+            <!-- <image class="iconWH" src="../../image/icon/user/title.png"></image> -->
             <text>我要租车</text>
           </view>
           <view class="cardView">
               <view class="displayFlex menuHeight">
-                  <view  catchtap="to_userOrder" class="flex1 ml30 borderRight1" >
-                    <i class="fs55 iconfont icon-icon2-copy color59 vm"></i>
-                    <text class="ml20">我的租车</text>
+                  <view catchtap="to_userOrder" class="flex1 ml30 borderRight1" >
+                    <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
+                   <image class="iconWH" src="../../image/icon/user/a1.png"></image>
+                   <text class="ml20">我的租车</text>
                   </view>
                   <view catchtap="to_userDoc" class="flex1 ml30">
-                    <view ><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">租车资料</text> </view>
+                    <view>
+                      <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i>  -->
+                      <image class="iconWH" src="../../image/icon/user/a2.png"></image>
+                      <text class="ml20">租车资料</text>
+                    </view>
                   </view>
               </view>
           </view>
         </view>
         <view>
           <view class="color5e menuTitle">
+            <!-- <image class="iconWH" src="../../image/icon/user/title.png"></image> -->
             <text>我要出借</text>
           </view>
           <view class="cardView">
              <view class="displayFlex menuHeight">
               <view catchtap="to_userPublish" class="flex1 ml30 borderRight1">
-                <view><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">我的车辆</text> </view>
+                <view>
+                  <image class="iconWH" src="../../image/icon/user/b1.png"></image>
+                  <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i>  -->
+                  <text class="ml20">我的车辆</text> </view>
               </view>
               <view catchtap="to_userPublicDoc" class="flex1 ml30 borderRight1">
-                <view><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">出借资料</text> </view>
+                <view>
+                  <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
+                  <image class="iconWH" src="../../image/icon/user/b2.png"></image>
+                  <text class="ml20">出借资料</text>
+                </view>
                 <!-- <view class="mt10 fs20"></view> -->
               </view>
             </view>
             <view catchtap="publish" class="flex1 ml30 borderRight1 menuHeight oneMenu">
-                <view><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">发布车辆</text> </view>
+                <view>
+                  <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
+                  <image class="iconWH" src="../../image/icon/user/b3.png"></image>
+                  <text class="ml20">发布车辆</text>
+                </view>
             </view>
           </view>
         </view>
         <view>
           <view class="color5e menuTitle">
+            <!-- <image class="iconWH" src="../../image/icon/user/title.png"></image> -->
             <text>其它</text>
           </view>
-          
           <view catchtap="publish" class="flex1 ml30 borderRight1 menuHeight oneMenu">
               <view>
-                <i class="fs55 iconfont icon-icon2-copy color59 vm"></i>
+                <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
+                <image class="iconWH" src="../../image/icon/user/c1.png"></image>
                  <text class="ml20">我的积分</text>
                  <text class="ml30">800</text>
               </view>
@@ -77,14 +96,27 @@
           <view class="cardView">
               <view class="displayFlex menuHeight">
                 <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
-                <view catchtap="to_faq" ><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">用户指南</text>
+                <view catchtap="to_faq" >
+                  <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
+                  <image class="iconWH" src="../../image/icon/user/c2.png"></image>
+                  <text class="ml20">用户指南</text>
                 </view>
               </view>
               <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
-                <view catchtap="to_adviceFeedBack" ><i class="fs55 iconfont icon-icon2-copy color59 vm"></i> <text class="ml20">意见反馈</text> </view>
+                <view catchtap="to_adviceFeedBack">
+                  <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
+                  <image class="iconWH" src="../../image/icon/user/c3.png"></image>
+                  <text class="ml20">意见反馈</text> </view>
               </view>
             </view>
+            <view catchtap="publish" class="flex1 ml30 borderRight1 menuHeight oneMenu">
+                <view>
+                  <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
+                  <image class="iconWH" src="../../image/icon/user/c5.png"></image>
+                  <text class="ml20">推广合作</text> </view>
+            </view>
           </view>
+          
       </view>
         <!-- 没认证不显示 -->
         <!-- <view catchtap="to_userPublish" class="displayFlex cardView">
