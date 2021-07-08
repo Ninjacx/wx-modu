@@ -50,6 +50,15 @@ const recommendList = data => {
 		data
 	})
 }
+// 积分签到
+const IntegralSignIn = data => {
+	return _request({
+		url: '/wechat/IntegralSignIn',
+		method: 'post',
+		data
+	})
+}
+
 // 需求列表
 const getDemand = data => {
 	return _request({
@@ -75,5 +84,6 @@ module.exports =  {
 	getRegion,
 	publishDataList,
 	recommendList,
-	publishDetailOne
+	publishDetailOne,
+	IntegralSignIn
 }

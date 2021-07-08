@@ -64,6 +64,9 @@ to_gather(){
 },
 to_sign_in(){
   // API
+  API.IntegralSignIn({}).then((res)=>{
+    console.log('res', res);
+  })
   wxToast('签到成功+50积分')
 },
 /*******图标菜单END******/

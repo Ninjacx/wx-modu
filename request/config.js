@@ -10,9 +10,9 @@ const version = __wxConfig.envVersion;
 switch (version) {
   case 'develop':
     // beaseUrl ="http://47.98.163.21"; //开发版
-    // beaseUrl ="http://172.16.19.105";
+    beaseUrl ="http://172.16.19.105";
     // beaseUrl ="http://139.224.131.217";
-    beaseUrl ="http://192.168.1.1";
+    // beaseUrl ="http://192.168.1.1";
     // beaseUrl ="http://192.168.1.5";
     // beaseUrl ="http://192.168.0.103";
     // 172.16.19.133
