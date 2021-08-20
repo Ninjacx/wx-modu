@@ -237,6 +237,7 @@ Page({
               })
           }else if(this.data.initPageData.lease_cardA != this.data.pageData.lease_cardA && this.data.initPageData.lease_cardB == this.data.pageData.lease_cardB) {
             console.log('只改了A');
+            console.log('this.data.files.lease_cardA[0]', this.data.files.lease_cardA[0]);
             uploadFile(this.data.files.lease_cardA[0],{type: 'A'}).then((res)=>{
                 this.data.pageData.lease_cardA = res.data.filePathName
                 this.updateUserDoc()

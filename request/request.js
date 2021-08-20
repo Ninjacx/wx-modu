@@ -1,7 +1,9 @@
 import {beaseUrl} from './config'
+import { toTab } from '../utils/common'
+import { user } from '../utils/Router'
+
 // import {beaseUrlWx} from './configWx'
 function _request({url , data , method}) {
-  console.log('datadatadatadatadatadatadata',method);
   wx.showLoading({mask: true});
   return new Promise((resolve , reject)=> {
     var userInfo = wx.getStorageSync('userInfo')
@@ -13,10 +15,20 @@ function _request({url , data , method}) {
           header: Object.assign({'content-type':'application/x-www-form-urlencoded'},userInfo ? { Authorization: userInfo.id }: {}),//{'content-type':'application/x-www-form-urlencoded'},//Object.assign({'content-type':'application/json'},userInfo ? {Authorization: + userInfo.id}: {}),
           method: method || 'get',
           success: (res)=>{
-              if(res.statusCode === 200){
-                resolve(res.data)
-              }else{
-                reject(res.msg);
+            if(res.statusCode === 200){
+              if(res.data.code == -2) {
+                toTab(user)
+                  //解决真机一闪消失问题
+                  wx.showToast({
+                    title: '请先登录',
+                    icon: 'none',
+                    duration: 2000
+                  })
+                return false
+              }
+               resolve(res.data)
+            }else{
+               reject(res.msg);
                 setTimeout(() => {
                   //解决真机一闪消失问题
                   wx.showToast({

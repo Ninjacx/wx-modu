@@ -5,7 +5,6 @@ const formatTime = date => {
   const hour = date.getHours()
   const minute = date.getMinutes()
   const second = date.getSeconds()
-
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 const getNewDate = data => {
@@ -42,11 +41,7 @@ const request = (url, options) => { //请求封装
     //     'Authorization': 'Bearer ' + token(),
     //   }
     // } else {
-      var header = {
-        'Content-Type': 'application/json'
-      }
-    // }
-   
+   var header = {'Content-Type': 'application/json'}
     wx.request({
       url:url.url,
       method: options.method,
@@ -88,7 +83,7 @@ const numFormat = (amount, place) => {
 	}
 }
 module.exports = {
-  formatTime: formatTime,
+  formatTime,
   request,
   gets,
   post,

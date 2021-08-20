@@ -63,9 +63,7 @@ const setUserInfo = (data) => {
 }
 // 时间戳转时间
 var setDataTime = (str) => {
-  if(!str){
-    return ''
-  }
+  if(!str){ return '' }
   var n = parseInt(str)*1000;
   var D = new Date(n);
   var year = D.getFullYear();//四位数年份
@@ -95,11 +93,20 @@ const clearUserInfo = () => {
 const setResultList = (res, arr) => { 
   return JSON.parse(JSON.stringify(res, arr))
 }
-// const result = (res) => {
-//   if(res.code){
 
-//   }
-// }
+// 跳转普通页面
+const toNav = (routerStr, params) => { 
+  wx.navigateTo({
+    url: routerStr + '?' + params
+  })
+}
+const toTab = (routerStr) => { 
+  console.log('333333');
+  wx.switchTab({
+    url: routerStr
+  })
+}
+
 module.exports = {
   isNull,
   weekDay,
@@ -110,5 +117,7 @@ module.exports = {
   getUserInfo,
   clearUserInfo,
   setDataTime,
-  setResultList
+  setResultList,
+  toNav,
+  toTab
 }
