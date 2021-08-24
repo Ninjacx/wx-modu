@@ -68,7 +68,17 @@ to_sign_in(){
     console.log('res', res);
     wxToast(res.msg)
   })
-  
+},
+to_banner_detail(params){
+  // console.log('item', params.currentTarget.dataset.item);
+  // var {title, details} = params.currentTarget.dataset.item
+  wx.navigateTo({
+    url: '/pages/htmlView/htmlView?params='+ params.currentTarget.dataset.item, // 跳转页面后调接口
+    success: function () {
+    },       //成功后的回调；
+    fail: function () { },         //失败后的回调；
+    complete: function () { }      //结束后的回调(成功，失败都会执行)
+  })
 },
 /*******图标菜单END******/
   onPullDownRefresh(){

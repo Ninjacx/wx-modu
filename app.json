@@ -15,6 +15,7 @@
     "pages/userMenu/adviceFeedBack/adviceFeedBack",
     "pages/userMenu/member/member",
     "pages/activity/activity",
+    "pages/htmlView/htmlView",
     "pages/webView/webView"
   ],
   "tabBar": {
