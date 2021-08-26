@@ -1,5 +1,7 @@
 import API from '../../api/index'
 import {getUserInfo} from '../../utils/common'
+import { userDoc, userOrder, userPublish, userPublicDoc, publish, adviceFeedBack } from '../../utils/Router'
+import { toNav } from '../../utils/common'
 var app = getApp();  //获取app.js
 // import {area,carNumberType, carType} from '../../../utils/commonData'
 Page({
@@ -58,9 +60,6 @@ Page({
           })
         })
       })
-      console.log(e.detail.errMsg);
-      // sessionKey, encryptedData, iv 
-     
       // console.log('encryptedData,iv',encryptedData,'--------------',iv);
       // // 掉接口 获取 用户的手机号
       //     // 拿到code 此处要再次调用接口获取后台的openid 
@@ -79,14 +78,10 @@ Page({
   },
     // 跳转发布页面
     publish: function(){
-      wx.navigateTo({
-        url: '/pages/userMenu/publish/publish'
-      })
+      toNav(publish)
     },
     to_adviceFeedBack: function(){
-      wx.navigateTo({
-        url: '/pages/userMenu/adviceFeedBack/adviceFeedBack'
-      })
+      toNav(adviceFeedBack)
     },
     setUserName: function(){
       this.setData({
@@ -111,35 +106,28 @@ Page({
         phoneNumber: '18121118073' //仅为示例，并非真实的电话号码
       })
     },
-    to_historyOrder(){
-      wx.navigateTo({
-        url: '/pages/userMenu/historyOrder/historyOrder'
-      })
-    },
+    // to_historyOrder(){
+    //   toNav(historyOrder)
+    // },
+    // 我的车辆
      to_userPublish(){
-      wx.navigateTo({
-        url: '/pages/userMenu/userPublish/userPublish'
-      })
+      toNav(userPublish)
     },
     to_faq(){
       wx.navigateTo({
         url: '/pages/webView/webView?type=faq'
       })
     },
-    to_userOrder(){
-      wx.navigateTo({
-        url: '/pages/userMenu/userOrder/userOrder'
-      })
+    // 我的租车
+    to_userOrder() {
+      toNav(userOrder)
     },
     // 我的资料（租车资料）
-    to_userDoc(){
-      wx.navigateTo({
-        url: '/pages/userMenu/userDoc/userDoc'
-      })
+    to_userDoc() {
+      toNav(userDoc)
     },
+    // 出借资料
     to_userPublicDoc(){
-      wx.navigateTo({
-        url: '/pages/userMenu/userPublicDoc/userPublicDoc'
-      })
+      toNav(userPublicDoc)
     }
 })

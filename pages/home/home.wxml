@@ -5,7 +5,7 @@
           <swiper-item>
             <view class="swiper-item ">
               <!-- <image></image> -->
-              <image bindtap="to_banner_detail" data-item="{{item}}" style="width:100%;height:380rpx"  src="{{item.banner_url}}" ></image>
+              <image bindtap="to_banner_detail" data-id="{{item.id}}" style="width:100%;height:380rpx"  src="{{item.banner_url}}" ></image>
             </view>
           </swiper-item>
         </block>
@@ -25,11 +25,11 @@
               <view><image class="rightImg driveCard" src="../../image/icon/home/menu2.png"></image></view>
               <view class="mt10 ">积分签到</view>
             </view>
-            <view catchtap="to_gather" class="flex1">
+            <view catchtap="to_gather"  class="flex1">
               <view><image class="rightImg driveCard" src="../../image/icon/home/menu3.png"></image></view>
               <view class="mt10 ">摩都聚集</view>
             </view>
-            <view catchtap="to_activity" class="flex1">
+            <view catchtap="to_activity"  class="flex1">
               <view><image class="rightImg driveCard" src="../../image/icon/home/menu4.png"></image></view>
               <view class="mt10 ">限时活动</view>
             </view>

@@ -1,5 +1,5 @@
 <view class="page-body">
-  <view class="page-section page-section-gap">
+  <view class="page-section page-section-gap mlr10">
     <rich-text nodes="{{nodes}}"></rich-text>
   </view>
 </view>

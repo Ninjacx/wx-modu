@@ -1,6 +1,8 @@
 import API from '../../api/index'
 import {beaseUrl} from '../../request/config'
-var {wxToast} = getApp().globalData.common
+import { htmlView } from '../../utils/Router'
+import { toNav } from '../../utils/common'
+var { wxToast } = getApp().globalData.common
 Page({
   onLoad: function () {
       this.init()
@@ -57,11 +59,6 @@ to_faq(){
     url: '/pages/webView/webView?type=faq'
   })
 },
-to_gather(){
-  wx.navigateTo({
-    url: '/pages/webView/webView?type=gather'
-  })
-},
 to_sign_in(){
   // API
   API.IntegralSignIn({}).then((res)=>{
@@ -70,15 +67,12 @@ to_sign_in(){
   })
 },
 to_banner_detail(params){
-  // console.log('item', params.currentTarget.dataset.item);
-  // var {title, details} = params.currentTarget.dataset.item
-  wx.navigateTo({
-    url: '/pages/htmlView/htmlView?params='+ params.currentTarget.dataset.item, // 跳转页面后调接口
-    success: function () {
-    },       //成功后的回调；
-    fail: function () { },         //失败后的回调；
-    complete: function () { }      //结束后的回调(成功，失败都会执行)
-  })
+  var {id} = params.currentTarget.dataset
+  toNav(htmlView,'type=banner&id=' + id)
+},
+// 摩都聚集
+to_gather(params){
+  toNav(htmlView,'type=html&id=1')
 },
 /*******图标菜单END******/
   onPullDownRefresh(){
@@ -94,9 +88,7 @@ to_banner_detail(params){
   },
   // 限时活动跳转
   to_activity(){
-    wx.navigateTo({
-      url: '/pages/activity/activity'
-    })
+    toNav(htmlView,'type=html&id=3')
   },
     // 点击左边菜单
     leftMenu(e){

@@ -18,6 +18,14 @@ const getBanner = data => {
 		data
 	})
 }
+// 获取富文本编辑的菜单
+const getHtmlView = data => {
+	return _request({
+		url: '/wechat/getHtmlView',
+		method: 'get',
+		data
+	})
+}
 // 上海区 
 const getRegion = data => {
 	return _request({
@@ -78,6 +86,7 @@ const publishDetailOne = data => {
 }
 module.exports =  {
 	getBanner,
+	getHtmlView,
 	getDemand,
 	getLicensePlate,
 	getType,

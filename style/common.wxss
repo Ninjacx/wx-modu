@@ -56,6 +56,7 @@
 .m10{margin: 10rpx;}
 .m20{margin: 20rpx;}
 .m30{margin: 30rpx;}
+.mlr10{margin: 0 10rpx;}
 /* padding */
 .p20{padding: 20rpx;}
 .p30{padding: 30rpx;}

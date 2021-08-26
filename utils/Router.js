@@ -14,6 +14,7 @@ const router = {
   adviceFeedBack: "/pages/userMenu/adviceFeedBack/adviceFeedBack",
   member: "/pages/userMenu/member/member",
   activity: "/pages/activity/activity",
-  webView: "/pages/webView/webView" // 外部H5页面
+  webView: "/pages/webView/webView", // 外部H5页面
+  htmlView: "/pages/htmlView/htmlView" // 渲染富文本页面
 }
 module.exports = router
