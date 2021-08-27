@@ -85,7 +85,7 @@
             <!-- <image class="iconWH" src="../../image/icon/user/title.png"></image> -->
             <text>其它</text>
           </view>
-          <view catchtap="publish" class="flex1 ml30 borderRight1 menuHeight oneMenu">
+          <view class="flex1 ml30 borderRight1 menuHeight oneMenu">
               <view>
                 <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
                 <image class="iconWH" src="../../image/icon/user/c1.png"></image>
@@ -96,12 +96,12 @@
           <view class="cardView">
               <view class="displayFlex menuHeight">
                 <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
-                <view catchtap="to_faq" >
-                  <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
-                  <image class="iconWH" src="../../image/icon/user/c2.png"></image>
-                  <text class="ml20">用户指南</text>
+                  <view catchtap="to_faq" >
+                    <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
+                    <image class="iconWH" src="../../image/icon/user/c2.png"></image>
+                    <text class="ml20">用户指南</text>
+                  </view>
                 </view>
-              </view>
               <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
                 <view catchtap="to_adviceFeedBack">
                   <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
@@ -109,11 +109,12 @@
                   <text class="ml20">意见反馈</text> </view>
               </view>
             </view>
-            <view catchtap="publish" class="flex1 ml30 borderRight1 menuHeight oneMenu">
+            <view catchtap="cooperate" class="flex1 ml30 borderRight1 menuHeight oneMenu">
                 <view>
                   <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
                   <image class="iconWH" src="../../image/icon/user/c5.png"></image>
-                  <text class="ml20">推广合作</text> </view>
+                  <text class="ml20">推广合作</text>
+                </view>
             </view>
           </view>
           

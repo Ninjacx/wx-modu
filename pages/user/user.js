@@ -1,6 +1,6 @@
 import API from '../../api/index'
 import {getUserInfo} from '../../utils/common'
-import { userDoc, userOrder, userPublish, userPublicDoc, publish, adviceFeedBack } from '../../utils/Router'
+import { userDoc, userOrder, userPublish, userPublicDoc, publish, adviceFeedBack, htmlView } from '../../utils/Router'
 import { toNav } from '../../utils/common'
 var app = getApp();  //获取app.js
 // import {area,carNumberType, carType} from '../../../utils/commonData'
@@ -82,6 +82,10 @@ Page({
     },
     to_adviceFeedBack: function(){
       toNav(adviceFeedBack)
+    },
+    // 推广合作
+    cooperate(params){
+      toNav(htmlView,'type=html&id=5')
     },
     setUserName: function(){
       this.setData({

@@ -17,13 +17,14 @@ function _request({url , data , method}) {
           success: (res)=>{
             if(res.statusCode === 200){
               if(res.data.code == -2) {
-                toTab(user)
+                
                   //解决真机一闪消失问题
                   wx.showToast({
                     title: '请先登录',
                     icon: 'none',
                     duration: 2000
                   })
+                  toTab(user)
                 return false
               }
                resolve(res.data)
