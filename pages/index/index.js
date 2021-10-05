@@ -14,6 +14,7 @@ Page({
       //   <view>押金最多</view>
       //   <view>排量由小到大</view>
       //   <view>排量由大到小</view>
+      sortIndex: 0,
       searchList:[{name: '综合排序'},{name: '价格由低到高'}, {name: '价格由高到低'}, {name: '押金最少'}, {name: '押金最多'}, {name: '排量由小到大'}, {name: '排量由大到小'}],
       isShowSearchBlock: false,
       searchIndex: 0,
@@ -33,13 +34,25 @@ Page({
       pageSize: 1,
       // region: ['上海市', '上海市', '浦东新区'],
     },
+    // 页码初始化为1 ，并且可以开启再次下拉
+    setInit(){
+      this.data.isMore = true
+      this.data.pageSize = 1
+    },
+    // 搜索
     setSearch(item){
       console.log(item.currentTarget.dataset.index);
       var searchIndex = item.currentTarget.dataset.index
+      this.data.sortIndex = item.currentTarget.dataset.index
+      this.setInit()
+
       this.setData({
         isShowSearchBlock: false,
         searchIndex,
+        
       })
+      this.initPublishDataList()
+      // 查询
     },
     toggleSearch(){
       this.setData({isShowSearchBlock: !this.data.isShowSearchBlock})
@@ -52,9 +65,9 @@ Page({
       // })
         wx.stopPullDownRefresh({
           success: (res) => {
-            this.setData({pageSize: 1, isMore: true})
+            this.setInit()
+            // this.setData({pageSize: 1, isMore: true})
             this.initPublishDataList()
-            // // console.log(123);
           },
           fail: (res) => {
             console.log(231);
@@ -71,12 +84,13 @@ Page({
         // return res
       })
     },
+    // 列表
     initPublishDataList(){
       var { id } = this.data.leftTabArray[this.data.leftIndex]
       if(!this.data.isMore){
         return false
       }
-      API.publishDataList({typeId: id, pageSize: this.data.pageSize}).then(res => {
+      API.publishDataList({typeId: id, sortIndex: this.data.sortIndex, pageSize: this.data.pageSize}).then(res => {
         if(!res.data.length){
           this.setData({
             isMore: false
@@ -99,7 +113,9 @@ Page({
     // 点击左边菜单
     leftMenu(e){
       if(e !== 0){
-        this.setData({leftIndex: e.currentTarget.dataset.index, pageSize: 1, rightArray: [], isMore: true})
+        this.setInit()
+        //  pageSize: 1, isMore: true
+        this.setData({leftIndex: e.currentTarget.dataset.index, rightArray: []})
       }
      this.initPublishDataList()
     },

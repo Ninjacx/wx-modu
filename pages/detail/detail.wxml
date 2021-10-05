@@ -36,7 +36,7 @@
   </view> -->
 </view>
 
-<view class="mt50 ml30">
+<view wx:if="{{pageData.is_lease === 0}}" class="mt50 ml30">
   <view class="fs32 bold">租车时间</view>
   <view class="displayFlex mt20">
     <view class="section flex1">
@@ -64,9 +64,12 @@
           <view class="picker tableCell"><text class="ml20">{{startTime}}</text><text>前</text></view>
         </picker>
       </view>
-      <!-- <view class="mt15">{{weekDayEnd}}</view> -->
     </view>
   </view>
+</view>
+<view wx:if="{{pageData.is_lease === 1}}" class="mt50 ml30">
+  <view class="fs32 bold">还车时间</view>
+  <view class="mt20">{{pageData.end_time}}</view>
 </view>
 <!-- <view class="page-section page-section-spacing swiper">
       <swiper indicator-dots="true"

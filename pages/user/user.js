@@ -36,6 +36,7 @@ Page({
     if (e.detail.errMsg == "getPhoneNumber:ok") {
       var {encryptedData,iv} = e.detail
       API.step1({code: this.data.wxLoginResCode}).then((Step1res)=>{
+        console.log('Step1res', Step1res);
         // this.setData({ OpenidSessionKeyParams: res })
         API.step2({ sessionKey: Step1res.data.session_key, encryptedData, iv }).then((res)=>{
           // Step1res.data.openid
