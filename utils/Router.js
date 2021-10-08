@@ -12,8 +12,10 @@ const router = {
   userPublicDoc: "/pages/userMenu/userPublicDoc/userPublicDoc",
   historyOrder: "/pages/userMenu/historyOrder/historyOrder",
   adviceFeedBack: "/pages/userMenu/adviceFeedBack/adviceFeedBack",
+  needPublish: "/pages/userMenu/needPublish/needPublish",
   member: "/pages/userMenu/member/member",
   activity: "/pages/activity/activity",
+  needList: "/pages/needList/needList", // 需求列表
   webView: "/pages/webView/webView", // 外部H5页面
   htmlView: "/pages/htmlView/htmlView" // 渲染富文本页面
 }

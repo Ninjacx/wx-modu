@@ -1,0 +1,11 @@
+<view class="needList">
+    <view class="mt10">
+      <view wx:key="index"  wx:for="{{initData}}" data-leftData="{{item}}" class=" pt10">
+        <view class="bgfff p30 w100 bb2">   
+          <view class="fs30 "><text>{{item.content}} </text></view>
+          <view class="fs25 mt30"><text>电话/微信：{{item.phone}}</text></view>
+          <view class="fs25 mt10"><text>发布时间：{{item.create_time}}</text></view>
+        </view>
+      </view>
+    </view>
+</view>

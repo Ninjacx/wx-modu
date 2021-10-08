@@ -57,6 +57,13 @@
         {
           "name": "pages/userMenu/userPublicDoc/userPublicDoc",
           "pathName": "pages/userMenu/userPublicDoc/userPublicDoc",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/needList/needList",
+          "pathName": "pages/needList/needList",
+          "query": "undefined=undefined",
           "scene": null
         }
       ]

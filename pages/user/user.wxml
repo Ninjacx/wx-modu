@@ -96,12 +96,18 @@
           <view class="cardView">
               <view class="displayFlex menuHeight">
                 <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
-                  <view catchtap="to_faq" >
+                  <view catchtap="to_needPublish" >
                     <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
+                    <image class="iconWH" src="../../image/icon/user/c2.png"></image>
+                    <text class="ml20">发布需求</text>
+                  </view>
+                </view>
+                <!-- <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
+                  <view catchtap="to_faq" >
                     <image class="iconWH" src="../../image/icon/user/c2.png"></image>
                     <text class="ml20">用户指南</text>
                   </view>
-                </view>
+                </view> -->
               <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
                 <view catchtap="to_adviceFeedBack">
                   <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->

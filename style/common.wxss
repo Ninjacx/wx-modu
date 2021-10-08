@@ -89,6 +89,7 @@
 .bgfff{background: #ffffff;}
 
 /* border */
+.bb2{border-bottom: 2rpx solid #ececec;}
 .bt20{border-top: 20rpx solid #f8f8f8;}
 .bbec{border-bottom: 8rpx solid #ececec;}
 .bb8{border-bottom: 8rpx solid #f8f8f8}

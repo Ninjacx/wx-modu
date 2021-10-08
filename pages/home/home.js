@@ -1,6 +1,6 @@
 import API from '../../api/index'
 import {beaseUrl} from '../../request/config'
-import { htmlView } from '../../utils/Router'
+import { htmlView, needList } from '../../utils/Router'
 import { toNav } from '../../utils/common'
 var { wxToast } = getApp().globalData.common
 Page({
@@ -17,7 +17,6 @@ Page({
     beaseUrl: beaseUrl,
     rightArray:[{},{}],
     bannerList: [], // 轮播图列表
-    demandList: [], // 需求列表
     recommendList: [], // 推荐列表
     background: [{id:1,txt:'a'},{id: 2,txt:'b'},{id:3,txt:'c'}],
     indicatorDots: true,
@@ -33,12 +32,11 @@ Page({
   init(){
     
     
-    Promise.all([API.getBanner({}).then(res => { return res }), API.getDemand({}).then(res => { return res }),API.recommendList({typeId: 1, pageSize: 1}).then(res => { return res })])
+    Promise.all([API.getBanner({}).then(res => { return res }),API.recommendList({typeId: 1, pageSize: 1}).then(res => { return res })])
           .then(result => {
-            var [bannerList, demandList, recommendList] = result
+            var [bannerList, recommendList] = result
             this.setData({
               bannerList: bannerList.data,
-              demandList: demandList.data,
               recommendList: recommendList.data
             })
             
@@ -73,6 +71,10 @@ to_banner_detail(params){
 // 摩都聚集
 to_gather(params){
   toNav(htmlView,'type=html&id=1')
+},
+// 需求列表
+to_needList(){
+  toNav(needList)
 },
 /*******图标菜单END******/
   onPullDownRefresh(){

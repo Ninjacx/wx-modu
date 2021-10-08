@@ -13,8 +13,10 @@
     "pages/userMenu/userPublicDoc/userPublicDoc",
     "pages/userMenu/historyOrder/historyOrder",
     "pages/userMenu/adviceFeedBack/adviceFeedBack",
+    "pages/userMenu/needPublish/needPublish",
     "pages/userMenu/member/member",
     "pages/activity/activity",
+    "pages/needList/needList",
     "pages/htmlView/htmlView",
     "pages/webView/webView"
   ],

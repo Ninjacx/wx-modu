@@ -14,12 +14,12 @@ Component({
  
   methods: {
     validate(){
-      if(!isNull(this.data, this.data.content, '请填写反馈内容')){
+      if(!isNull(this.data, this.data.content, '请填写发布内容')){
         return false
       }
       return true
     },
-    submitAdvice(){
+    submitNeed(){
       if(!this.validate()){
         return false
       }
