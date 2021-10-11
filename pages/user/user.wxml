@@ -169,7 +169,7 @@
       </view>
       <view class="textCenter mt60"> 同意《服务条款》并授权获取本机号码</view>
     </view>
-  <!-- <view class="bottomView"><text>客服热线：</text>18121118073<text catchtap="callPhone" class="callPhone">拨打</text></view> -->
+  <!-- <view class="bottomView"><text>客服热线：</text>13301876908<text catchtap="callPhone" class="callPhone">拨打</text></view> -->
 </view>
 
 <!-- <view>
