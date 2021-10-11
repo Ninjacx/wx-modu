@@ -17,6 +17,9 @@ Component({
       if(!isNull(this.data, this.data.content, '请填写发布内容')){
         return false
       }
+      if(!isNull(this.data, this.data.phone, '请填写手机/微信')){
+        return false
+      }
       return true
     },
     submitNeed(){
@@ -28,7 +31,7 @@ Component({
       //   return false
       // }
       var {content, phone} = this.data
-      API.addAdvice({content, phone}).then(res => {
+      API.addDemand({content, phone}).then(res => {
         wx.navigateBack()
         wx.showToast({
           title: res.msg,

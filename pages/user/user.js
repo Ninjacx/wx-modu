@@ -1,6 +1,6 @@
 import API from '../../api/index'
 import {getUserInfo} from '../../utils/common'
-import { userDoc, userOrder, userPublish, userPublicDoc, publish, adviceFeedBack, needPublish, htmlView } from '../../utils/Router'
+import { userDoc, userOrder, userPublish, userNeedList, userPublicDoc, publish, adviceFeedBack, needPublish, htmlView } from '../../utils/Router'
 import { toNav } from '../../utils/common'
 var app = getApp();  //获取app.js
 // import {area,carNumberType, carType} from '../../../utils/commonData'
@@ -86,6 +86,9 @@ Page({
     },
     to_needPublish: function(){
       toNav(needPublish)
+    },
+    to_userNeedList: function(){
+      toNav(userNeedList)
     },
     // 推广合作
     cooperate(params){

@@ -12,6 +12,7 @@ const router = {
   userPublicDoc: "/pages/userMenu/userPublicDoc/userPublicDoc",
   historyOrder: "/pages/userMenu/historyOrder/historyOrder",
   adviceFeedBack: "/pages/userMenu/adviceFeedBack/adviceFeedBack",
+  userNeedList: "/pages/userMenu/userNeedList/userNeedList",
   needPublish: "/pages/userMenu/needPublish/needPublish",
   member: "/pages/userMenu/member/member",
   activity: "/pages/activity/activity",

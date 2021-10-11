@@ -43,6 +43,14 @@ const addOrder = data => {
 	})
 }
 
+// 发布需求
+const addDemand = data => {
+	return _request({
+		url: '/wechat/addDemand',
+		method: 'post',
+		data
+	})
+}
 // 意见反馈
 const addAdvice = data => {
 	return _request({
@@ -90,6 +98,14 @@ const getUserOrderList = data => {
 		data
 	})
 }
+// 用户发布的需求列表
+const getUserDemand = data => {
+	return _request({
+		url: '/wechat/getUserDemand',
+		method: 'get',
+		data
+	})
+}
 // 我的发布列表
 const getUserPublishDataList = data => {
 	return _request({
@@ -114,8 +130,10 @@ module.exports =  {
 	setUserDoc,
 	publishLicensePlate,
 	addOrder,
+	addDemand,
 	addAdvice,
 	getUserOrderList,
+	getUserDemand,
 	getUserPublishDataList,
 	applyMember,
 	getFindOneUser,

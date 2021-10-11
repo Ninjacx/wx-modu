@@ -1,0 +1,8 @@
+{ 
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "我的需求列表",
+  "navigationBarBackgroundColor": "#ffffff",
+  "onReachBottomDistance": 5,
+  "usingComponents": {}
+}

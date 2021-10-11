@@ -51,7 +51,6 @@
         </view>
         <view>
           <view class="color5e menuTitle">
-            <!-- <image class="iconWH" src="../../image/icon/user/title.png"></image> -->
             <text>我要出借</text>
           </view>
           <view class="cardView">
@@ -83,6 +82,30 @@
         <view>
           <view class="color5e menuTitle">
             <!-- <image class="iconWH" src="../../image/icon/user/title.png"></image> -->
+            <text>需求管理</text>
+          </view>
+          <view class="cardView">
+              <view class="displayFlex menuHeight">
+                <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
+                  <view catchtap="to_userNeedList" >
+                    <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
+                    <image class="iconWH" src="../../image/icon/user/c2.png"></image>
+                    <text class="ml20">我的需求</text>
+                  </view>
+                </view>
+                <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
+                  <view catchtap="to_needPublish" >
+                    <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
+                    <image class="iconWH" src="../../image/icon/user/c2.png"></image>
+                    <text class="ml20">发布需求</text>
+                  </view>
+                </view>
+              </view>
+          </view>
+        </view>
+        <view>
+          <view class="color5e menuTitle">
+            <!-- <image class="iconWH" src="../../image/icon/user/title.png"></image> -->
             <text>其它</text>
           </view>
           <view class="flex1 ml30 borderRight1 menuHeight oneMenu">
@@ -98,8 +121,8 @@
                 <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
                   <view catchtap="to_needPublish" >
                     <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
-                    <image class="iconWH" src="../../image/icon/user/c2.png"></image>
-                    <text class="ml20">发布需求</text>
+                    <image class="iconWH" src="../../image/icon/user/c5.png"></image>
+                    <text class="ml20">推广合作</text>
                   </view>
                 </view>
                 <!-- <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
@@ -110,18 +133,16 @@
                 </view> -->
               <view catchtap="to_userOrder" class="flex1 ml30 borderRight1">
                 <view catchtap="to_adviceFeedBack">
-                  <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
                   <image class="iconWH" src="../../image/icon/user/c3.png"></image>
                   <text class="ml20">意见反馈</text> </view>
               </view>
             </view>
-            <view catchtap="cooperate" class="flex1 ml30 borderRight1 menuHeight oneMenu">
+            <!-- <view catchtap="cooperate" class="flex1 ml30 borderRight1 menuHeight oneMenu">
                 <view>
-                  <!-- <i class="fs55 iconfont icon-icon2-copy color59 vm"></i> -->
                   <image class="iconWH" src="../../image/icon/user/c5.png"></image>
                   <text class="ml20">推广合作</text>
                 </view>
-            </view>
+            </view> -->
           </view>
           
       </view>
@@ -169,7 +190,7 @@
       </view>
       <view class="textCenter mt60"> 同意《服务条款》并授权获取本机号码</view>
     </view>
-  <!-- <view class="bottomView"><text>客服热线：</text>13301876908<text catchtap="callPhone" class="callPhone">拨打</text></view> -->
+  <!-- <view class="bottomView"><text>客服热线：</text>18121118073<text catchtap="callPhone" class="callPhone">拨打</text></view> -->
 </view>
 
 <!-- <view>
